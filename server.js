@@ -54,5 +54,4 @@ server.on('listening', () => {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
-}
-);
+});

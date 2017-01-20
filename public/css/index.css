@@ -1,0 +1,51 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: #fefefe;
+  font-size: 16px;
+  font-family: -apple-system, system, BlinkMacSystemFont;
+}
+
+@font-face {
+  font-family: sayitfat;
+  src: url("/fonts/sayitfat.otf") format("opentype");
+}
+
+@font-face {
+  font-family: LeagueGothic;
+  src: url("/fonts/LeagueGothic-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Blackout2AM;
+  src: url("/fonts/blackout two am.ttf");
+}
+
+@font-face {
+  font-family: BlackoutSunrise;
+  src: url("/fonts/blackout sunrise.ttf");
+}
+
+@font-face {
+  font-family: BlackoutMidnight;
+  src: url("/fonts/blackout midnight.ttf");
+}
+
+div.header {
+  padding: 40px 60px;
+}
+
+h1 {
+  font-family: Roboto;
+  font-size: 100px;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0,0,0,.5);
+}

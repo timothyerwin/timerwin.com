@@ -1,0 +1,60 @@
+{
+  "jobs": [{
+    "company": "SNAPTECH",
+    "start": "December 2015",
+    "end": "Present",
+    "tech": ["Javascript", "ES6", "Node.js", "Express", "React", "Relay", "GraphQL", "Babel", "Webpack", "Mocha", "GIT"]
+  }, {
+    "company": "Globant",
+    "start": "March 2015",
+    "end": "September 2016",
+    "tech": ["Javascript", "HTML", "CSS"]
+  }, {
+    "company": "Turner Broadcasting",
+    "start": "May 2013",
+    "end": "February 2014",
+    "tech": ["JavaScript", "HTML",  "CSS", "jQuery", "C#", "ASP.NET MVC 4", "SQL Server", "GIT"]
+  }, {
+    "company": "US COST",
+    "start": "July 2012",
+    "end": "January 2013",
+    "tech": ["C#"]
+    },
+    {
+      "company": "Snagajob",
+      "start": "March 2010",
+      "end": "May 2012",
+      "tech": ["Javascript", "HTML", "CSS", "jQuery", "C#", "ASP.NET MVC"]
+    },
+    {
+      "company": "Snaptech",
+      "start": "August 2007",
+      "end": "June 2009",
+      "tech": ["Javascript", "HTML", "CSS", "C#", "ASP.NET", "SQL Server"]
+    },
+    {
+      "company": "US COST",
+      "start": "September 2007",
+      "end": "November 2007",
+      "tech": ["Javascript", "HTML", "C#", "ASP.NET"]
+    },
+    {
+      "company": "US COST",
+      "start": "October 2006",
+      "end": "May 2007",
+      "tech": ["Javascript", "HTML", "C#", "ASP.NET"]
+    },
+    {
+      "company": "Planet Payment",
+      "start": "August 2003",
+      "end": "May 2006",
+      "tech": ["Javascript", "HTML", "CSS", "C#", "C++", "SQL Server"]
+    },
+    {
+      "company": "Hypercom",
+      "start": "September 2002",
+      "end": "March 2003",
+      "tech": ["Javascript", "HTML", "CSS", "C++", "SQL Server"]
+    }
+  ]
+}

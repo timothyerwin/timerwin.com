@@ -1,36 +1,83 @@
-var webpack = require('webpack');
+const webpack = require('webpack');
+const path = require('path');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: "./app.js",
+  entry: 'app.jsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: "app.js"
+    filename: 'app.js',
+    publicPath: '/'
   },
   module: {
     loaders: [
       {
-        test: /\.jsx$|\.es6$|\.js$/,
-        loader: 'babel',
-        query: {
-          presets: ['react', 'es2015']
-        },
-        exclude: /(node_modules|bower_components)/
+        test: /\.js$|\.jsx$/, // Transform all .js files required somewhere with Babel
+        loader: 'babel-loader',
+        exclude: /node_modules/,
       }, {
+        // Do not transform vendor's CSS with CSS-modules
+        // The point is that they remain in global scope.
+        // Since we require these CSS files in our JS or CSS files,
+        // they will be a part of our compilation either way.
+        // So, no need for ExtractTextPlugin here.
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
+        include: /node_modules/,
+        loaders: ['style-loader', 'css-loader']
       }, {
-        test: /.*\.(gif|png|jpe?g|svg)$/i,
-        loaders: ['file?hash=sha512&digest=hex&name=[hash].[ext]', 'image-webpack?bypassOnDebug&optimizationLevel=5']
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file-loader'
+      }, {
+        test: /\.(jpg|png|gif)$/,
+        loaders: [
+          'file-loader', {
+            loader: 'image-webpack-loader',
+            query: {
+              progressive: true,
+              optimizationLevel: 7,
+              interlaced: false,
+              pngquant: {
+                quality: '65-90',
+                speed: 4
+              }
+            }
+          }
+        ]
+      }, {
+        test: /\.html$/,
+        loader: 'html-loader'
+      }, {
+        test: /\.json$/,
+        loader: 'json-loader'
+      }, {
+        test: /\.(mp4|webm)$/,
+        loader: 'url-loader',
+        query: {
+          limit: 10000
+        }
       }
     ]
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      // make fetch available
+      fetch: 'exports-loader?self.fetch!whatwg-fetch'
+    }),
+
+    // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
+    // inside your code for any environment checks; UglifyJS will automatically
+    // drop any unreachable code.
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+      }
+    }),
+    new webpack.NamedModulesPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({name: 'common', filename: 'common.js', minChunks: 0})
+  ],
   resolve: {
-    //all these extensions will be resolved without specifying extension in the `require` function
-    extensions: [
-      '', '.js', '.jsx'
-    ],
-    //files in these directory can be required without a relative path
-    modulesDirectories: ['node_modules', 'bower_components']
-  },
-  plugins: [new CommonsChunkPlugin({name: 'commons', filename: 'commons.js', minChunks: 0})]
+    root: path.resolve(__dirname, 'source/client'),
+    modulesDirectories: ['node_modules'],
+    extensions: ['', '.js', '.jsx', '.json'],
+  }
 };

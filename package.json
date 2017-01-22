@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "lint": "eslint source",
-    "build": "webpack --progress --colors",
-    "start": "npm run build && PORT=3000 node dist/server"
+    "lint": "eslint .",
+    "clean": "rimraf dist && mkdir dist",
+    "build": "cp source/client/assets/index.html dist && webpack --progress --colors",
+    "start": "npm run build && PORT=3000 node server/server",
+    "prod": "npm run lint "
   },
   "engines": {
     "node": ">=7"
@@ -24,6 +26,7 @@
     "morgan": "~1.6.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-router": "^3.0.2",
     "serve-favicon": "~2.3.0",
     "styled-components": "^1.3.1",
     "stylus": "0.42.3",
@@ -36,6 +39,7 @@
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",
+    "babel-plugin-transform-runtime": "^6.22.0",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-latest": "^6.22.0",
     "babel-preset-react-hmre": "^1.1.1",
@@ -47,6 +51,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^3.0.2",
     "eslint-plugin-react": "^6.9.0",
+    "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "html-loader": "^0.4.4",
     "image-webpack-loader": "^3.1.0",

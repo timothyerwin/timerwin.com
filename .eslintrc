@@ -29,10 +29,7 @@
       2,
       "as-needed"
     ],
-    "comma-dangle": [
-      2,
-      "always-multiline"
-    ],
+    "comma-dangle": 0,
     "import/imports-first": 0,
     "import/newline-after-import": 0,
     "import/no-dynamic-require": 0,

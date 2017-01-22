@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "lint": "eslint .",
-    "clean": "rimraf dist && mkdir dist",
-    "build": "cp source/client/assets/index.html dist && webpack --progress --colors",
-    "start": "npm run build && PORT=3000 node server/server",
-    "prod": "npm run lint "
+    "clean": "rimraf web && mkdir web",
+    "build": "npm run clean && cp assets/index.html web && webpack",
+    "start": "npm run build && PORT=3000 node server",
+    "prod": "npm run lint && npm run build -p"
   },
   "engines": {
     "node": ">=7"

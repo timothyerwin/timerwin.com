@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = {
   entry: 'app.jsx',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'web'),
     filename: 'app.js',
     publicPath: '/'
   },
@@ -76,7 +76,7 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({name: 'common', filename: 'common.js', minChunks: 0})
   ],
   resolve: {
-    root: path.resolve(__dirname, 'source/client'),
+    root: path.resolve(__dirname, 'react'),
     modulesDirectories: ['node_modules'],
     extensions: ['', '.js', '.jsx', '.json'],
   }

@@ -3,23 +3,62 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "babel public/js6 --out-file public/js/index.js",
-    "start": "npm run build && PORT=3000 node server"
+    "lint": "eslint source",
+    "build": "webpack --progress --colors",
+    "start": "npm run build && PORT=3000 node dist/server"
+  },
+  "engines": {
+    "node": ">=7"
   },
   "dependencies": {
+    "babel-polyfill": "^6.22.0",
     "body-parser": "~1.13.2",
+    "chalk": "^1.1.3",
     "compression": "^1.6.2",
     "cookie-parser": "~1.3.5",
     "debug": "~2.2.0",
     "express": "~4.13.1",
+    "ip": "^1.1.4",
     "jade": "~1.11.0",
+    "lodash": "^4.17.4",
     "morgan": "~1.6.1",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
     "serve-favicon": "~2.3.0",
-    "stylus": "0.42.3"
+    "styled-components": "^1.3.1",
+    "stylus": "0.42.3",
+    "superagent": "^3.3.2",
+    "whatwg-fetch": "^2.0.2"
   },
   "devDependencies": {
     "babel": "^6.5.2",
-    "babel-cli": "^6.18.0",
-    "babel-preset-es2015": "^6.18.0"
+    "babel-cli": "^6.22.2",
+    "babel-core": "^6.22.1",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-latest": "^6.22.0",
+    "babel-preset-react-hmre": "^1.1.1",
+    "babel-preset-stage-0": "^6.22.0",
+    "babel-runtime": "^6.22.0",
+    "css-loader": "^0.26.1",
+    "eslint": "^3.14.0",
+    "eslint-config-airbnb": "^14.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^6.9.0",
+    "file-loader": "^0.9.0",
+    "html-loader": "^0.4.4",
+    "image-webpack-loader": "^3.1.0",
+    "imports-loader": "^0.7.0",
+    "mocha": "^3.2.0",
+    "react-hot-loader": "^1.3.1",
+    "rimraf": "^2.5.4",
+    "style-loader": "^0.13.1",
+    "supertest": "^2.0.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.14.0",
+    "webpack-dev-middleware": "^1.9.0",
+    "webpack-hot-middleware": "^2.15.0"
   }
 }

@@ -29,6 +29,7 @@
       2,
       "as-needed"
     ],
+
     "comma-dangle": 0,
     "import/imports-first": 0,
     "import/newline-after-import": 0,
@@ -62,6 +63,7 @@
       2,
       "multiline"
     ],
+    "react/prefer-stateless-function": 0,
     "react/jsx-filename-extension": 0,
     "react/jsx-no-target-blank": 0,
     "react/require-extension": 0,

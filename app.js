@@ -4,8 +4,17 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const compression = require('compression');
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
 
 const app = express();
+
+const config = require('./webpack.config.js');
+const compiler = webpack(config);
+
+app.use(webpackDevMiddleware(compiler, { quiet: true, publicPath: config.output.publicPath }));
+app.use(webpackHotMiddleware(compiler));
 
 app.use(compression());
 app.use(logger('dev'));

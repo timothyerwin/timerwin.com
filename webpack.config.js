@@ -3,18 +3,26 @@ const path = require('path');
 // const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: 'app.jsx',
+  entry: ['app.jsx',
+    'webpack-hot-middleware/client'
+  ],
   output: {
     path: path.resolve(__dirname, 'web'),
     filename: 'app.js',
     publicPath: '/'
   },
+  stats: {
+    colors: true,
+    modules: true,
+    reasons: true,
+    errorDetails: true
+  },
   module: {
     loaders: [
       {
         test: /\.js$|\.jsx$/, // Transform all .js files required somewhere with Babel
-        loader: 'babel-loader',
-        exclude: /node_modules/,
+        loaders: ['react-hot', 'babel-loader'],
+        exclude: /node_modules/
       }, {
         // Do not transform vendor's CSS with CSS-modules
         // The point is that they remain in global scope.
@@ -59,6 +67,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.ProvidePlugin({
       // make fetch available
       fetch: 'exports-loader?self.fetch!whatwg-fetch'
@@ -78,6 +87,6 @@ module.exports = {
   resolve: {
     root: path.resolve(__dirname, 'react'),
     modulesDirectories: ['node_modules'],
-    extensions: ['', '.js', '.jsx', '.json'],
+    extensions: ['', '.js', '.jsx', '.json']
   }
 };

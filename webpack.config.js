@@ -3,7 +3,8 @@ const path = require('path');
 // const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: ['app.jsx',
+  entry: [
+    'app.jsx',
     'webpack-hot-middleware/client'
   ],
   output: {
@@ -67,7 +68,9 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
     new webpack.ProvidePlugin({
       // make fetch available
       fetch: 'exports-loader?self.fetch!whatwg-fetch'

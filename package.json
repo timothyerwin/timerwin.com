@@ -6,8 +6,8 @@
     "lint": "eslint .",
     "clean": "rimraf web && mkdir web",
     "build": "npm run clean && cp assets/index.html web && webpack",
-    "start": "npm run build && PORT=3000 node server",
-    "prod": "npm run lint && npm run build -p"
+    "start": "export NODE_ENV=development && npm run build && PORT=3000 node server",
+    "prod": "export NODE_ENV=production && npm run lint && npm run build -p"
   },
   "engines": {
     "node": ">=7"
@@ -64,6 +64,7 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.14.0",
     "webpack-dev-middleware": "^1.9.0",
+    "webpack-dev-server": "^1.16.2",
     "webpack-hot-middleware": "^2.15.0"
   }
 }

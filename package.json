@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "eslint .",
     "clean": "rimraf web && mkdir web",
-    "build": "npm run clean && cp assets/index.html web && webpack",
+    "build": "npm run clean && cp -R assets/** web && webpack",
     "start": "export NODE_ENV=development && npm run build && PORT=3000 node server",
     "prod": "export NODE_ENV=production && npm run lint && npm run build -p"
   },

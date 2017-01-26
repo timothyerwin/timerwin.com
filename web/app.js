@@ -21984,7 +21984,9 @@ webpackJsonp([1,0],{
 
 	var _class, _temp;
 
-	var _templateObject = _taggedTemplateLiteral(['\n  font-size: 80px;\n  color: #222;\n  text-shadow: 0 0 10px rgba(0,0,0,.2);\n  padding: 25px 50px;\n  text-transform: uppercase\n'], ['\n  font-size: 80px;\n  color: #222;\n  text-shadow: 0 0 10px rgba(0,0,0,.2);\n  padding: 25px 50px;\n  text-transform: uppercase\n']);
+	var _templateObject = _taggedTemplateLiteral(['\n  height: 100%;\n  display: flex;\n'], ['\n  height: 100%;\n  display: flex;\n']),
+	    _templateObject2 = _taggedTemplateLiteral(['\n  font-size: 80px;\n  color: #222;\n  text-shadow: 0 0 10px rgba(0,0,0,.2);\n  padding: 25px 50px;\n  text-transform: uppercase\n'], ['\n  font-size: 80px;\n  color: #222;\n  text-shadow: 0 0 10px rgba(0,0,0,.2);\n  padding: 25px 50px;\n  text-transform: uppercase\n']),
+	    _templateObject3 = _taggedTemplateLiteral(['\n  height: 100%;\n  background: #222;\n'], ['\n  height: 100%;\n  background: #222;\n']);
 
 	var _react = __webpack_require__("./node_modules/react/react.js");
 
@@ -22004,7 +22006,11 @@ webpackJsonp([1,0],{
 
 	function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-	var Title = _styledComponents2.default.h1(_templateObject);
+	var Page = _styledComponents2.default.div(_templateObject);
+
+	var Title = _styledComponents2.default.h1(_templateObject2);
+
+	var Nav = _styledComponents2.default.aside(_templateObject3);
 
 	module.exports = (_temp = _class = function (_React$Component) {
 	  _inherits(_class, _React$Component);
@@ -22020,15 +22026,16 @@ webpackJsonp([1,0],{
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'app' },
+	        null,
 	        _react2.default.createElement(
-	          'header',
+	          'aside',
 	          null,
 	          _react2.default.createElement(
-	            Title,
+	            'h3',
 	            null,
-	            'Tim Erwin'
-	          )
+	            'timerwin.com'
+	          ),
+	          _react2.default.createElement('div', { className: 'profile' })
 	        ),
 	        _react2.default.createElement(
 	          'main',

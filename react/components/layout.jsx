@@ -28,8 +28,8 @@ module.exports = class extends React.Component {
     return (
       <div>
         <aside>
-          <h3>timerwin.com</h3>
           <div className="profile"></div>
+          <h3>tim erwin</h3>
         </aside>
         <main>
           {this.props.children}

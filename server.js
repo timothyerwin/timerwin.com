@@ -4,6 +4,8 @@ const app = require('./app');
 const debug = require('debug')('timerwin.com:server');
 const http = require('http');
 
+const logger = require('./logger');
+
 const normalizePort = (val) => {
   const port = parseInt(val, 10);
 
@@ -36,11 +38,11 @@ server.on('error', (error) => {
 
   switch (error.code) {
     case 'EACCES':
-      console.error(`${bind} requires elevated privileges`);
+      logger.error(`${bind} requires elevated privileges`);
       process.exit(1);
       break;
     case 'EADDRINUSE':
-      console.error(`${bind} is already in use`);
+      logger.error(`${bind} is already in use`);
       process.exit(1);
       break;
     default:
@@ -53,5 +55,5 @@ server.on('listening', () => {
   const bind = typeof addr === 'string'
     ? `pipe ${addr}`
     : `port ${addr.port}`;
-  debug(`Listening on  ${bind}`);
+  logger.info(`Listening on ${bind}`);
 });

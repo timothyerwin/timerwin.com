@@ -24,7 +24,7 @@ app.use(webpackDevMiddleware(compiler, { quiet: true, publicPath: config.output.
 app.use(webpackHotMiddleware(compiler));
 
 app.get('*', (req, res) => {
-  res.sendStatus(200);
+  res.sendFile('index.html', { root: path.join(__dirname, '/web') });
 });
 
 app.use((req, res, next) => {

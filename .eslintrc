@@ -22,15 +22,10 @@
     "global-require": 0,
     "no-console": 0,
     "object-curly-spacing": 0,
-    "arrow-parens": [
-      "error",
-      "always"
-    ],
     "arrow-body-style": [
       2,
       "as-needed"
     ],
-
     "comma-dangle": 0,
     "import/imports-first": 0,
     "import/newline-after-import": 0,

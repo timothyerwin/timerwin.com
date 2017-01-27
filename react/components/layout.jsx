@@ -1,23 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const Page = styled.div`
-  height: 100%;
-  display: flex;
-`;
-
-const Title = styled.h1`
-  font-size: 80px;
-  color: #222;
-  text-shadow: 0 0 10px rgba(0,0,0,.2);
-  padding: 25px 50px;
-  text-transform: uppercase
-`;
-
-const Nav = styled.aside`
-  height: 100%;
-  background: #222;
-`;
+import Nav from './nav';
 
 module.exports = class extends React.Component {
   static propTypes = {
@@ -30,6 +12,7 @@ module.exports = class extends React.Component {
         <aside>
           <div className="profile"></div>
           <h3>tim erwin</h3>
+          <Nav></Nav>
         </aside>
         <main>
           {this.props.children}

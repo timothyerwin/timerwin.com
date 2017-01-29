@@ -6,7 +6,7 @@
     "lint": "eslint .",
     "clean": "rimraf web && mkdir web",
     "build": "npm run clean && cp -R assets/** web && webpack",
-    "start": "export NODE_ENV=development && npm run build && PORT=3000 node server",
+    "dev": "export NODE_ENV=development && npm run build && PORT=3000 node --inspect server",
     "prod": "export NODE_ENV=production && npm run lint && npm run build -p"
   },
   "engines": {
@@ -24,6 +24,7 @@
     "jade": "~1.11.0",
     "lodash": "^4.17.4",
     "morgan": "~1.6.1",
+    "nodemailer": "^2.7.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-router": "^3.0.2",
@@ -31,6 +32,7 @@
     "styled-components": "^1.3.1",
     "stylus": "0.42.3",
     "superagent": "^3.3.2",
+    "uuid": "^3.0.1",
     "whatwg-fetch": "^2.0.2",
     "winston": "^2.3.1"
   },

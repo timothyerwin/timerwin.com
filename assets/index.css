@@ -113,7 +113,7 @@ main {
 
 ul.list li {
   border-bottom: 1px solid #ddd;
-  padding: 25px;
+  padding: 30px;
 }
 
 ul.list li:last-child {

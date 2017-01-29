@@ -23,6 +23,8 @@ app.use(express.static(path.join(__dirname, 'web')));
 app.use(webpackDevMiddleware(compiler, { quiet: true, publicPath: config.output.publicPath}));
 app.use(webpackHotMiddleware(compiler));
 
+app.use(require('./routes/contact'));
+
 app.get('*', (req, res) => {
   res.sendFile('index.html', { root: path.join(__dirname, '/web') });
 });

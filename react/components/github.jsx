@@ -46,7 +46,7 @@ module.exports = class extends React.Component {
     return (
       <div>
         <h1>github</h1>
-        <a style={{'font-size': '20px'}} href="http://github.com/timothyerwin">http://github.com/timothyerwin</a>
+        <a href="http://github.com/timothyerwin">http://github.com/timothyerwin</a>
         <br />
         <br />
         <ul className="list">

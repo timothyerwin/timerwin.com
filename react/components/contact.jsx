@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import validator from 'validator';
 
 const Message = styled.textarea `
   display:block;
@@ -47,6 +47,8 @@ const Button = styled.button `
 
 module.exports = class extends React.Component {
   send() {
+    console.log(validator.isEmail(this.state.email));
+
     fetch('/contact/message', {
       method: 'POST',
       body: JSON.stringify({email: this.state.email, message: this.state.message}),
@@ -74,7 +76,7 @@ module.exports = class extends React.Component {
       <div>
         <h1>contact</h1>
         <a href="mailto:tim@timerwin.com">tim@timerwin.com</a>
-        <Input type="email" onChange={:: this.emailChange} placeholder="Email"/>
+        <Input autoFocus type="email" onChange={:: this.emailChange} placeholder="Email"/>
         <Message onChange={:: this.messageChange} placeholder="Message"/>
         <Button onClick={:: this.send}>Send</Button>
       </div>

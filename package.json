@@ -34,6 +34,7 @@
     "stylus": "0.42.3",
     "superagent": "^3.3.2",
     "uuid": "^3.0.1",
+    "validator": "^6.2.1",
     "whatwg-fetch": "^2.0.2",
     "winston": "^2.3.1"
   },

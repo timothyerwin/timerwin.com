@@ -72,8 +72,9 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.ProvidePlugin({
-      // make fetch available
-      fetch: 'exports-loader?self.fetch!whatwg-fetch'
+      // stop trying to make fetch happen! it's not happening!
+      fetch: 'exports-loader?self.fetch!whatwg-fetch',
+      validator: 'exports-loader?self.validator!validator'
     }),
 
     // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`

@@ -22302,8 +22302,9 @@ webpackJsonp([1,0],{
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _templateObject = _taggedTemplateLiteral(['\n  display:block;\n  margin-top: 50px;\n  border: 1px solid #ccc;\n  box-shadow: inset 0 0 10px rgba(0,0,0,.1);\n  width: 565px;\n  height: 260px;\n  resize: none;\n  padding: 15px;\n  font-size: 18px;\n  color: #555;\n  margin-bottom: 25px;\n  outline: none;\n'], ['\n  display:block;\n  margin-top: 50px;\n  border: 1px solid #ccc;\n  box-shadow: inset 0 0 10px rgba(0,0,0,.1);\n  width: 565px;\n  height: 260px;\n  resize: none;\n  padding: 15px;\n  font-size: 18px;\n  color: #555;\n  margin-bottom: 25px;\n  outline: none;\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n  background: #09c;\n  color: #fff;\n  padding: 13px 70px;\n  box-shadow: 0 0 10px rgba(0,0,0,.4);\n  text-transform: uppercase;\n  border: 0;\n  font-size: 16px;\n  border-radius: 5px;\n  float: right;\n'], ['\n  background: #09c;\n  color: #fff;\n  padding: 13px 70px;\n  box-shadow: 0 0 10px rgba(0,0,0,.4);\n  text-transform: uppercase;\n  border: 0;\n  font-size: 16px;\n  border-radius: 5px;\n  float: right;\n']);
+	var _templateObject = _taggedTemplateLiteral(['\n  display:block;\n  margin-top: 20px;\n  border: 1px solid #ccc;\n  box-shadow: inset 0 0 10px rgba(0,0,0,.08);\n  width: 565px;\n  height: 260px;\n  resize: none;\n  padding: 12px;\n  font-size: 18px;\n  color: #555;\n  margin-bottom: 25px;\n  outline: none;\n'], ['\n  display:block;\n  margin-top: 20px;\n  border: 1px solid #ccc;\n  box-shadow: inset 0 0 10px rgba(0,0,0,.08);\n  width: 565px;\n  height: 260px;\n  resize: none;\n  padding: 12px;\n  font-size: 18px;\n  color: #555;\n  margin-bottom: 25px;\n  outline: none;\n']),
+	    _templateObject2 = _taggedTemplateLiteral(['\n  display:block;\n  margin-top: 50px;\n  border: 1px solid #ccc;\n  box-shadow: inset 0 0 10px rgba(0,0,0,.08);\n  resize: none;\n  padding: 12px;\n  font-size: 18px;\n  color: #555;\n  margin-bottom: 25px;\n  outline: none;\n  width: 300px;\n'], ['\n  display:block;\n  margin-top: 50px;\n  border: 1px solid #ccc;\n  box-shadow: inset 0 0 10px rgba(0,0,0,.08);\n  resize: none;\n  padding: 12px;\n  font-size: 18px;\n  color: #555;\n  margin-bottom: 25px;\n  outline: none;\n  width: 300px;\n']),
+	    _templateObject3 = _taggedTemplateLiteral(['\n  background: #09c;\n  color: #fff;\n  padding: 13px 70px;\n  box-shadow: 0 0 10px rgba(0,0,0,.4);\n  text-transform: uppercase;\n  border: 0;\n  font-size: 16px;\n  border-radius: 5px;\n  float: right;\n  margin-right: 10px;\n  cursor: pointer;\n'], ['\n  background: #09c;\n  color: #fff;\n  padding: 13px 70px;\n  box-shadow: 0 0 10px rgba(0,0,0,.4);\n  text-transform: uppercase;\n  border: 0;\n  font-size: 16px;\n  border-radius: 5px;\n  float: right;\n  margin-right: 10px;\n  cursor: pointer;\n']);
 
 	var _react = __webpack_require__("./node_modules/react/react.js");
 
@@ -22325,7 +22326,9 @@ webpackJsonp([1,0],{
 
 	var Message = _styledComponents2.default.textarea(_templateObject);
 
-	var Button = _styledComponents2.default.button(_templateObject2);
+	var Input = _styledComponents2.default.input(_templateObject2);
+
+	var Button = _styledComponents2.default.button(_templateObject3);
 
 	module.exports = function (_React$Component) {
 	  _inherits(_class, _React$Component);
@@ -22341,7 +22344,7 @@ webpackJsonp([1,0],{
 	    value: function send() {
 	      fetch('/contact/message', {
 	        method: 'POST',
-	        body: JSON.stringify({ message: this.state.message }),
+	        body: JSON.stringify({ email: this.state.email, message: this.state.message }),
 	        headers: {
 	          'Accept': 'application/json',
 	          'Content-Type': 'application/json'
@@ -22353,15 +22356,18 @@ webpackJsonp([1,0],{
 	      });
 	    }
 	  }, {
-	    key: 'handleChange',
-	    value: function handleChange(event) {
+	    key: 'emailChange',
+	    value: function emailChange(event) {
+	      this.setState({ email: event.target.value });
+	    }
+	  }, {
+	    key: 'messageChange',
+	    value: function messageChange(event) {
 	      this.setState({ message: event.target.value });
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _this2 = this;
-
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -22375,9 +22381,8 @@ webpackJsonp([1,0],{
 	          { href: 'mailto:tim@timerwin.com' },
 	          'tim@timerwin.com'
 	        ),
-	        _react2.default.createElement(Message, { ref: function ref(r) {
-	            _this2.messageInput = r;
-	          }, onChange: this.handleChange.bind(this), placeholder: 'Message' }),
+	        _react2.default.createElement(Input, { type: 'email', onChange: this.emailChange.bind(this), placeholder: 'Email' }),
+	        _react2.default.createElement(Message, { onChange: this.messageChange.bind(this), placeholder: 'Message' }),
 	        _react2.default.createElement(
 	          Button,
 	          { onClick: this.send.bind(this) },

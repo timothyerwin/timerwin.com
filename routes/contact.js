@@ -1,5 +1,6 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
+const mailgun = require('nodemailer-mailgun-transport');
 
 const router = express.Router();
 
@@ -7,20 +8,19 @@ const settings = require('../settings');
 const logger = require('../logger');
 
 router.post('/contact/message', (req, res) => {
-  console.log(req.body);
+  console.log(settings.mail.api_key);
 
-  const transporter = nodemailer.createTransport({
-    service: 'Gmail',
+  const transporter = nodemailer.createTransport(mailgun({
     auth: {
-      user: settings.mail.user,
-      pass: settings.mail.pass
+      api_key: settings.mail.api_key,
+      domain: 'timerwin.com'
     }
-  });
+  }));
 
   transporter.sendMail({
-    from: 'tim@timerwin.com',
-    to: 'tim.erwin@gmail.com',
-    subject: 'Site Message',
+    from: `${req.body.email} <${req.body.email}>`,
+    to: 'tim@timerwin.com',
+    subject: `Message from ${req.body.email}`,
     text: req.body.message
   }, (err, info) => {
     if (err) {

@@ -1,19 +1,34 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
 const Message = styled.textarea `
   display:block;
-  margin-top: 50px;
+  margin-top: 20px;
   border: 1px solid #ccc;
-  box-shadow: inset 0 0 10px rgba(0,0,0,.1);
+  box-shadow: inset 0 0 10px rgba(0,0,0,.08);
   width: 565px;
   height: 260px;
   resize: none;
-  padding: 15px;
+  padding: 12px;
   font-size: 18px;
   color: #555;
   margin-bottom: 25px;
   outline: none;
+`;
+
+const Input = styled.input `
+  display:block;
+  margin-top: 50px;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 0 10px rgba(0,0,0,.08);
+  resize: none;
+  padding: 12px;
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 25px;
+  outline: none;
+  width: 300px;
 `;
 
 const Button = styled.button `
@@ -26,13 +41,15 @@ const Button = styled.button `
   font-size: 16px;
   border-radius: 5px;
   float: right;
+  margin-right: 10px;
+  cursor: pointer;
 `;
 
 module.exports = class extends React.Component {
   send() {
     fetch('/contact/message', {
       method: 'POST',
-      body: JSON.stringify({message: this.state.message}),
+      body: JSON.stringify({email: this.state.email, message: this.state.message}),
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -44,7 +61,11 @@ module.exports = class extends React.Component {
     });
   }
 
-  handleChange(event) {
+  emailChange(event) {
+    this.setState({email: event.target.value});
+  }
+
+  messageChange(event) {
     this.setState({message: event.target.value});
   }
 
@@ -53,9 +74,8 @@ module.exports = class extends React.Component {
       <div>
         <h1>contact</h1>
         <a href="mailto:tim@timerwin.com">tim@timerwin.com</a>
-        <Message ref={(r) => {
-          this.messageInput = r;
-        }} onChange={:: this.handleChange} placeholder="Message"/>
+        <Input type="email" onChange={:: this.emailChange} placeholder="Email"/>
+        <Message onChange={:: this.messageChange} placeholder="Message"/>
         <Button onClick={:: this.send}>Send</Button>
       </div>
     );

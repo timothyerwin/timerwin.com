@@ -1,6 +1,8 @@
 import React from 'react';
 import 'whatwg-fetch';
+import uuid from 'uuid';
 import styled from 'styled-components';
+import Tags from './tags';
 
 const Link = styled.a`
   display: block;
@@ -19,10 +21,13 @@ class Repo extends React.Component {
   }
 
   render() {
+    const {name, description} = this.props.data;
+
     return (
       <div>
-        <Title>{this.props.data.name}</Title>
-        <p>{this.props.data.description}</p>
+        <Title>{name}</Title>
+        <p>{description.split('built using')[0]}</p>
+        <Tags tags={description.split('using')[1].split(',')} />
         <Link target="_blank" href={this.props.data.html_url}>{this.props.data.html_url}</Link>
       </div>
     );
@@ -51,7 +56,7 @@ module.exports = class extends React.Component {
         <br />
         <ul class="list">
           {this.state.repos.map(repo =>
-            <li key={repo.id}><Repo data={repo} /></li>
+            <li key={uuid()}><Repo data={repo} /></li>
           )}
         </ul>
       </div>

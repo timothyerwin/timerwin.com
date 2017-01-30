@@ -2,10 +2,20 @@ import React from 'react';
 import uuid from 'uuid';
 import styled from 'styled-components';
 
+import Tags from './tags';
+
 const Title = styled.h3 `
-  font-size: 24px;
+  font-size: 30px;
   text-transform: uppercase;
   line-height: 36px;
+`;
+
+const Time = styled.p `
+  font-size: 22px;
+  text-transform: uppercase;
+  font-family: arial;
+  line-height: 36px;
+  font-weight: normal;
 `;
 
 class Job extends React.Component {
@@ -14,9 +24,13 @@ class Job extends React.Component {
   }
 
   render() {
+    const {company, start, end, tech} = this.props.data;
+
     return (
       <div>
-        <Title>{this.props.data.company}</Title>
+        <Title>{company}</Title>
+        <Time>{start} - {end}</Time>
+        <Tags tags={tech} />
       </div>
     );
   }
@@ -32,7 +46,7 @@ module.exports = class extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/data/jobs.json').then(res => res.json()).then(jobs => this.setState({jobs}));
+    fetch('/data/jobs.json').then(res => res.json()).then(r => this.setState({jobs: r.jobs}));
   }
 
   render() {
@@ -40,7 +54,7 @@ module.exports = class extends React.Component {
       <div>
         <h1>resume</h1>
         <section class="timeline">
-          <ul>
+          <ul class="list">
             {this.state.jobs.map(jobs => <li key={uuid()}><Job data={jobs}/></li>)}
           </ul>
         </section>

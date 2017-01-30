@@ -1,7 +1,5 @@
 #!/usr/bin/env node
-
 const app = require('./app');
-const debug = require('debug')('timerwin.com:server');
 const http = require('http');
 
 const logger = require('./logger');

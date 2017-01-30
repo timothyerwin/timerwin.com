@@ -8,11 +8,10 @@ const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 
-const app = express();
-
 const config = require('./webpack.config.js');
-const compiler = webpack(config);
 
+const app = express();
+const compiler = webpack(config);
 
 app.use(compression());
 app.use(logger('dev'));

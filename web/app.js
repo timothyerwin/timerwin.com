@@ -21908,6 +21908,49 @@ webpackJsonp([1,0],{
 
 /***/ },
 
+/***/ "./node_modules/react-hot-api/modules/deepForceUpdate.js":
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var bindAutoBindMethods = __webpack_require__("./node_modules/react-hot-api/modules/bindAutoBindMethods.js");
+	var traverseRenderedChildren = __webpack_require__("./node_modules/react-hot-api/modules/traverseRenderedChildren.js");
+
+	function setPendingForceUpdate(internalInstance) {
+	  if (internalInstance._pendingForceUpdate === false) {
+	    internalInstance._pendingForceUpdate = true;
+	  }
+	}
+
+	function forceUpdateIfPending(internalInstance, React) {
+	  if (internalInstance._pendingForceUpdate === true) {
+	    // `|| internalInstance` for React 0.12 and earlier
+	    var instance = internalInstance._instance || internalInstance;
+
+	    if (instance.forceUpdate) {
+	      instance.forceUpdate();
+	    } else if (React && React.Component) {
+	      React.Component.prototype.forceUpdate.call(instance);
+	    }
+	  }
+	}
+
+	/**
+	 * Updates a React component recursively, so even if children define funky
+	 * `shouldComponentUpdate`, they are forced to re-render.
+	 * Makes sure that any newly added methods are properly auto-bound.
+	 */
+	function deepForceUpdate(internalInstance, React) {
+	  traverseRenderedChildren(internalInstance, bindAutoBindMethods);
+	  traverseRenderedChildren(internalInstance, setPendingForceUpdate);
+	  traverseRenderedChildren(internalInstance, forceUpdateIfPending, React);
+	}
+
+	module.exports = deepForceUpdate;
+
+
+/***/ },
+
 /***/ "./node_modules/ansi-regex/index.js":
 /***/ function(module, exports) {
 
@@ -21916,15 +21959,6 @@ webpackJsonp([1,0],{
 		return /[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-PRZcf-nqry=><]/g;
 	};
 
-
-/***/ },
-
-/***/ "./node_modules/react-hot-api/modules/index.js":
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = __webpack_require__("./node_modules/react-hot-api/modules/makeMakeHot.js");
 
 /***/ },
 
@@ -22411,6 +22445,10 @@ webpackJsonp([1,0],{
 
 	__webpack_require__("./node_modules/whatwg-fetch/fetch.js");
 
+	var _uuid = __webpack_require__("./node_modules/uuid/index.js");
+
+	var _uuid2 = _interopRequireDefault(_uuid);
+
 	var _styledComponents = __webpack_require__("./node_modules/styled-components/lib/index.js");
 
 	var _styledComponents2 = _interopRequireDefault(_styledComponents);
@@ -22520,7 +22558,7 @@ webpackJsonp([1,0],{
 	          this.state.repos.map(function (repo) {
 	            return _react2.default.createElement(
 	              'li',
-	              { key: repo.id },
+	              { key: (0, _uuid2.default)() },
 	              _react2.default.createElement(Repo, { data: repo })
 	            );
 	          })
@@ -22624,6 +22662,10 @@ webpackJsonp([1,0],{
 
 	var _reactRouter = __webpack_require__("./node_modules/react-router/lib/index.js");
 
+	var _uuid = __webpack_require__("./node_modules/uuid/index.js");
+
+	var _uuid2 = _interopRequireDefault(_uuid);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22664,10 +22706,12 @@ webpackJsonp([1,0],{
 	        routes.map(function (v) {
 	          return _react2.default.createElement(
 	            'li',
-	            null,
+	            { key: (0, _uuid2.default)() },
 	            _react2.default.createElement(
 	              _reactRouter.Link,
-	              { activeStyle: { color: '#09c' }, key: v.name, to: v.href },
+	              { activeStyle: {
+	                  color: '#09c'
+	                }, to: v.href },
 	              v.name
 	            )
 	          );
@@ -22746,7 +22790,8 @@ webpackJsonp([1,0],{
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _templateObject = _taggedTemplateLiteral(['\n  font-size: 24px;\n  text-transform: uppercase;\n  line-height: 36px;\n'], ['\n  font-size: 24px;\n  text-transform: uppercase;\n  line-height: 36px;\n']);
+	var _templateObject = _taggedTemplateLiteral(['\n  font-size: 30px;\n  text-transform: uppercase;\n  line-height: 36px;\n'], ['\n  font-size: 30px;\n  text-transform: uppercase;\n  line-height: 36px;\n']),
+	    _templateObject2 = _taggedTemplateLiteral(['\n  font-size: 22px;\n  text-transform: uppercase;\n  font-family: arial;\n  line-height: 36px;\n  font-weight: normal;\n'], ['\n  font-size: 22px;\n  text-transform: uppercase;\n  font-family: arial;\n  line-height: 36px;\n  font-weight: normal;\n']);
 
 	var _react = __webpack_require__("./node_modules/react/react.js");
 
@@ -22760,6 +22805,10 @@ webpackJsonp([1,0],{
 
 	var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
+	var _tags = __webpack_require__("./react/components/tags.jsx");
+
+	var _tags2 = _interopRequireDefault(_tags);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22771,6 +22820,8 @@ webpackJsonp([1,0],{
 	function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 	var Title = _styledComponents2.default.h3(_templateObject);
+
+	var Time = _styledComponents2.default.p(_templateObject2);
 
 	var Job = function (_React$Component) {
 	  _inherits(Job, _React$Component);
@@ -22784,14 +22835,29 @@ webpackJsonp([1,0],{
 	  _createClass(Job, [{
 	    key: 'render',
 	    value: function render() {
+	      var _props$data = this.props.data,
+	          company = _props$data.company,
+	          start = _props$data.start,
+	          end = _props$data.end,
+	          tech = _props$data.tech;
+
+
 	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement(
 	          Title,
 	          null,
-	          this.props.data.company
-	        )
+	          company
+	        ),
+	        _react2.default.createElement(
+	          Time,
+	          null,
+	          start,
+	          ' - ',
+	          end
+	        ),
+	        _react2.default.createElement(_tags2.default, { tags: tech })
 	      );
 	    }
 	  }]);
@@ -22825,8 +22891,8 @@ webpackJsonp([1,0],{
 
 	      fetch('/data/jobs.json').then(function (res) {
 	        return res.json();
-	      }).then(function (jobs) {
-	        return _this3.setState({ jobs: jobs });
+	      }).then(function (r) {
+	        return _this3.setState({ jobs: r.jobs });
 	      });
 	    }
 	  }, {
@@ -22845,7 +22911,7 @@ webpackJsonp([1,0],{
 	          { className: 'timeline' },
 	          _react2.default.createElement(
 	            'ul',
-	            null,
+	            { className: 'list' },
 	            this.state.jobs.map(function (jobs) {
 	              return _react2.default.createElement(
 	                'li',
@@ -22864,6 +22930,82 @@ webpackJsonp([1,0],{
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__("./node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, __webpack_require__("./node_modules/react/react.js"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "resume.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("./node_modules/webpack/buildin/module.js")(module), __webpack_require__("./node_modules/exports-loader/index.js?self.fetch!./node_modules/whatwg-fetch/fetch.js")))
+
+/***/ },
+
+/***/ "./react/components/tags.jsx":
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__("./node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = __webpack_require__("./node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = __webpack_require__("./node_modules/react-dom/lib/ReactMount.js"), React = __webpack_require__("./node_modules/react/react.js"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _class, _temp;
+
+	var _templateObject = _taggedTemplateLiteral(['\n  margin-right: 15px;\n  font-size: 14px;\n  padding: 7px 14px;\n  box-shadow: 0 0 12px rgba(0,0,0,.07);\n  margin-bottom: 10px;\n  border: 1px solid #ddd;\n  border-radius: 4px;\n  color: #09c;\n  text-transform: uppercase;\n  font-family: roboto;\n  cursor: default;\n'], ['\n  margin-right: 15px;\n  font-size: 14px;\n  padding: 7px 14px;\n  box-shadow: 0 0 12px rgba(0,0,0,.07);\n  margin-bottom: 10px;\n  border: 1px solid #ddd;\n  border-radius: 4px;\n  color: #09c;\n  text-transform: uppercase;\n  font-family: roboto;\n  cursor: default;\n']),
+	    _templateObject2 = _taggedTemplateLiteral(['\n  margin-top: 15px;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n'], ['\n  margin-top: 15px;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n']);
+
+	var _react = __webpack_require__("./node_modules/react/react.js");
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _styledComponents = __webpack_require__("./node_modules/styled-components/lib/index.js");
+
+	var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+	var _uuid = __webpack_require__("./node_modules/uuid/index.js");
+
+	var _uuid2 = _interopRequireDefault(_uuid);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+	var Tag = _styledComponents2.default.span(_templateObject);
+
+	var Tags = _styledComponents2.default.div(_templateObject2);
+
+	module.exports = (_temp = _class = function (_React$Component) {
+	  _inherits(_class, _React$Component);
+
+	  function _class() {
+	    _classCallCheck(this, _class);
+
+	    return _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).apply(this, arguments));
+	  }
+
+	  _createClass(_class, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        Tags,
+	        null,
+	        this.props.tags.map(function (t) {
+	          return _react2.default.createElement(
+	            Tag,
+	            { key: (0, _uuid2.default)() },
+	            t
+	          );
+	        })
+	      );
+	    }
+	  }]);
+
+	  return _class;
+	}(_react2.default.Component), _class.propTypes = {
+	  tags: _react2.default.PropTypes.object.isRequired
+	}, _temp);
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__("./node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, __webpack_require__("./node_modules/react/react.js"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "tags.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("./node_modules/webpack/buildin/module.js")(module)))
 
 /***/ },
 
@@ -41167,46 +41309,12 @@ webpackJsonp([1,0],{
 
 /***/ },
 
-/***/ "./node_modules/react-hot-api/modules/deepForceUpdate.js":
+/***/ "./node_modules/react-hot-api/modules/index.js":
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var bindAutoBindMethods = __webpack_require__("./node_modules/react-hot-api/modules/bindAutoBindMethods.js");
-	var traverseRenderedChildren = __webpack_require__("./node_modules/react-hot-api/modules/traverseRenderedChildren.js");
-
-	function setPendingForceUpdate(internalInstance) {
-	  if (internalInstance._pendingForceUpdate === false) {
-	    internalInstance._pendingForceUpdate = true;
-	  }
-	}
-
-	function forceUpdateIfPending(internalInstance, React) {
-	  if (internalInstance._pendingForceUpdate === true) {
-	    // `|| internalInstance` for React 0.12 and earlier
-	    var instance = internalInstance._instance || internalInstance;
-
-	    if (instance.forceUpdate) {
-	      instance.forceUpdate();
-	    } else if (React && React.Component) {
-	      React.Component.prototype.forceUpdate.call(instance);
-	    }
-	  }
-	}
-
-	/**
-	 * Updates a React component recursively, so even if children define funky
-	 * `shouldComponentUpdate`, they are forced to re-render.
-	 * Makes sure that any newly added methods are properly auto-bound.
-	 */
-	function deepForceUpdate(internalInstance, React) {
-	  traverseRenderedChildren(internalInstance, bindAutoBindMethods);
-	  traverseRenderedChildren(internalInstance, setPendingForceUpdate);
-	  traverseRenderedChildren(internalInstance, forceUpdateIfPending, React);
-	}
-
-	module.exports = deepForceUpdate;
-
+	module.exports = __webpack_require__("./node_modules/react-hot-api/modules/makeMakeHot.js");
 
 /***/ }
 

@@ -41,8 +41,8 @@ html, body {
 h1 {
   font-family: josefin sans;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
-  font-size: 50px;
-  color: #555;
+  font-size: 70px;
+  color: #333;
   padding-bottom: 25px;
 }
 
@@ -111,12 +111,12 @@ main {
   border-radius: 4px;
 }
 
-ul.list li {
+ul.list > li {
   border-bottom: 1px solid #ddd;
-  padding: 30px;
+  padding: 40px 30px;
 }
 
-ul.list li:last-child {
+ul.list > li:last-child {
   border-bottom: 0;
 }
 

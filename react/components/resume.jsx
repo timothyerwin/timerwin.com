@@ -2,13 +2,9 @@ import React from 'react';
 import uuid from 'uuid';
 import styled from 'styled-components';
 
+import {Title} from './ux/styles';
 import Tags from './tags';
 
-const Title = styled.h3 `
-  font-size: 30px;
-  text-transform: uppercase;
-  line-height: 36px;
-`;
 
 const Time = styled.p `
   font-size: 22px;

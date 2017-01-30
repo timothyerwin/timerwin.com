@@ -2,17 +2,20 @@ import React from 'react';
 import 'whatwg-fetch';
 import uuid from 'uuid';
 import styled from 'styled-components';
+
+import {Title} from './ux/styles';
 import Tags from './tags';
+
+const Description = styled.p`
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 28px;
+  color: #aaa;
+`;
 
 const Link = styled.a`
   display: block;
-  margin-top: 25px;
-`;
-
-const Title = styled.h3`
-  font-size: 24px;
-  text-transform: uppercase;
-  line-height: 36px;
+  margin-top: 15px;
 `;
 
 class Repo extends React.Component {
@@ -26,7 +29,7 @@ class Repo extends React.Component {
     return (
       <div>
         <Title>{name}</Title>
-        <p>{description.split('built using')[0]}</p>
+        <Description>{description.split('built using')[0]}</Description>
         <Tags tags={description.split('using')[1].split(',')} />
         <Link target="_blank" href={this.props.data.html_url}>{this.props.data.html_url}</Link>
       </div>

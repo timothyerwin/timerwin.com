@@ -22436,8 +22436,7 @@ webpackJsonp([1,0],{
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _templateObject = _taggedTemplateLiteral(['\n  display: block;\n  margin-top: 25px;\n'], ['\n  display: block;\n  margin-top: 25px;\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n  font-size: 24px;\n  text-transform: uppercase;\n  line-height: 36px;\n'], ['\n  font-size: 24px;\n  text-transform: uppercase;\n  line-height: 36px;\n']);
+	var _templateObject = _taggedTemplateLiteral(['\n  display: block;\n  margin-top: 25px;\n'], ['\n  display: block;\n  margin-top: 25px;\n']);
 
 	var _react = __webpack_require__("./node_modules/react/react.js");
 
@@ -22453,6 +22452,12 @@ webpackJsonp([1,0],{
 
 	var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
+	var _styles = __webpack_require__("./react/components/ux/styles.jsx");
+
+	var _tags = __webpack_require__("./react/components/tags.jsx");
+
+	var _tags2 = _interopRequireDefault(_tags);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22464,8 +22469,6 @@ webpackJsonp([1,0],{
 	function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 	var Link = _styledComponents2.default.a(_templateObject);
-
-	var Title = _styledComponents2.default.h3(_templateObject2);
 
 	var Repo = function (_React$Component) {
 	  _inherits(Repo, _React$Component);
@@ -22479,19 +22482,25 @@ webpackJsonp([1,0],{
 	  _createClass(Repo, [{
 	    key: 'render',
 	    value: function render() {
+	      var _props$data = this.props.data,
+	          name = _props$data.name,
+	          description = _props$data.description;
+
+
 	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement(
-	          Title,
+	          _styles.Title,
 	          null,
-	          this.props.data.name
+	          name
 	        ),
 	        _react2.default.createElement(
 	          'p',
 	          null,
-	          this.props.data.description
+	          description.split('built using')[0]
 	        ),
+	        _react2.default.createElement(_tags2.default, { tags: description.split('using')[1].split(',') }),
 	        _react2.default.createElement(
 	          Link,
 	          { target: '_blank', href: this.props.data.html_url },
@@ -22790,8 +22799,7 @@ webpackJsonp([1,0],{
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _templateObject = _taggedTemplateLiteral(['\n  font-size: 30px;\n  text-transform: uppercase;\n  line-height: 36px;\n'], ['\n  font-size: 30px;\n  text-transform: uppercase;\n  line-height: 36px;\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n  font-size: 22px;\n  text-transform: uppercase;\n  font-family: arial;\n  line-height: 36px;\n  font-weight: normal;\n'], ['\n  font-size: 22px;\n  text-transform: uppercase;\n  font-family: arial;\n  line-height: 36px;\n  font-weight: normal;\n']);
+	var _templateObject = _taggedTemplateLiteral(['\n  font-size: 22px;\n  text-transform: uppercase;\n  font-family: arial;\n  line-height: 36px;\n  font-weight: normal;\n'], ['\n  font-size: 22px;\n  text-transform: uppercase;\n  font-family: arial;\n  line-height: 36px;\n  font-weight: normal;\n']);
 
 	var _react = __webpack_require__("./node_modules/react/react.js");
 
@@ -22804,6 +22812,8 @@ webpackJsonp([1,0],{
 	var _styledComponents = __webpack_require__("./node_modules/styled-components/lib/index.js");
 
 	var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+	var _styles = __webpack_require__("./react/components/ux/styles.jsx");
 
 	var _tags = __webpack_require__("./react/components/tags.jsx");
 
@@ -22819,9 +22829,7 @@ webpackJsonp([1,0],{
 
 	function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-	var Title = _styledComponents2.default.h3(_templateObject);
-
-	var Time = _styledComponents2.default.p(_templateObject2);
+	var Time = _styledComponents2.default.p(_templateObject);
 
 	var Job = function (_React$Component) {
 	  _inherits(Job, _React$Component);
@@ -22846,7 +22854,7 @@ webpackJsonp([1,0],{
 	        'div',
 	        null,
 	        _react2.default.createElement(
-	          Title,
+	          _styles.Title,
 	          null,
 	          company
 	        ),
@@ -23005,6 +23013,34 @@ webpackJsonp([1,0],{
 	}, _temp);
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__("./node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, __webpack_require__("./node_modules/react/react.js"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "tags.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("./node_modules/webpack/buildin/module.js")(module)))
+
+/***/ },
+
+/***/ "./react/components/ux/styles.jsx":
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__("./node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = __webpack_require__("./node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = __webpack_require__("./node_modules/react-dom/lib/ReactMount.js"), React = __webpack_require__("./node_modules/react/react.js"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	var _templateObject = _taggedTemplateLiteral(['\n  font-size: 30px;\n  text-transform: uppercase;\n  line-height: 36px;\n'], ['\n  font-size: 30px;\n  text-transform: uppercase;\n  line-height: 36px;\n']);
+
+	var _styledComponents = __webpack_require__("./node_modules/styled-components/lib/index.js");
+
+	var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+	var Title = _styledComponents2.default.h3(_templateObject);
+
+	module.exports = {
+	  Title: Title
+	};
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__("./node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, __webpack_require__("./node_modules/react/react.js"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "styles.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("./node_modules/webpack/buildin/module.js")(module)))
 
 /***/ },

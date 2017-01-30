@@ -10,9 +10,9 @@ module.exports = class extends React.Component {
     return (
       <div>
         <aside>
-          <div className="profile"></div>
+          <div class="profile" />
           <h3>tim erwin</h3>
-          <Nav></Nav>
+          <Nav />
         </aside>
         <main>
           {this.props.children}

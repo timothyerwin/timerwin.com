@@ -57,7 +57,7 @@ module.exports = class extends React.Component {
         'Content-Type': 'application/json'
       }
     }).then(() => {
-      console.log('ok.');
+
     }).catch(() => {
       console.error('oops');
     });

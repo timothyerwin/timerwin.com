@@ -22344,9 +22344,7 @@ webpackJsonp([1,0],{
 	          'Accept': 'application/json',
 	          'Content-Type': 'application/json'
 	        }
-	      }).then(function () {
-	        console.log('ok.');
-	      }).catch(function () {
+	      }).then(function () {}).catch(function () {
 	        console.error('oops');
 	      });
 	    }
@@ -22669,7 +22667,7 @@ webpackJsonp([1,0],{
 	            null,
 	            _react2.default.createElement(
 	              _reactRouter.Link,
-	              { key: v.name, to: v.href },
+	              { activeStyle: { color: '#09c' }, key: v.name, to: v.href },
 	              v.name
 	            )
 	          );

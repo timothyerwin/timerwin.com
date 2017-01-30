@@ -10,11 +10,9 @@ import Contact from './components/contact';
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route component={Layout}>
-      <Route path="/" component={Profile} />
-      <Route path="/resume" component={Resume} />
-      <Route path="/github" component={Github} />
-      <Route path="/contact" component={Contact} />
+      <Route path="/" component={Profile}/>
+      <Route path="/resume" component={Resume}/>
+      <Route path="/github" component={Github}/>
+      <Route path="/contact" component={Contact}/>
     </Route>
-  </Router>,
-  document.getElementById('app')
-);
+  </Router>, document.getElementById('app'));

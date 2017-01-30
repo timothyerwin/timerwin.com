@@ -22,7 +22,7 @@ module.exports = class extends React.Component {
     return (
       <ul>
         {routes.map(v => <li>
-          <Link key={v.name} to={v.href}>{v.name}</Link>
+          <Link activeStyle={{ color: '#09c' }} key={v.name} to={v.href}>{v.name}</Link>
         </li>)}
       </ul>
     );

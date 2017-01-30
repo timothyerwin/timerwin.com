@@ -39,7 +39,7 @@ module.exports = class extends React.Component {
     return (
       <div>
         <h1>resume</h1>
-        <section className="timeline">
+        <section class="timeline">
           <ul>
             {this.state.jobs.map(jobs => <li key={uuid()}><Job data={jobs}/></li>)}
           </ul>

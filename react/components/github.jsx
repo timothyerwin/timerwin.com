@@ -49,7 +49,7 @@ module.exports = class extends React.Component {
         <a href="http://github.com/timothyerwin">http://github.com/timothyerwin</a>
         <br />
         <br />
-        <ul className="list">
+        <ul class="list">
           {this.state.repos.map(repo =>
             <li key={repo.id}><Repo data={repo} /></li>
           )}

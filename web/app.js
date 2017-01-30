@@ -22436,7 +22436,9 @@ webpackJsonp([1,0],{
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _templateObject = _taggedTemplateLiteral(['\n  display: block;\n  margin-top: 25px;\n'], ['\n  display: block;\n  margin-top: 25px;\n']);
+	var _templateObject = _taggedTemplateLiteral(['\n  text-transform: uppercase;\n  font-size: 18px;\n  line-height: 28px;\n  color: #aaa;\n'], ['\n  text-transform: uppercase;\n  font-size: 18px;\n  line-height: 28px;\n  color: #aaa;\n']),
+	    _templateObject2 = _taggedTemplateLiteral(['\n  display: block;\n  margin-top: 15px;\n'], ['\n  display: block;\n  margin-top: 15px;\n']),
+	    _templateObject3 = _taggedTemplateLiteral(['\n  font-family: roboto;\n  font-size: 12px;\n  padding: 5px 15px;\n  border: 1px solid #ccc;\n  font-weight: normal;\n  box-shadow: inset 0 0 8px rgba(0,0,0,.1);\n  position: relative;\n  top: -6px;\n  margin-left: 15px;\n  border-radius: 5px;\n  opacity: .5;\n  cursor: default;\n  color: #000;\n'], ['\n  font-family: roboto;\n  font-size: 12px;\n  padding: 5px 15px;\n  border: 1px solid #ccc;\n  font-weight: normal;\n  box-shadow: inset 0 0 8px rgba(0,0,0,.1);\n  position: relative;\n  top: -6px;\n  margin-left: 15px;\n  border-radius: 5px;\n  opacity: .5;\n  cursor: default;\n  color: #000;\n']);
 
 	var _react = __webpack_require__("./node_modules/react/react.js");
 
@@ -22468,7 +22470,11 @@ webpackJsonp([1,0],{
 
 	function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-	var Link = _styledComponents2.default.a(_templateObject);
+	var Description = _styledComponents2.default.p(_templateObject);
+
+	var Link = _styledComponents2.default.a(_templateObject2);
+
+	var Tag = _styledComponents2.default.b(_templateObject3);
 
 	var Repo = function (_React$Component) {
 	  _inherits(Repo, _React$Component);
@@ -22493,10 +22499,15 @@ webpackJsonp([1,0],{
 	        _react2.default.createElement(
 	          _styles.Title,
 	          null,
-	          name
+	          name,
+	          _react2.default.createElement(
+	            Tag,
+	            null,
+	            'public'
+	          )
 	        ),
 	        _react2.default.createElement(
-	          'p',
+	          Description,
 	          null,
 	          description.split('built using')[0]
 	        ),
@@ -23024,7 +23035,7 @@ webpackJsonp([1,0],{
 
 	'use strict';
 
-	var _templateObject = _taggedTemplateLiteral(['\n  font-size: 30px;\n  text-transform: uppercase;\n  line-height: 36px;\n'], ['\n  font-size: 30px;\n  text-transform: uppercase;\n  line-height: 36px;\n']);
+	var _templateObject = _taggedTemplateLiteral(['\n  font-size: 30px;\n  text-transform: uppercase;\n  line-height: 40px;\n'], ['\n  font-size: 30px;\n  text-transform: uppercase;\n  line-height: 40px;\n']);
 
 	var _styledComponents = __webpack_require__("./node_modules/styled-components/lib/index.js");
 

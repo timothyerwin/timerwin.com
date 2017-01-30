@@ -18,6 +18,22 @@ const Link = styled.a`
   margin-top: 15px;
 `;
 
+const Tag = styled.b`
+  font-family: roboto;
+  font-size: 12px;
+  padding: 5px 15px;
+  border: 1px solid #ccc;
+  font-weight: normal;
+  box-shadow: inset 0 0 8px rgba(0,0,0,.1);
+  position: relative;
+  top: -6px;
+  margin-left: 15px;
+  border-radius: 5px;
+  opacity: .5;
+  cursor: default;
+  color: #000;
+`;
+
 class Repo extends React.Component {
   static propTypes = {
     data: React.PropTypes.object.isRequired
@@ -28,7 +44,7 @@ class Repo extends React.Component {
 
     return (
       <div>
-        <Title>{name}</Title>
+        <Title>{name}<Tag>public</Tag></Title>
         <Description>{description.split('built using')[0]}</Description>
         <Tags tags={description.split('using')[1].split(',')} />
         <Link target="_blank" href={this.props.data.html_url}>{this.props.data.html_url}</Link>

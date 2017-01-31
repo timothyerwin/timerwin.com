@@ -22565,7 +22565,7 @@ webpackJsonp([1,0],{
 
 	var _templateObject = _taggedTemplateLiteral(['\n\n'], ['\n\n']),
 	    _templateObject2 = _taggedTemplateLiteral(['\n  display: block;\n  margin-bottom: 50px;\n'], ['\n  display: block;\n  margin-bottom: 50px;\n']),
-	    _templateObject3 = _taggedTemplateLiteral(['\n  display: block;\n  box-shadow: 2px 2px 25px rgba(0,0,0,.5);\n  margin-bottom: 100px;\n'], ['\n  display: block;\n  box-shadow: 2px 2px 25px rgba(0,0,0,.5);\n  margin-bottom: 100px;\n']);
+	    _templateObject3 = _taggedTemplateLiteral(['\n  display: block;\n  margin-bottom: 100px;\n'], ['\n  display: block;\n  margin-bottom: 100px;\n']);
 
 	var _react = __webpack_require__("./node_modules/react/react.js");
 

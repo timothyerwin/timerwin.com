@@ -1,6 +1,6 @@
 const express = require('express');
 
-const instagram = require('../instagram');
+const instagram = require('instagram-scraper');
 
 const router = express.Router();
 

@@ -14,7 +14,6 @@ const Link = styled.a`
 
 const Li = styled.li `
   display: block;
-  box-shadow: 2px 2px 15px rgba(0,0,0,.4);
   margin-bottom: 100px;
 `;
 

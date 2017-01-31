@@ -56,11 +56,22 @@ h1 {
   flex-direction: row;
 }
 
-aside {
+
+/*aside {
   margin-top: 50px;
   margin-left: 50px;
   background: #fff;
   padding: 5px;
+  align-self: flex-start;
+  border-radius: 3px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, .07);
+}*/
+
+aside {
+  margin-top: 50px;
+  margin-left: 50px;
+  background: #171717;
+  padding: 4px;
   align-self: flex-start;
   border-radius: 3px;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, .07);
@@ -81,18 +92,29 @@ aside>h3 {
 aside>div.profile {
   width: 180px;
   height: 180px;
-  background-image: url('/images/profile.jpg');
+  background-image: url('/images/logo.jpg');
 }
 
 ul {
   list-style-type: none;
 }
 
-aside>ul li a {
+
+/*aside>ul li a {
   text-decoration: none;
   color: #555;
   padding: 14px 14px;
   border-bottom: 1px solid #eee;
+  display: block;
+  font-size: 14px;
+  text-transform: uppercase;
+}*/
+
+aside>ul li a {
+  text-decoration: none;
+  color: #868686;
+  padding: 14px 14px;
+  border-bottom: 1px solid #000;
   display: block;
   font-size: 14px;
   text-transform: uppercase;
@@ -115,12 +137,12 @@ main {
   border-radius: 4px;
 }
 
-ul.list > li {
+ul.list>li {
   border-bottom: 1px solid #ddd;
   padding: 40px 30px;
 }
 
-ul.list > li:last-child {
+ul.list>li:last-child {
   border-bottom: 0;
 }
 

@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import {Title} from './ux/styles';
 import Tags from './tags';
 
-
 const Time = styled.p `
   font-size: 22px;
   text-transform: uppercase;

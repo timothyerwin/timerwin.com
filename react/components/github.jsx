@@ -34,17 +34,28 @@ const Tag = styled.b`
   color: #000;
 `;
 
+const Stargazers = styled.span`
+  font-size: 16px;
+  color: #39649c;
+  margin-left: 15px;
+  position: relative;
+  top: -4px;
+  opacity: .9;
+  text-shadow: 0 0 4px rgba(0,0,0,.2);
+  cursor: default;
+`;
+
 class Repo extends React.Component {
   static propTypes = {
     data: React.PropTypes.object.isRequired
   }
 
   render() {
-    const {name, description} = this.props.data;
+    const {name, description, stargazers_count} = this.props.data;
 
     return (
       <div>
-        <Title>{name}<Tag>public</Tag></Title>
+        <Title>{name}<Tag>public</Tag><Stargazers title={`${stargazers_count} watchers`}><i class="fa fa-star" style={{'margin-right': '3px'}} />{stargazers_count}</Stargazers></Title>
         <Description>{description.split('built using')[0]}</Description>
         <Tags tags={description.split('using')[1].split(',')} />
         <Link target="_blank" href={this.props.data.html_url}>{this.props.data.html_url}</Link>

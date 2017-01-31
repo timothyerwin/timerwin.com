@@ -22438,7 +22438,8 @@ webpackJsonp([1,0],{
 
 	var _templateObject = _taggedTemplateLiteral(['\n  text-transform: uppercase;\n  font-size: 18px;\n  line-height: 28px;\n  color: #aaa;\n'], ['\n  text-transform: uppercase;\n  font-size: 18px;\n  line-height: 28px;\n  color: #aaa;\n']),
 	    _templateObject2 = _taggedTemplateLiteral(['\n  display: block;\n  margin-top: 15px;\n'], ['\n  display: block;\n  margin-top: 15px;\n']),
-	    _templateObject3 = _taggedTemplateLiteral(['\n  font-family: roboto;\n  font-size: 12px;\n  padding: 5px 15px;\n  border: 1px solid #ccc;\n  font-weight: normal;\n  box-shadow: inset 0 0 8px rgba(0,0,0,.1);\n  position: relative;\n  top: -6px;\n  margin-left: 15px;\n  border-radius: 5px;\n  opacity: .5;\n  cursor: default;\n  color: #000;\n'], ['\n  font-family: roboto;\n  font-size: 12px;\n  padding: 5px 15px;\n  border: 1px solid #ccc;\n  font-weight: normal;\n  box-shadow: inset 0 0 8px rgba(0,0,0,.1);\n  position: relative;\n  top: -6px;\n  margin-left: 15px;\n  border-radius: 5px;\n  opacity: .5;\n  cursor: default;\n  color: #000;\n']);
+	    _templateObject3 = _taggedTemplateLiteral(['\n  font-family: roboto;\n  font-size: 12px;\n  padding: 5px 15px;\n  border: 1px solid #ccc;\n  font-weight: normal;\n  box-shadow: inset 0 0 8px rgba(0,0,0,.1);\n  position: relative;\n  top: -6px;\n  margin-left: 15px;\n  border-radius: 5px;\n  opacity: .5;\n  cursor: default;\n  color: #000;\n'], ['\n  font-family: roboto;\n  font-size: 12px;\n  padding: 5px 15px;\n  border: 1px solid #ccc;\n  font-weight: normal;\n  box-shadow: inset 0 0 8px rgba(0,0,0,.1);\n  position: relative;\n  top: -6px;\n  margin-left: 15px;\n  border-radius: 5px;\n  opacity: .5;\n  cursor: default;\n  color: #000;\n']),
+	    _templateObject4 = _taggedTemplateLiteral(['\n  font-size: 16px;\n  color: #39649c;\n  margin-left: 15px;\n  position: relative;\n  top: -4px;\n  opacity: .9;\n  text-shadow: 0 0 4px rgba(0,0,0,.2);\n  cursor: default;\n'], ['\n  font-size: 16px;\n  color: #39649c;\n  margin-left: 15px;\n  position: relative;\n  top: -4px;\n  opacity: .9;\n  text-shadow: 0 0 4px rgba(0,0,0,.2);\n  cursor: default;\n']);
 
 	var _react = __webpack_require__("./node_modules/react/react.js");
 
@@ -22476,6 +22477,8 @@ webpackJsonp([1,0],{
 
 	var Tag = _styledComponents2.default.b(_templateObject3);
 
+	var Stargazers = _styledComponents2.default.span(_templateObject4);
+
 	var Repo = function (_React$Component) {
 	  _inherits(Repo, _React$Component);
 
@@ -22490,7 +22493,8 @@ webpackJsonp([1,0],{
 	    value: function render() {
 	      var _props$data = this.props.data,
 	          name = _props$data.name,
-	          description = _props$data.description;
+	          description = _props$data.description,
+	          stargazers_count = _props$data.stargazers_count;
 
 
 	      return _react2.default.createElement(
@@ -22504,6 +22508,12 @@ webpackJsonp([1,0],{
 	            Tag,
 	            null,
 	            'public'
+	          ),
+	          _react2.default.createElement(
+	            Stargazers,
+	            { title: '{stargazers_count} watchers' },
+	            _react2.default.createElement(Star, { className: 'fa fa-star', style: { 'margin-right': '3px' } }),
+	            stargazers_count
 	          )
 	        ),
 	        _react2.default.createElement(

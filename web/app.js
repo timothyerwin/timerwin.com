@@ -21951,6 +21951,15 @@ webpackJsonp([1,0],{
 
 /***/ },
 
+/***/ "./node_modules/react-hot-api/modules/index.js":
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = __webpack_require__("./node_modules/react-hot-api/modules/makeMakeHot.js");
+
+/***/ },
+
 /***/ "./node_modules/ansi-regex/index.js":
 /***/ function(module, exports) {
 
@@ -21959,78 +21968,6 @@ webpackJsonp([1,0],{
 		return /[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-PRZcf-nqry=><]/g;
 	};
 
-
-/***/ },
-
-/***/ "./node_modules/react-hot-api/modules/makeAssimilatePrototype.js":
-/***/ function(module, exports) {
-
-	'use strict';
-
-	/**
-	 * Returns a function that establishes the first prototype passed to it
-	 * as the "source of truth" and patches its methods on subsequent invocations,
-	 * also patching current and previous prototypes to forward calls to it.
-	 */
-	module.exports = function makeAssimilatePrototype() {
-	  var storedPrototype,
-	      knownPrototypes = [];
-
-	  function wrapMethod(key) {
-	    return function () {
-	      if (storedPrototype[key]) {
-	        return storedPrototype[key].apply(this, arguments);
-	      }
-	    };
-	  }
-
-	  function patchProperty(proto, key) {
-	    proto[key] = storedPrototype[key];
-
-	    if (typeof proto[key] !== 'function' ||
-	      key === 'type' ||
-	      key === 'constructor') {
-	      return;
-	    }
-
-	    proto[key] = wrapMethod(key);
-
-	    if (storedPrototype[key].isReactClassApproved) {
-	      proto[key].isReactClassApproved = storedPrototype[key].isReactClassApproved;
-	    }
-
-	    if (proto.__reactAutoBindMap && proto.__reactAutoBindMap[key]) {
-	      proto.__reactAutoBindMap[key] = proto[key];
-	    }
-	  }
-
-	  function updateStoredPrototype(freshPrototype) {
-	    storedPrototype = {};
-
-	    Object.getOwnPropertyNames(freshPrototype).forEach(function (key) {
-	      storedPrototype[key] = freshPrototype[key];
-	    });
-	  }
-
-	  function reconcileWithStoredPrototypes(freshPrototype) {
-	    knownPrototypes.push(freshPrototype);
-	    knownPrototypes.forEach(function (proto) {
-	      Object.getOwnPropertyNames(storedPrototype).forEach(function (key) {
-	        patchProperty(proto, key);
-	      });
-	    });
-	  }
-
-	  return function assimilatePrototype(freshPrototype) {
-	    if (Object.prototype.hasOwnProperty.call(freshPrototype, '__isAssimilatedByReactHotAPI')) {
-	      return;
-	    }
-
-	    updateStoredPrototype(freshPrototype);
-	    reconcileWithStoredPrototypes(freshPrototype);
-	    freshPrototype.__isAssimilatedByReactHotAPI = true;
-	  };
-	};
 
 /***/ },
 
@@ -22296,6 +22233,10 @@ webpackJsonp([1,0],{
 
 	var _contact2 = _interopRequireDefault(_contact);
 
+	var _instagram = __webpack_require__("./react/components/instagram.jsx");
+
+	var _instagram2 = _interopRequireDefault(_instagram);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	_reactDom2.default.render(_react2.default.createElement(
@@ -22307,6 +22248,7 @@ webpackJsonp([1,0],{
 	    _react2.default.createElement(_reactRouter.Route, { path: '/', component: _profile2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: '/resume', component: _resume2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: '/github', component: _github2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: '/instagram', component: _instagram2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: '/contact', component: _contact2.default })
 	  )
 	), document.getElementById('app'));
@@ -22438,8 +22380,8 @@ webpackJsonp([1,0],{
 
 	var _templateObject = _taggedTemplateLiteral(['\n  text-transform: uppercase;\n  font-size: 18px;\n  line-height: 28px;\n  color: #aaa;\n'], ['\n  text-transform: uppercase;\n  font-size: 18px;\n  line-height: 28px;\n  color: #aaa;\n']),
 	    _templateObject2 = _taggedTemplateLiteral(['\n  display: block;\n  margin-top: 15px;\n'], ['\n  display: block;\n  margin-top: 15px;\n']),
-	    _templateObject3 = _taggedTemplateLiteral(['\n  font-family: roboto;\n  font-size: 12px;\n  padding: 5px 15px;\n  border: 1px solid #ccc;\n  font-weight: normal;\n  box-shadow: inset 0 0 8px rgba(0,0,0,.1);\n  position: relative;\n  top: -6px;\n  margin-left: 15px;\n  border-radius: 5px;\n  opacity: .5;\n  cursor: default;\n  color: #000;\n'], ['\n  font-family: roboto;\n  font-size: 12px;\n  padding: 5px 15px;\n  border: 1px solid #ccc;\n  font-weight: normal;\n  box-shadow: inset 0 0 8px rgba(0,0,0,.1);\n  position: relative;\n  top: -6px;\n  margin-left: 15px;\n  border-radius: 5px;\n  opacity: .5;\n  cursor: default;\n  color: #000;\n']),
-	    _templateObject4 = _taggedTemplateLiteral(['\n  font-size: 16px;\n  color: #39649c;\n  margin-left: 15px;\n  position: relative;\n  top: -4px;\n  opacity: .9;\n  text-shadow: 0 0 4px rgba(0,0,0,.2);\n  cursor: default;\n'], ['\n  font-size: 16px;\n  color: #39649c;\n  margin-left: 15px;\n  position: relative;\n  top: -4px;\n  opacity: .9;\n  text-shadow: 0 0 4px rgba(0,0,0,.2);\n  cursor: default;\n']);
+	    _templateObject3 = _taggedTemplateLiteral(['\n  font-family: roboto;\n  font-size: 12px;\n  padding: 5px 15px;\n  border: 1px solid #ccc;\n  font-weight: normal;\n  box-shadow: inset 0 0 8px rgba(0,0,0,.1);\n  position: relative;\n  top: -6px;\n  margin-left: 15px;\n  border-radius: 5px;\n  opacity: .5;\n  cursor: default;\n  color: #000;\n  margin-right: 5px;\n'], ['\n  font-family: roboto;\n  font-size: 12px;\n  padding: 5px 15px;\n  border: 1px solid #ccc;\n  font-weight: normal;\n  box-shadow: inset 0 0 8px rgba(0,0,0,.1);\n  position: relative;\n  top: -6px;\n  margin-left: 15px;\n  border-radius: 5px;\n  opacity: .5;\n  cursor: default;\n  color: #000;\n  margin-right: 5px;\n']),
+	    _templateObject4 = _taggedTemplateLiteral(['\n  font-size: 16px;\n  color: ##2f3238;\n  margin-left: 17px;\n  position: relative;\n  top: -4px;\n  opacity: .9;\n  text-shadow: 0 0 4px rgba(0,0,0,.2);\n  cursor: default;\n'], ['\n  font-size: 16px;\n  color: ##2f3238;\n  margin-left: 17px;\n  position: relative;\n  top: -4px;\n  opacity: .9;\n  text-shadow: 0 0 4px rgba(0,0,0,.2);\n  cursor: default;\n']);
 
 	var _react = __webpack_require__("./node_modules/react/react.js");
 
@@ -22477,7 +22419,7 @@ webpackJsonp([1,0],{
 
 	var Tag = _styledComponents2.default.b(_templateObject3);
 
-	var Stargazers = _styledComponents2.default.span(_templateObject4);
+	var Stats = _styledComponents2.default.span(_templateObject4);
 
 	var Repo = function (_React$Component) {
 	  _inherits(Repo, _React$Component);
@@ -22494,7 +22436,8 @@ webpackJsonp([1,0],{
 	      var _props$data = this.props.data,
 	          name = _props$data.name,
 	          description = _props$data.description,
-	          stargazers_count = _props$data.stargazers_count;
+	          stargazers_count = _props$data.stargazers_count,
+	          watchers_count = _props$data.watchers_count;
 
 
 	      return _react2.default.createElement(
@@ -22510,10 +22453,16 @@ webpackJsonp([1,0],{
 	            'public'
 	          ),
 	          _react2.default.createElement(
-	            Stargazers,
-	            { title: '{stargazers_count} watchers' },
-	            _react2.default.createElement(Star, { className: 'fa fa-star', style: { 'margin-right': '3px' } }),
+	            Stats,
+	            { title: stargazers_count + ' Stars' },
+	            _react2.default.createElement('i', { className: 'fa fa-star', style: { 'margin-right': '3px' } }),
 	            stargazers_count
+	          ),
+	          _react2.default.createElement(
+	            Stats,
+	            { title: stargazers_count + ' Watchers' },
+	            _react2.default.createElement('i', { className: 'fa fa-eye', style: { 'margin-right': '5px' } }),
+	            watchers_count
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -22601,6 +22550,170 @@ webpackJsonp([1,0],{
 	}(_react2.default.Component);
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__("./node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, __webpack_require__("./node_modules/react/react.js"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "github.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("./node_modules/webpack/buildin/module.js")(module), __webpack_require__("./node_modules/exports-loader/index.js?self.fetch!./node_modules/whatwg-fetch/fetch.js")))
+
+/***/ },
+
+/***/ "./react/components/instagram.jsx":
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module, fetch) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__("./node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = __webpack_require__("./node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = __webpack_require__("./node_modules/react-dom/lib/ReactMount.js"), React = __webpack_require__("./node_modules/react/react.js"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _templateObject = _taggedTemplateLiteral(['\n\n'], ['\n\n']),
+	    _templateObject2 = _taggedTemplateLiteral(['\n  display: block;\n  margin-bottom: 50px;\n'], ['\n  display: block;\n  margin-bottom: 50px;\n']),
+	    _templateObject3 = _taggedTemplateLiteral(['\n  display: block;\n  box-shadow: 2px 2px 15px rgba(0,0,0,.4);\n  margin-bottom: 100px;\n'], ['\n  display: block;\n  box-shadow: 2px 2px 15px rgba(0,0,0,.4);\n  margin-bottom: 100px;\n']);
+
+	var _react = __webpack_require__("./node_modules/react/react.js");
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _styledComponents = __webpack_require__("./node_modules/styled-components/lib/index.js");
+
+	var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+	var _uuid = __webpack_require__("./node_modules/uuid/index.js");
+
+	var _uuid2 = _interopRequireDefault(_uuid);
+
+	__webpack_require__("./node_modules/whatwg-fetch/fetch.js");
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+	var Viewer = _styledComponents2.default.ul(_templateObject);
+
+	var Link = _styledComponents2.default.a(_templateObject2);
+
+	var Li = _styledComponents2.default.li(_templateObject3);
+
+	var ImageBox = function (_React$Component) {
+	  _inherits(ImageBox, _React$Component);
+
+	  function ImageBox() {
+	    _classCallCheck(this, ImageBox);
+
+	    return _possibleConstructorReturn(this, (ImageBox.__proto__ || Object.getPrototypeOf(ImageBox)).apply(this, arguments));
+	  }
+
+	  _createClass(ImageBox, [{
+	    key: 'render',
+	    value: function render() {
+	      var _props$data = this.props.data,
+	          url = _props$data.url,
+	          width = _props$data.width,
+	          height = _props$data.height;
+
+
+	      return _react2.default.createElement('div', { style: {
+	          'background': 'url(' + url + ')',
+	          width: width,
+	          height: height
+	        } });
+	    }
+	  }]);
+
+	  return ImageBox;
+	}(_react2.default.Component);
+
+	ImageBox.propTypes = {
+	  data: _react2.default.PropTypes.object.isRequired
+	};
+
+	var Media = function (_React$Component2) {
+	  _inherits(Media, _React$Component2);
+
+	  function Media() {
+	    _classCallCheck(this, Media);
+
+	    return _possibleConstructorReturn(this, (Media.__proto__ || Object.getPrototypeOf(Media)).apply(this, arguments));
+	  }
+
+	  _createClass(Media, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        Viewer,
+	        null,
+	        this.props.data.map(function (item) {
+	          return _react2.default.createElement(
+	            Li,
+	            { key: (0, _uuid2.default)() },
+	            _react2.default.createElement(ImageBox, { data: item.images.standard_resolution })
+	          );
+	        })
+	      );
+	    }
+	  }]);
+
+	  return Media;
+	}(_react2.default.Component);
+
+	Media.propTypes = {
+	  data: _react2.default.PropTypes.array.isRequired
+	};
+
+
+	module.exports = function (_React$Component3) {
+	  _inherits(_class, _React$Component3);
+
+	  function _class(props) {
+	    _classCallCheck(this, _class);
+
+	    var _this3 = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this, props));
+
+	    _this3.state = {
+	      items: []
+	    };
+	    return _this3;
+	  }
+
+	  _createClass(_class, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this4 = this;
+
+	      fetch('/instagram/media').then(function (res) {
+	        return res.json();
+	      }).then(function (items) {
+	        _this4.setState({ items: items });
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'instagram'
+	        ),
+	        _react2.default.createElement(
+	          Link,
+	          { target: '_blank', src: 'https://www.instagram.com/timerwinofficial' },
+	          'https://www.instagram.com/timerwinofficial'
+	        ),
+	        _react2.default.createElement(Media, { data: this.state.items })
+	      );
+	    }
+	  }]);
+
+	  return _class;
+	}(_react2.default.Component);
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__("./node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, __webpack_require__("./node_modules/react/react.js"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "instagram.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("./node_modules/webpack/buildin/module.js")(module), __webpack_require__("./node_modules/exports-loader/index.js?self.fetch!./node_modules/whatwg-fetch/fetch.js")))
 
 /***/ },
@@ -22725,6 +22838,9 @@ webpackJsonp([1,0],{
 	      }, {
 	        name: 'Github',
 	        href: '/github'
+	      }, {
+	        name: 'Instagram',
+	        href: '/instagram'
 	      }, {
 	        name: 'Contact',
 	        href: '/contact'
@@ -23045,7 +23161,7 @@ webpackJsonp([1,0],{
 
 	'use strict';
 
-	var _templateObject = _taggedTemplateLiteral(['\n  font-size: 30px;\n  text-transform: uppercase;\n  line-height: 40px;\n'], ['\n  font-size: 30px;\n  text-transform: uppercase;\n  line-height: 40px;\n']);
+	var _templateObject = _taggedTemplateLiteral(['\n  font-size: 30px;\n  text-transform: uppercase;\n  line-height: 40px;\n  cursor: default;\n'], ['\n  font-size: 30px;\n  text-transform: uppercase;\n  line-height: 40px;\n  cursor: default;\n']);
 
 	var _styledComponents = __webpack_require__("./node_modules/styled-components/lib/index.js");
 
@@ -41366,12 +41482,75 @@ webpackJsonp([1,0],{
 
 /***/ },
 
-/***/ "./node_modules/react-hot-api/modules/index.js":
-/***/ function(module, exports, __webpack_require__) {
+/***/ "./node_modules/react-hot-api/modules/makeAssimilatePrototype.js":
+/***/ function(module, exports) {
 
 	'use strict';
 
-	module.exports = __webpack_require__("./node_modules/react-hot-api/modules/makeMakeHot.js");
+	/**
+	 * Returns a function that establishes the first prototype passed to it
+	 * as the "source of truth" and patches its methods on subsequent invocations,
+	 * also patching current and previous prototypes to forward calls to it.
+	 */
+	module.exports = function makeAssimilatePrototype() {
+	  var storedPrototype,
+	      knownPrototypes = [];
+
+	  function wrapMethod(key) {
+	    return function () {
+	      if (storedPrototype[key]) {
+	        return storedPrototype[key].apply(this, arguments);
+	      }
+	    };
+	  }
+
+	  function patchProperty(proto, key) {
+	    proto[key] = storedPrototype[key];
+
+	    if (typeof proto[key] !== 'function' ||
+	      key === 'type' ||
+	      key === 'constructor') {
+	      return;
+	    }
+
+	    proto[key] = wrapMethod(key);
+
+	    if (storedPrototype[key].isReactClassApproved) {
+	      proto[key].isReactClassApproved = storedPrototype[key].isReactClassApproved;
+	    }
+
+	    if (proto.__reactAutoBindMap && proto.__reactAutoBindMap[key]) {
+	      proto.__reactAutoBindMap[key] = proto[key];
+	    }
+	  }
+
+	  function updateStoredPrototype(freshPrototype) {
+	    storedPrototype = {};
+
+	    Object.getOwnPropertyNames(freshPrototype).forEach(function (key) {
+	      storedPrototype[key] = freshPrototype[key];
+	    });
+	  }
+
+	  function reconcileWithStoredPrototypes(freshPrototype) {
+	    knownPrototypes.push(freshPrototype);
+	    knownPrototypes.forEach(function (proto) {
+	      Object.getOwnPropertyNames(storedPrototype).forEach(function (key) {
+	        patchProperty(proto, key);
+	      });
+	    });
+	  }
+
+	  return function assimilatePrototype(freshPrototype) {
+	    if (Object.prototype.hasOwnProperty.call(freshPrototype, '__isAssimilatedByReactHotAPI')) {
+	      return;
+	    }
+
+	    updateStoredPrototype(freshPrototype);
+	    reconcileWithStoredPrototypes(freshPrototype);
+	    freshPrototype.__isAssimilatedByReactHotAPI = true;
+	  };
+	};
 
 /***/ }
 

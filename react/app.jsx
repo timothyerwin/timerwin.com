@@ -6,6 +6,7 @@ import Profile from './components/profile';
 import Resume from './components/resume';
 import Github from './components/github';
 import Contact from './components/contact';
+import Instagram from './components/instagram';
 
 ReactDOM.render(
   <Router history={browserHistory}>
@@ -13,6 +14,7 @@ ReactDOM.render(
       <Route path="/" component={Profile}/>
       <Route path="/resume" component={Resume}/>
       <Route path="/github" component={Github}/>
+      <Route path="/instagram" component={Instagram}/>
       <Route path="/contact" component={Contact}/>
     </Route>
   </Router>, document.getElementById('app'));

@@ -15,6 +15,9 @@ module.exports = class extends React.Component {
         name: 'Github',
         href: '/github'
       }, {
+        name: 'Instagram',
+        href: '/instagram'
+      }, {
         name: 'Contact',
         href: '/contact'
       }

@@ -32,12 +32,13 @@ const Tag = styled.b`
   opacity: .5;
   cursor: default;
   color: #000;
+  margin-right: 5px;
 `;
 
-const Stargazers = styled.span`
+const Stats = styled.span`
   font-size: 16px;
-  color: #39649c;
-  margin-left: 15px;
+  color: ##2f3238;
+  margin-left: 17px;
   position: relative;
   top: -4px;
   opacity: .9;
@@ -51,11 +52,11 @@ class Repo extends React.Component {
   }
 
   render() {
-    const {name, description, stargazers_count} = this.props.data;
+    const {name, description, stargazers_count, watchers_count} = this.props.data;
 
     return (
       <div>
-        <Title>{name}<Tag>public</Tag><Stargazers title={`${stargazers_count} watchers`}><i class="fa fa-star" style={{'margin-right': '3px'}} />{stargazers_count}</Stargazers></Title>
+        <Title>{name}<Tag>public</Tag><Stats title={`${stargazers_count} Stars`}><i class="fa fa-star" style={{'margin-right': '3px'}} />{stargazers_count}</Stats><Stats title={`${stargazers_count} Watchers`}><i class="fa fa-eye" style={{'margin-right': '5px'}} />{watchers_count}</Stats></Title>
         <Description>{description.split('built using')[0]}</Description>
         <Tags tags={description.split('using')[1].split(',')} />
         <Link target="_blank" href={this.props.data.html_url}>{this.props.data.html_url}</Link>

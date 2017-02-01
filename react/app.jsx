@@ -8,6 +8,9 @@ import Github from './components/github';
 import Contact from './components/contact';
 import Instagram from './components/instagram';
 
+require('velocity-animate');
+require('velocity-animate/velocity.ui');
+
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route component={Layout}>

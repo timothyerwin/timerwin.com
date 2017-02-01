@@ -122,7 +122,7 @@ module.exports = class extends React.Component {
         <b style={{
           'textTransform': 'uppercase',
           'color': '#09c'
-        }}>Your message has been sent! Thank you.</b>
+        }}>Your message was sent! Thank you.</b>
       );
     }
 

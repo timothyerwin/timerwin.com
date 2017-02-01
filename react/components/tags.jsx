@@ -25,7 +25,7 @@ const Tags = styled.div `
 
 module.exports = class extends React.Component {
   static propTypes = {
-    tags: React.PropTypes.object.isRequired
+    tags: React.PropTypes.array.isRequired
   }
 
   render() {

@@ -5372,7 +5372,7 @@ webpackJsonp([1,0],{
 
 /***/ },
 
-/***/ "./node_modules/react-activity/lib/Dots/Dots.js":
+/***/ "./node_modules/react-activity/lib/Levels/Levels.js":
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5391,33 +5391,28 @@ webpackJsonp([1,0],{
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var Dots = _react2.default.createClass({
-	  displayName: 'Dots',
+	var Levels = _react2.default.createClass({
+	  displayName: 'Levels',
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'div',
-	      { style: this.props.style, className: 'rai-dots' },
-	      _react2.default.createElement('div', {
-	        className: 'rai-circle',
-	        style: this.props.getFillStyle(0.3)
-	      }),
-	      _react2.default.createElement('div', {
-	        className: 'rai-circle',
-	        style: this.props.getFillStyle(0.2)
-	      }),
-	      _react2.default.createElement('div', {
-	        className: 'rai-circle',
-	        style: this.props.getFillStyle(0.1)
-	      })
+	      { style: this.props.style, className: 'rai-levels' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'rai-levels-container' },
+	        _react2.default.createElement('div', { className: 'rai-bar', style: this.props.getFillStyle() }),
+	        _react2.default.createElement('div', { className: 'rai-bar', style: this.props.getFillStyle(0.25) }),
+	        _react2.default.createElement('div', { className: 'rai-bar', style: this.props.getFillStyle(0.4) })
+	      )
 	    );
 	  }
 	});
 
-	exports.default = (0, _activityIndicator2.default)(Dots, 0.8);
+	exports.default = (0, _activityIndicator2.default)(Levels, 1.5);
 
 /***/ },
 
-/***/ "./node_modules/react-activity/lib/Dots/index.js":
+/***/ "./node_modules/react-activity/lib/Levels/index.js":
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5426,13 +5421,13 @@ webpackJsonp([1,0],{
 	  value: true
 	});
 
-	var _Dots = __webpack_require__("./node_modules/react-activity/lib/Dots/Dots.js");
+	var _Levels = __webpack_require__("./node_modules/react-activity/lib/Levels/Levels.js");
 
-	var _Dots2 = _interopRequireDefault(_Dots);
+	var _Levels2 = _interopRequireDefault(_Levels);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.default = _Dots2.default;
+	exports.default = _Levels2.default;
 
 /***/ },
 
@@ -22500,9 +22495,9 @@ webpackJsonp([1,0],{
 
 	var _velocityReact = __webpack_require__("./node_modules/velocity-react/index.js");
 
-	var _Dots = __webpack_require__("./node_modules/react-activity/lib/Dots/index.js");
+	var _Levels = __webpack_require__("./node_modules/react-activity/lib/Levels/index.js");
 
-	var _Dots2 = _interopRequireDefault(_Dots);
+	var _Levels2 = _interopRequireDefault(_Levels);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22575,7 +22570,7 @@ webpackJsonp([1,0],{
 	        }).then(function () {
 	          setTimeout(function () {
 	            _this2.setState({ sending: false, sent: true });
-	          }, 3500);
+	          }, 1000);
 	        }).catch(function () {
 	          _this2.setState({ error: true, message: 'An error occured while sending. We\'ll look into it.' });
 	        });
@@ -22600,7 +22595,13 @@ webpackJsonp([1,0],{
 	      var error = void 0;
 	      var validation = void 0;
 
-	      if (!this.state.sent) {
+	      if (this.state.sending) {
+	        button = _react2.default.createElement(
+	          'div',
+	          { style: { marginLeft: '5px' } },
+	          _react2.default.createElement(_Levels2.default, { size: 18, color: '#09a' })
+	        );
+	      } else if (!this.state.sent) {
 	        button = _react2.default.createElement(
 	          Button,
 	          { ref: function ref(r) {
@@ -22609,8 +22610,6 @@ webpackJsonp([1,0],{
 	          _react2.default.createElement('i', { className: 'fa fa-paper-plane pull-left' }),
 	          'Send'
 	        );
-	      } else if (this.state.sending) {
-	        button = _react2.default.createElement(_Dots2.default, { size: 20, color: '#111' });
 	      } else {
 	        validation = _react2.default.createElement(
 	          'b',
@@ -22764,13 +22763,13 @@ webpackJsonp([1,0],{
 	          _react2.default.createElement(
 	            Stats,
 	            { title: stargazers_count + ' Stars' },
-	            _react2.default.createElement('i', { className: 'fa fa-star', style: { 'margin-right': '3px' } }),
+	            _react2.default.createElement('i', { className: 'fa fa-star', style: { 'marginRight': '3px' } }),
 	            stargazers_count
 	          ),
 	          _react2.default.createElement(
 	            Stats,
 	            { title: stargazers_count + ' Watchers' },
-	            _react2.default.createElement('i', { className: 'fa fa-eye', style: { 'margin-right': '5px' } }),
+	            _react2.default.createElement('i', { className: 'fa fa-eye', style: { 'marginRight': '5px' } }),
 	            watchers_count
 	          )
 	        ),
@@ -23455,7 +23454,7 @@ webpackJsonp([1,0],{
 
 	  return _class;
 	}(_react2.default.Component), _class.propTypes = {
-	  tags: _react2.default.PropTypes.object.isRequired
+	  tags: _react2.default.PropTypes.array.isRequired
 	}, _temp);
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__("./node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, __webpack_require__("./node_modules/react/react.js"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "tags.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }

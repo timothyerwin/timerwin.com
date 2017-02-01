@@ -56,7 +56,7 @@ class Repo extends React.Component {
 
     return (
       <div>
-        <Title>{name}<Tag>public</Tag><Stats title={`${stargazers_count} Stars`}><i class="fa fa-star" style={{'margin-right': '3px'}} />{stargazers_count}</Stats><Stats title={`${stargazers_count} Watchers`}><i class="fa fa-eye" style={{'margin-right': '5px'}} />{watchers_count}</Stats></Title>
+        <Title>{name}<Tag>public</Tag><Stats title={`${stargazers_count} Stars`}><i class="fa fa-star" style={{'marginRight': '3px'}} />{stargazers_count}</Stats><Stats title={`${stargazers_count} Watchers`}><i class="fa fa-eye" style={{'marginRight': '5px'}} />{watchers_count}</Stats></Title>
         <Description>{description.split('built using')[0]}</Description>
         <Tags tags={description.split('using')[1].split(',')} />
         <Link target="_blank" href={this.props.data.html_url}>{this.props.data.html_url}</Link>

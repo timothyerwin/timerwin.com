@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import validator from 'validator';
 import {VelocityComponent} from 'velocity-react';
+import Levels from 'react-activity/lib/Levels';
 
 const Textarea = styled.textarea `
   display:block;
@@ -86,7 +87,9 @@ module.exports = class extends React.Component {
           'Content-Type': 'application/json'
         }
       }).then(() => {
-        this.setState({sent: true});
+        setTimeout(() => {
+          this.setState({sending: false, sent: true});
+        }, 1000);
       }).catch(() => {
         this.setState({error: true, message: 'An error occured while sending. We\'ll look into it.'});
       });
@@ -106,7 +109,9 @@ module.exports = class extends React.Component {
     let error;
     let validation;
 
-    if (!this.state.sent) {
+    if (this.state.sending) {
+      button = <div style={{marginLeft: '5px'}} ><Levels size={18} color="#09a" /></div>;
+    } else if (!this.state.sent) {
       button = (
         <Button ref={(r) => {
           this.button = r;

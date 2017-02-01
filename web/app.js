@@ -5372,6 +5372,150 @@ webpackJsonp([1,0],{
 
 /***/ },
 
+/***/ "./node_modules/react-activity/lib/Dots/Dots.js":
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__("./node_modules/react/react.js");
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _activityIndicator = __webpack_require__("./node_modules/react-activity/lib/activityIndicator.js");
+
+	var _activityIndicator2 = _interopRequireDefault(_activityIndicator);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Dots = _react2.default.createClass({
+	  displayName: 'Dots',
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { style: this.props.style, className: 'rai-dots' },
+	      _react2.default.createElement('div', {
+	        className: 'rai-circle',
+	        style: this.props.getFillStyle(0.3)
+	      }),
+	      _react2.default.createElement('div', {
+	        className: 'rai-circle',
+	        style: this.props.getFillStyle(0.2)
+	      }),
+	      _react2.default.createElement('div', {
+	        className: 'rai-circle',
+	        style: this.props.getFillStyle(0.1)
+	      })
+	    );
+	  }
+	});
+
+	exports.default = (0, _activityIndicator2.default)(Dots, 0.8);
+
+/***/ },
+
+/***/ "./node_modules/react-activity/lib/Dots/index.js":
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _Dots = __webpack_require__("./node_modules/react-activity/lib/Dots/Dots.js");
+
+	var _Dots2 = _interopRequireDefault(_Dots);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _Dots2.default;
+
+/***/ },
+
+/***/ "./node_modules/react-activity/lib/activityIndicator.js":
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__("./node_modules/react/react.js");
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = function (ComposedComponent, defaultAnimationDuration) {
+	  return _react2.default.createClass({
+	    displayName: ComposedComponent.displayName,
+	    propTypes: {
+	      animationDuration: _react.PropTypes.number.isRequired,
+	      speed: _react.PropTypes.number
+	    },
+	    getDefaultProps: function getDefaultProps() {
+	      return {
+	        animationDuration: defaultAnimationDuration,
+	        speed: 1
+	      };
+	    },
+	    getDelayStyle: function getDelayStyle(delay) {
+	      var style = {};
+	      if (delay) {
+	        style.animationDelay = '-' + delay * (1 / this.props.speed) + 's';
+	      }
+	      return style;
+	    },
+	    getFillStyle: function getFillStyle(delay) {
+	      var style = this.getDelayStyle(delay);
+	      if (this.props.color) {
+	        style.backgroundColor = this.props.color;
+	      }
+	      return style;
+	    },
+	    getBorderStyle: function getBorderStyle(delay) {
+	      var style = this.getDelayStyle(delay);
+	      if (this.props.color) {
+	        style.borderColor = this.props.color;
+	      }
+	      return style;
+	    },
+	    render: function render() {
+	      var containerStyle = {
+	        display: 'inline-block',
+	        fontSize: '16px',
+	        lineHeight: '0'
+	      };
+	      var indicatorStyle = {
+	        animationDuration: this.props.animationDuration * (1 / this.props.speed) + 's'
+	      };
+	      if (this.props.size) {
+	        indicatorStyle.fontSize = this.props.size;
+	      }
+	      var className = 'rai-activity-indicator';
+	      className += this.props.className ? ' ' + this.props.className : '';
+	      return _react2.default.createElement(
+	        'div',
+	        { style: containerStyle, className: this.props.className },
+	        _react2.default.createElement(ComposedComponent, _extends({}, this.props, {
+	          getFillStyle: this.getFillStyle,
+	          getBorderStyle: this.getBorderStyle,
+	          style: indicatorStyle
+	        }))
+	      );
+	    }
+	  });
+	};
+
+/***/ },
+
 /***/ "./node_modules/react-addons-transition-group/index.js":
 /***/ function(module, exports, __webpack_require__) {
 
@@ -22356,6 +22500,10 @@ webpackJsonp([1,0],{
 
 	var _velocityReact = __webpack_require__("./node_modules/velocity-react/index.js");
 
+	var _Dots = __webpack_require__("./node_modules/react-activity/lib/Dots/index.js");
+
+	var _Dots2 = _interopRequireDefault(_Dots);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22415,7 +22563,7 @@ webpackJsonp([1,0],{
 	        this.setState({ invalid: true, validation: 'The email field is invalid.' });
 	        this.shake();
 	      } else {
-	        this.setState({ sending: true });
+	        this.setState({ sending: true, invalid: false, validation: '' });
 
 	        fetch('/contact/message', {
 	          method: 'POST',
@@ -22425,7 +22573,9 @@ webpackJsonp([1,0],{
 	            'Content-Type': 'application/json'
 	          }
 	        }).then(function () {
-	          _this2.setState({ sent: true });
+	          setTimeout(function () {
+	            _this2.setState({ sending: false, sent: true });
+	          }, 3500);
 	        }).catch(function () {
 	          _this2.setState({ error: true, message: 'An error occured while sending. We\'ll look into it.' });
 	        });
@@ -22459,6 +22609,8 @@ webpackJsonp([1,0],{
 	          _react2.default.createElement('i', { className: 'fa fa-paper-plane pull-left' }),
 	          'Send'
 	        );
+	      } else if (this.state.sending) {
+	        button = _react2.default.createElement(_Dots2.default, { size: 20, color: '#111' });
 	      } else {
 	        validation = _react2.default.createElement(
 	          'b',
@@ -22466,7 +22618,7 @@ webpackJsonp([1,0],{
 	              'textTransform': 'uppercase',
 	              'color': '#09c'
 	            } },
-	          'Your message has been sent!'
+	          'Your message has been sent! Thank you.'
 	        );
 	      }
 
@@ -25315,40 +25467,14 @@ webpackJsonp([1,0],{
 
 /***/ },
 
-/***/ "./node_modules/react-router/lib/createMemoryHistory.js":
-/***/ function(module, exports, __webpack_require__) {
+/***/ "./node_modules/ansi-regex/index.js":
+/***/ function(module, exports) {
 
 	'use strict';
+	module.exports = function () {
+		return /[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-PRZcf-nqry=><]/g;
+	};
 
-	exports.__esModule = true;
-	exports.default = createMemoryHistory;
-
-	var _useQueries = __webpack_require__("./node_modules/history/lib/useQueries.js");
-
-	var _useQueries2 = _interopRequireDefault(_useQueries);
-
-	var _useBasename = __webpack_require__("./node_modules/history/lib/useBasename.js");
-
-	var _useBasename2 = _interopRequireDefault(_useBasename);
-
-	var _createMemoryHistory = __webpack_require__("./node_modules/history/lib/createMemoryHistory.js");
-
-	var _createMemoryHistory2 = _interopRequireDefault(_createMemoryHistory);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function createMemoryHistory(options) {
-	  // signatures and type checking differ between `useQueries` and
-	  // `createMemoryHistory`, have to create `memoryHistory` first because
-	  // `useQueries` doesn't understand the signature
-	  var memoryHistory = (0, _createMemoryHistory2.default)(options);
-	  var createHistory = function createHistory() {
-	    return memoryHistory;
-	  };
-	  var history = (0, _useQueries2.default)((0, _useBasename2.default)(createHistory))(options);
-	  return history;
-	}
-	module.exports = exports['default'];
 
 /***/ },
 
@@ -25377,14 +25503,284 @@ webpackJsonp([1,0],{
 
 /***/ },
 
-/***/ "./node_modules/ansi-regex/index.js":
-/***/ function(module, exports) {
+/***/ "./node_modules/react-router/lib/createTransitionManager.js":
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	module.exports = function () {
-		return /[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-PRZcf-nqry=><]/g;
-	};
 
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	exports.default = createTransitionManager;
+
+	var _routerWarning = __webpack_require__("./node_modules/react-router/lib/routerWarning.js");
+
+	var _routerWarning2 = _interopRequireDefault(_routerWarning);
+
+	var _computeChangedRoutes2 = __webpack_require__("./node_modules/react-router/lib/computeChangedRoutes.js");
+
+	var _computeChangedRoutes3 = _interopRequireDefault(_computeChangedRoutes2);
+
+	var _TransitionUtils = __webpack_require__("./node_modules/react-router/lib/TransitionUtils.js");
+
+	var _isActive2 = __webpack_require__("./node_modules/react-router/lib/isActive.js");
+
+	var _isActive3 = _interopRequireDefault(_isActive2);
+
+	var _getComponents = __webpack_require__("./node_modules/react-router/lib/getComponents.js");
+
+	var _getComponents2 = _interopRequireDefault(_getComponents);
+
+	var _matchRoutes = __webpack_require__("./node_modules/react-router/lib/matchRoutes.js");
+
+	var _matchRoutes2 = _interopRequireDefault(_matchRoutes);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function hasAnyProperties(object) {
+	  for (var p in object) {
+	    if (Object.prototype.hasOwnProperty.call(object, p)) return true;
+	  }return false;
+	}
+
+	function createTransitionManager(history, routes) {
+	  var state = {};
+
+	  // Signature should be (location, indexOnly), but needs to support (path,
+	  // query, indexOnly)
+	  function isActive(location, indexOnly) {
+	    location = history.createLocation(location);
+
+	    return (0, _isActive3.default)(location, indexOnly, state.location, state.routes, state.params);
+	  }
+
+	  var partialNextState = void 0;
+
+	  function match(location, callback) {
+	    if (partialNextState && partialNextState.location === location) {
+	      // Continue from where we left off.
+	      finishMatch(partialNextState, callback);
+	    } else {
+	      (0, _matchRoutes2.default)(routes, location, function (error, nextState) {
+	        if (error) {
+	          callback(error);
+	        } else if (nextState) {
+	          finishMatch(_extends({}, nextState, { location: location }), callback);
+	        } else {
+	          callback();
+	        }
+	      });
+	    }
+	  }
+
+	  function finishMatch(nextState, callback) {
+	    var _computeChangedRoutes = (0, _computeChangedRoutes3.default)(state, nextState),
+	        leaveRoutes = _computeChangedRoutes.leaveRoutes,
+	        changeRoutes = _computeChangedRoutes.changeRoutes,
+	        enterRoutes = _computeChangedRoutes.enterRoutes;
+
+	    (0, _TransitionUtils.runLeaveHooks)(leaveRoutes, state);
+
+	    // Tear down confirmation hooks for left routes
+	    leaveRoutes.filter(function (route) {
+	      return enterRoutes.indexOf(route) === -1;
+	    }).forEach(removeListenBeforeHooksForRoute);
+
+	    // change and enter hooks are run in series
+	    (0, _TransitionUtils.runChangeHooks)(changeRoutes, state, nextState, function (error, redirectInfo) {
+	      if (error || redirectInfo) return handleErrorOrRedirect(error, redirectInfo);
+
+	      (0, _TransitionUtils.runEnterHooks)(enterRoutes, nextState, finishEnterHooks);
+	    });
+
+	    function finishEnterHooks(error, redirectInfo) {
+	      if (error || redirectInfo) return handleErrorOrRedirect(error, redirectInfo);
+
+	      // TODO: Fetch components after state is updated.
+	      (0, _getComponents2.default)(nextState, function (error, components) {
+	        if (error) {
+	          callback(error);
+	        } else {
+	          // TODO: Make match a pure function and have some other API
+	          // for "match and update state".
+	          callback(null, null, state = _extends({}, nextState, { components: components }));
+	        }
+	      });
+	    }
+
+	    function handleErrorOrRedirect(error, redirectInfo) {
+	      if (error) callback(error);else callback(null, redirectInfo);
+	    }
+	  }
+
+	  var RouteGuid = 1;
+
+	  function getRouteID(route) {
+	    var create = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+	    return route.__id__ || create && (route.__id__ = RouteGuid++);
+	  }
+
+	  var RouteHooks = Object.create(null);
+
+	  function getRouteHooksForRoutes(routes) {
+	    return routes.map(function (route) {
+	      return RouteHooks[getRouteID(route)];
+	    }).filter(function (hook) {
+	      return hook;
+	    });
+	  }
+
+	  function transitionHook(location, callback) {
+	    (0, _matchRoutes2.default)(routes, location, function (error, nextState) {
+	      if (nextState == null) {
+	        // TODO: We didn't actually match anything, but hang
+	        // onto error/nextState so we don't have to matchRoutes
+	        // again in the listen callback.
+	        callback();
+	        return;
+	      }
+
+	      // Cache some state here so we don't have to
+	      // matchRoutes() again in the listen callback.
+	      partialNextState = _extends({}, nextState, { location: location });
+
+	      var hooks = getRouteHooksForRoutes((0, _computeChangedRoutes3.default)(state, partialNextState).leaveRoutes);
+
+	      var result = void 0;
+	      for (var i = 0, len = hooks.length; result == null && i < len; ++i) {
+	        // Passing the location arg here indicates to
+	        // the user that this is a transition hook.
+	        result = hooks[i](location);
+	      }
+
+	      callback(result);
+	    });
+	  }
+
+	  /* istanbul ignore next: untestable with Karma */
+	  function beforeUnloadHook() {
+	    // Synchronously check to see if any route hooks want
+	    // to prevent the current window/tab from closing.
+	    if (state.routes) {
+	      var hooks = getRouteHooksForRoutes(state.routes);
+
+	      var message = void 0;
+	      for (var i = 0, len = hooks.length; typeof message !== 'string' && i < len; ++i) {
+	        // Passing no args indicates to the user that this is a
+	        // beforeunload hook. We don't know the next location.
+	        message = hooks[i]();
+	      }
+
+	      return message;
+	    }
+	  }
+
+	  var unlistenBefore = void 0,
+	      unlistenBeforeUnload = void 0;
+
+	  function removeListenBeforeHooksForRoute(route) {
+	    var routeID = getRouteID(route);
+	    if (!routeID) {
+	      return;
+	    }
+
+	    delete RouteHooks[routeID];
+
+	    if (!hasAnyProperties(RouteHooks)) {
+	      // teardown transition & beforeunload hooks
+	      if (unlistenBefore) {
+	        unlistenBefore();
+	        unlistenBefore = null;
+	      }
+
+	      if (unlistenBeforeUnload) {
+	        unlistenBeforeUnload();
+	        unlistenBeforeUnload = null;
+	      }
+	    }
+	  }
+
+	  /**
+	   * Registers the given hook function to run before leaving the given route.
+	   *
+	   * During a normal transition, the hook function receives the next location
+	   * as its only argument and can return either a prompt message (string) to show the user,
+	   * to make sure they want to leave the page; or `false`, to prevent the transition.
+	   * Any other return value will have no effect.
+	   *
+	   * During the beforeunload event (in browsers) the hook receives no arguments.
+	   * In this case it must return a prompt message to prevent the transition.
+	   *
+	   * Returns a function that may be used to unbind the listener.
+	   */
+	  function listenBeforeLeavingRoute(route, hook) {
+	    var thereWereNoRouteHooks = !hasAnyProperties(RouteHooks);
+	    var routeID = getRouteID(route, true);
+
+	    RouteHooks[routeID] = hook;
+
+	    if (thereWereNoRouteHooks) {
+	      // setup transition & beforeunload hooks
+	      unlistenBefore = history.listenBefore(transitionHook);
+
+	      if (history.listenBeforeUnload) unlistenBeforeUnload = history.listenBeforeUnload(beforeUnloadHook);
+	    }
+
+	    return function () {
+	      removeListenBeforeHooksForRoute(route);
+	    };
+	  }
+
+	  /**
+	   * This is the API for stateful environments. As the location
+	   * changes, we update state and call the listener. We can also
+	   * gracefully handle errors and redirects.
+	   */
+	  function listen(listener) {
+	    function historyListener(location) {
+	      if (state.location === location) {
+	        listener(null, state);
+	      } else {
+	        match(location, function (error, redirectLocation, nextState) {
+	          if (error) {
+	            listener(error);
+	          } else if (redirectLocation) {
+	            history.replace(redirectLocation);
+	          } else if (nextState) {
+	            listener(null, nextState);
+	          } else {
+	             true ? (0, _routerWarning2.default)(false, 'Location "%s" did not match any routes', location.pathname + location.search + location.hash) : void 0;
+	          }
+	        });
+	      }
+	    }
+
+	    // TODO: Only use a single history listener. Otherwise we'll end up with
+	    // multiple concurrent calls to match.
+
+	    // Set up the history listener first in case the initial match redirects.
+	    var unsubscribe = history.listen(historyListener);
+
+	    if (state.location) {
+	      // Picking up on a matchContext.
+	      listener(null, state);
+	    } else {
+	      historyListener(history.getCurrentLocation());
+	    }
+
+	    return unsubscribe;
+	  }
+
+	  return {
+	    isActive: isActive,
+	    match: match,
+	    listenBeforeLeavingRoute: listenBeforeLeavingRoute,
+	    listen: listen
+	  };
+	}
+	module.exports = exports['default'];
 
 /***/ },
 
@@ -50906,282 +51302,38 @@ webpackJsonp([1,0],{
 
 /***/ },
 
-/***/ "./node_modules/react-router/lib/createTransitionManager.js":
+/***/ "./node_modules/react-router/lib/createMemoryHistory.js":
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
+	exports.default = createMemoryHistory;
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	var _useQueries = __webpack_require__("./node_modules/history/lib/useQueries.js");
 
-	exports.default = createTransitionManager;
+	var _useQueries2 = _interopRequireDefault(_useQueries);
 
-	var _routerWarning = __webpack_require__("./node_modules/react-router/lib/routerWarning.js");
+	var _useBasename = __webpack_require__("./node_modules/history/lib/useBasename.js");
 
-	var _routerWarning2 = _interopRequireDefault(_routerWarning);
+	var _useBasename2 = _interopRequireDefault(_useBasename);
 
-	var _computeChangedRoutes2 = __webpack_require__("./node_modules/react-router/lib/computeChangedRoutes.js");
+	var _createMemoryHistory = __webpack_require__("./node_modules/history/lib/createMemoryHistory.js");
 
-	var _computeChangedRoutes3 = _interopRequireDefault(_computeChangedRoutes2);
-
-	var _TransitionUtils = __webpack_require__("./node_modules/react-router/lib/TransitionUtils.js");
-
-	var _isActive2 = __webpack_require__("./node_modules/react-router/lib/isActive.js");
-
-	var _isActive3 = _interopRequireDefault(_isActive2);
-
-	var _getComponents = __webpack_require__("./node_modules/react-router/lib/getComponents.js");
-
-	var _getComponents2 = _interopRequireDefault(_getComponents);
-
-	var _matchRoutes = __webpack_require__("./node_modules/react-router/lib/matchRoutes.js");
-
-	var _matchRoutes2 = _interopRequireDefault(_matchRoutes);
+	var _createMemoryHistory2 = _interopRequireDefault(_createMemoryHistory);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function hasAnyProperties(object) {
-	  for (var p in object) {
-	    if (Object.prototype.hasOwnProperty.call(object, p)) return true;
-	  }return false;
-	}
-
-	function createTransitionManager(history, routes) {
-	  var state = {};
-
-	  // Signature should be (location, indexOnly), but needs to support (path,
-	  // query, indexOnly)
-	  function isActive(location, indexOnly) {
-	    location = history.createLocation(location);
-
-	    return (0, _isActive3.default)(location, indexOnly, state.location, state.routes, state.params);
-	  }
-
-	  var partialNextState = void 0;
-
-	  function match(location, callback) {
-	    if (partialNextState && partialNextState.location === location) {
-	      // Continue from where we left off.
-	      finishMatch(partialNextState, callback);
-	    } else {
-	      (0, _matchRoutes2.default)(routes, location, function (error, nextState) {
-	        if (error) {
-	          callback(error);
-	        } else if (nextState) {
-	          finishMatch(_extends({}, nextState, { location: location }), callback);
-	        } else {
-	          callback();
-	        }
-	      });
-	    }
-	  }
-
-	  function finishMatch(nextState, callback) {
-	    var _computeChangedRoutes = (0, _computeChangedRoutes3.default)(state, nextState),
-	        leaveRoutes = _computeChangedRoutes.leaveRoutes,
-	        changeRoutes = _computeChangedRoutes.changeRoutes,
-	        enterRoutes = _computeChangedRoutes.enterRoutes;
-
-	    (0, _TransitionUtils.runLeaveHooks)(leaveRoutes, state);
-
-	    // Tear down confirmation hooks for left routes
-	    leaveRoutes.filter(function (route) {
-	      return enterRoutes.indexOf(route) === -1;
-	    }).forEach(removeListenBeforeHooksForRoute);
-
-	    // change and enter hooks are run in series
-	    (0, _TransitionUtils.runChangeHooks)(changeRoutes, state, nextState, function (error, redirectInfo) {
-	      if (error || redirectInfo) return handleErrorOrRedirect(error, redirectInfo);
-
-	      (0, _TransitionUtils.runEnterHooks)(enterRoutes, nextState, finishEnterHooks);
-	    });
-
-	    function finishEnterHooks(error, redirectInfo) {
-	      if (error || redirectInfo) return handleErrorOrRedirect(error, redirectInfo);
-
-	      // TODO: Fetch components after state is updated.
-	      (0, _getComponents2.default)(nextState, function (error, components) {
-	        if (error) {
-	          callback(error);
-	        } else {
-	          // TODO: Make match a pure function and have some other API
-	          // for "match and update state".
-	          callback(null, null, state = _extends({}, nextState, { components: components }));
-	        }
-	      });
-	    }
-
-	    function handleErrorOrRedirect(error, redirectInfo) {
-	      if (error) callback(error);else callback(null, redirectInfo);
-	    }
-	  }
-
-	  var RouteGuid = 1;
-
-	  function getRouteID(route) {
-	    var create = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-
-	    return route.__id__ || create && (route.__id__ = RouteGuid++);
-	  }
-
-	  var RouteHooks = Object.create(null);
-
-	  function getRouteHooksForRoutes(routes) {
-	    return routes.map(function (route) {
-	      return RouteHooks[getRouteID(route)];
-	    }).filter(function (hook) {
-	      return hook;
-	    });
-	  }
-
-	  function transitionHook(location, callback) {
-	    (0, _matchRoutes2.default)(routes, location, function (error, nextState) {
-	      if (nextState == null) {
-	        // TODO: We didn't actually match anything, but hang
-	        // onto error/nextState so we don't have to matchRoutes
-	        // again in the listen callback.
-	        callback();
-	        return;
-	      }
-
-	      // Cache some state here so we don't have to
-	      // matchRoutes() again in the listen callback.
-	      partialNextState = _extends({}, nextState, { location: location });
-
-	      var hooks = getRouteHooksForRoutes((0, _computeChangedRoutes3.default)(state, partialNextState).leaveRoutes);
-
-	      var result = void 0;
-	      for (var i = 0, len = hooks.length; result == null && i < len; ++i) {
-	        // Passing the location arg here indicates to
-	        // the user that this is a transition hook.
-	        result = hooks[i](location);
-	      }
-
-	      callback(result);
-	    });
-	  }
-
-	  /* istanbul ignore next: untestable with Karma */
-	  function beforeUnloadHook() {
-	    // Synchronously check to see if any route hooks want
-	    // to prevent the current window/tab from closing.
-	    if (state.routes) {
-	      var hooks = getRouteHooksForRoutes(state.routes);
-
-	      var message = void 0;
-	      for (var i = 0, len = hooks.length; typeof message !== 'string' && i < len; ++i) {
-	        // Passing no args indicates to the user that this is a
-	        // beforeunload hook. We don't know the next location.
-	        message = hooks[i]();
-	      }
-
-	      return message;
-	    }
-	  }
-
-	  var unlistenBefore = void 0,
-	      unlistenBeforeUnload = void 0;
-
-	  function removeListenBeforeHooksForRoute(route) {
-	    var routeID = getRouteID(route);
-	    if (!routeID) {
-	      return;
-	    }
-
-	    delete RouteHooks[routeID];
-
-	    if (!hasAnyProperties(RouteHooks)) {
-	      // teardown transition & beforeunload hooks
-	      if (unlistenBefore) {
-	        unlistenBefore();
-	        unlistenBefore = null;
-	      }
-
-	      if (unlistenBeforeUnload) {
-	        unlistenBeforeUnload();
-	        unlistenBeforeUnload = null;
-	      }
-	    }
-	  }
-
-	  /**
-	   * Registers the given hook function to run before leaving the given route.
-	   *
-	   * During a normal transition, the hook function receives the next location
-	   * as its only argument and can return either a prompt message (string) to show the user,
-	   * to make sure they want to leave the page; or `false`, to prevent the transition.
-	   * Any other return value will have no effect.
-	   *
-	   * During the beforeunload event (in browsers) the hook receives no arguments.
-	   * In this case it must return a prompt message to prevent the transition.
-	   *
-	   * Returns a function that may be used to unbind the listener.
-	   */
-	  function listenBeforeLeavingRoute(route, hook) {
-	    var thereWereNoRouteHooks = !hasAnyProperties(RouteHooks);
-	    var routeID = getRouteID(route, true);
-
-	    RouteHooks[routeID] = hook;
-
-	    if (thereWereNoRouteHooks) {
-	      // setup transition & beforeunload hooks
-	      unlistenBefore = history.listenBefore(transitionHook);
-
-	      if (history.listenBeforeUnload) unlistenBeforeUnload = history.listenBeforeUnload(beforeUnloadHook);
-	    }
-
-	    return function () {
-	      removeListenBeforeHooksForRoute(route);
-	    };
-	  }
-
-	  /**
-	   * This is the API for stateful environments. As the location
-	   * changes, we update state and call the listener. We can also
-	   * gracefully handle errors and redirects.
-	   */
-	  function listen(listener) {
-	    function historyListener(location) {
-	      if (state.location === location) {
-	        listener(null, state);
-	      } else {
-	        match(location, function (error, redirectLocation, nextState) {
-	          if (error) {
-	            listener(error);
-	          } else if (redirectLocation) {
-	            history.replace(redirectLocation);
-	          } else if (nextState) {
-	            listener(null, nextState);
-	          } else {
-	             true ? (0, _routerWarning2.default)(false, 'Location "%s" did not match any routes', location.pathname + location.search + location.hash) : void 0;
-	          }
-	        });
-	      }
-	    }
-
-	    // TODO: Only use a single history listener. Otherwise we'll end up with
-	    // multiple concurrent calls to match.
-
-	    // Set up the history listener first in case the initial match redirects.
-	    var unsubscribe = history.listen(historyListener);
-
-	    if (state.location) {
-	      // Picking up on a matchContext.
-	      listener(null, state);
-	    } else {
-	      historyListener(history.getCurrentLocation());
-	    }
-
-	    return unsubscribe;
-	  }
-
-	  return {
-	    isActive: isActive,
-	    match: match,
-	    listenBeforeLeavingRoute: listenBeforeLeavingRoute,
-	    listen: listen
+	function createMemoryHistory(options) {
+	  // signatures and type checking differ between `useQueries` and
+	  // `createMemoryHistory`, have to create `memoryHistory` first because
+	  // `useQueries` doesn't understand the signature
+	  var memoryHistory = (0, _createMemoryHistory2.default)(options);
+	  var createHistory = function createHistory() {
+	    return memoryHistory;
 	  };
+	  var history = (0, _useQueries2.default)((0, _useBasename2.default)(createHistory))(options);
+	  return history;
 	}
 	module.exports = exports['default'];
 

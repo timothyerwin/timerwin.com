@@ -4826,7 +4826,7 @@ webpackJsonp([1,0],{
 
 	'use strict';
 
-	var isObject = __webpack_require__("./node_modules/is-plain-object/node_modules/isobject/index.js");
+	var isObject = __webpack_require__("./node_modules/isobject/index.js");
 
 	function isObjectObject(o) {
 	  return isObject(o) === true
@@ -4858,7 +4858,7 @@ webpackJsonp([1,0],{
 
 /***/ },
 
-/***/ "./node_modules/is-plain-object/node_modules/isobject/index.js":
+/***/ "./node_modules/isobject/index.js":
 /***/ function(module, exports) {
 
 	/*!
@@ -22617,7 +22617,7 @@ webpackJsonp([1,0],{
 	              'textTransform': 'uppercase',
 	              'color': '#09c'
 	            } },
-	          'Your message has been sent! Thank you.'
+	          'Your message was sent! Thank you.'
 	        );
 	      }
 
@@ -25466,6 +25466,43 @@ webpackJsonp([1,0],{
 
 /***/ },
 
+/***/ "./node_modules/react-router/lib/createMemoryHistory.js":
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+	exports.default = createMemoryHistory;
+
+	var _useQueries = __webpack_require__("./node_modules/history/lib/useQueries.js");
+
+	var _useQueries2 = _interopRequireDefault(_useQueries);
+
+	var _useBasename = __webpack_require__("./node_modules/history/lib/useBasename.js");
+
+	var _useBasename2 = _interopRequireDefault(_useBasename);
+
+	var _createMemoryHistory = __webpack_require__("./node_modules/history/lib/createMemoryHistory.js");
+
+	var _createMemoryHistory2 = _interopRequireDefault(_createMemoryHistory);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function createMemoryHistory(options) {
+	  // signatures and type checking differ between `useQueries` and
+	  // `createMemoryHistory`, have to create `memoryHistory` first because
+	  // `useQueries` doesn't understand the signature
+	  var memoryHistory = (0, _createMemoryHistory2.default)(options);
+	  var createHistory = function createHistory() {
+	    return memoryHistory;
+	  };
+	  var history = (0, _useQueries2.default)((0, _useBasename2.default)(createHistory))(options);
+	  return history;
+	}
+	module.exports = exports['default'];
+
+/***/ },
+
 /***/ "./node_modules/ansi-regex/index.js":
 /***/ function(module, exports) {
 
@@ -25474,31 +25511,6 @@ webpackJsonp([1,0],{
 		return /[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-PRZcf-nqry=><]/g;
 	};
 
-
-/***/ },
-
-/***/ "./node_modules/react-router/lib/createRouterHistory.js":
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	exports.__esModule = true;
-
-	exports.default = function (createHistory) {
-	  var history = void 0;
-	  if (canUseDOM) history = (0, _useRouterHistory2.default)(createHistory)();
-	  return history;
-	};
-
-	var _useRouterHistory = __webpack_require__("./node_modules/react-router/lib/useRouterHistory.js");
-
-	var _useRouterHistory2 = _interopRequireDefault(_useRouterHistory);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
-
-	module.exports = exports['default'];
 
 /***/ },
 
@@ -31188,9 +31200,9 @@ webpackJsonp([1,0],{
 
 	var _flatten2 = _interopRequireDefault(_flatten);
 
-	var _StyleSheet = __webpack_require__("./node_modules/styled-components/lib/models/StyleSheet.js");
+	var _GlobalStyleSheet = __webpack_require__("./node_modules/styled-components/lib/models/GlobalStyleSheet.js");
 
-	var _StyleSheet2 = _interopRequireDefault(_StyleSheet);
+	var _GlobalStyleSheet2 = _interopRequireDefault(_GlobalStyleSheet);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31209,14 +31221,14 @@ webpackJsonp([1,0],{
 	  _createClass(ComponentStyle, [{
 	    key: 'generateAndInject',
 	    value: function generateAndInject() {
-	      if (!_StyleSheet2.default.injected) _StyleSheet2.default.inject();
+	      if (!_GlobalStyleSheet2.default.injected) _GlobalStyleSheet2.default.inject();
 	      var flatCSS = (0, _flatten2.default)(this.rules).join('');
 	      if (this.selector) {
 	        flatCSS = this.selector + ' {' + flatCSS + '\n}';
 	      }
 	      var root = (0, _parse2.default)(flatCSS);
 	      (0, _postcssNested2.default)(root);
-	      _StyleSheet2.default.insert(root.toResult().css);
+	      _GlobalStyleSheet2.default.insert(root.toResult().css);
 	    }
 	  }]);
 
@@ -31224,6 +31236,27 @@ webpackJsonp([1,0],{
 	}();
 
 	exports.default = ComponentStyle;
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ "./node_modules/styled-components/lib/models/GlobalStyleSheet.js":
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _sheet = __webpack_require__("./node_modules/styled-components/lib/vendor/glamor/sheet.js");
+
+	/* Don't specify a maxLength, since these rules are defined at initialization
+	*  and should remain static after that */
+	exports.default = new _sheet.StyleSheet({ speedy: false });
+
+	/* Wraps glamor's stylesheet and exports a singleton for global styles. */
+
 	module.exports = exports['default'];
 
 /***/ },
@@ -31241,8 +31274,8 @@ webpackJsonp([1,0],{
 
 	exports.default = new _sheet.StyleSheet({ speedy: false, maxLength: 40 });
 
-	/* Wraps glamor's stylesheet and exports a singleton for the rest
-	*  of the app to use. */
+	/* Wraps glamor's stylesheet and exports a singleton for styled components
+	to use. */
 
 	module.exports = exports['default'];
 
@@ -50507,7 +50540,7 @@ webpackJsonp([1,0],{
 	    options.log = false;
 	  }
 	  if (overrides.name) {
-	    options.name = overrides.name 
+	    options.name = overrides.name;
 	  }
 	  if (overrides.quiet && overrides.quiet !== 'false') {
 	    options.log = false;
@@ -50527,22 +50560,27 @@ webpackJsonp([1,0],{
 	    "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events#Tools"
 	  );
 	} else {
-	  connect(window.EventSource);
+	  connect();
 	}
 
-	function connect(EventSource) {
-	  var source = new EventSource(options.path);
+	function EventSourceWrapper() {
+	  var source;
 	  var lastActivity = new Date();
+	  var listeners = [];
 
-	  source.onopen = handleOnline;
-	  source.onmessage = handleMessage;
-	  source.onerror = handleDisconnect;
-
+	  init();
 	  var timer = setInterval(function() {
 	    if ((new Date() - lastActivity) > options.timeout) {
 	      handleDisconnect();
 	    }
 	  }, options.timeout / 2);
+
+	  function init() {
+	    source = new window.EventSource(options.path);
+	    source.onopen = handleOnline;
+	    source.onerror = handleDisconnect;
+	    source.onmessage = handleMessage;
+	  }
 
 	  function handleOnline() {
 	    if (options.log) console.log("[HMR] connected");
@@ -50551,6 +50589,40 @@ webpackJsonp([1,0],{
 
 	  function handleMessage(event) {
 	    lastActivity = new Date();
+	    for (var i = 0; i < listeners.length; i++) {
+	      listeners[i](event);
+	    }
+	  }
+
+	  function handleDisconnect() {
+	    clearInterval(timer);
+	    source.close();
+	    setTimeout(init, options.timeout);
+	  }
+
+	  return {
+	    addMessageListener: function(fn) {
+	      listeners.push(fn);
+	    }
+	  };
+	}
+
+	function getEventSourceWrapper() {
+	  if (!window.__whmEventSourceWrapper) {
+	    window.__whmEventSourceWrapper = {};
+	  }
+	  if (!window.__whmEventSourceWrapper[options.path]) {
+	    // cache the wrapper for other entries loaded on
+	    // the same page with the same options.path
+	    window.__whmEventSourceWrapper[options.path] = EventSourceWrapper();
+	  }
+	  return window.__whmEventSourceWrapper[options.path];
+	}
+
+	function connect() {
+	  getEventSourceWrapper().addMessageListener(handleMessage);
+
+	  function handleMessage(event) {
 	    if (event.data == "\uD83D\uDC93") {
 	      return;
 	    }
@@ -50562,23 +50634,19 @@ webpackJsonp([1,0],{
 	      }
 	    }
 	  }
-
-	  function handleDisconnect() {
-	    clearInterval(timer);
-	    source.close();
-	    setTimeout(function() { connect(EventSource); }, options.timeout);
-	  }
-
 	}
 
-	var reporter;
 	// the reporter needs to be a singleton on the page
-	// in case the client is being used by mutliple bundles
+	// in case the client is being used by multiple bundles
 	// we only want to report once.
 	// all the errors will go to all clients
 	var singletonKey = '__webpack_hot_middleware_reporter__';
-	if (typeof window !== 'undefined' && !window[singletonKey]) {
-	  reporter = window[singletonKey] = createReporter();
+	var reporter;
+	if (typeof window !== 'undefined') {
+	  if (!window[singletonKey]) {
+	    window[singletonKey] = createReporter();
+	  }
+	  reporter = window[singletonKey];
 	}
 
 	function createReporter() {
@@ -50589,8 +50657,36 @@ webpackJsonp([1,0],{
 	    overlay = __webpack_require__("./node_modules/webpack-hot-middleware/client-overlay.js");
 	  }
 
-
+	  var styles = {
+	    errors: "color: #ff0000;",
+	    warnings: "color: #5c3b00;"
+	  };
 	  var previousProblems = null;
+	  function log(type, obj) {
+	    var newProblems = obj[type].map(function(msg) { return strip(msg); }).join('\n');
+	    if (previousProblems == newProblems) {
+	      return;
+	    } else {
+	      previousProblems = newProblems;
+	    }
+
+	    var style = styles[type];
+	    var name = obj.name ? "'" + obj.name + "' " : "";
+	    var title = "[HMR] bundle " + name + "has " + obj[type].length + " " + type;
+	    // NOTE: console.warn or console.error will print the stack trace
+	    // which isn't helpful here, so using console.log to escape it.
+	    if (console.group && console.groupEnd) {
+	      console.group("%c" + title, style);
+	      console.log("%c" + newProblems, style);
+	      console.groupEnd();
+	    } else {
+	      console.log(
+	        "%c" + title + "\n\t%c" + newProblems.replace(/\n/g, "\n\t"),
+	        style + "font-weight: bold;",
+	        style + "font-weight: normal;"
+	      );
+	    }
+	  }
 
 	  return {
 	    cleanProblemsCache: function () {
@@ -50598,12 +50694,7 @@ webpackJsonp([1,0],{
 	    },
 	    problems: function(type, obj) {
 	      if (options.warn) {
-	        var newProblems = obj[type].map(function(msg) { return strip(msg); }).join('\n');
-
-	        if (previousProblems !== newProblems) {
-	          previousProblems = newProblems;
-	          console.warn("[HMR] bundle has " + type + ":\n" + newProblems);
-	        }
+	        log(type, obj);
 	      }
 	      if (overlay && type !== 'warnings') overlay.showProblems(type, obj[type]);
 	    },
@@ -50623,12 +50714,17 @@ webpackJsonp([1,0],{
 	function processMessage(obj) {
 	  switch(obj.action) {
 	    case "building":
-	      if (options.log) console.log("[HMR] bundle rebuilding");
+	      if (options.log) {
+	        console.log(
+	          "[HMR] bundle " + (obj.name ? "'" + obj.name + "' " : "") +
+	          "rebuilding"
+	        );
+	      }
 	      break;
 	    case "built":
 	      if (options.log) {
 	        console.log(
-	          "[HMR] bundle " + (obj.name ? obj.name + " " : "") +
+	          "[HMR] bundle " + (obj.name ? "'" + obj.name + "' " : "") +
 	          "rebuilt in " + obj.time + "ms"
 	        );
 	      }
@@ -51301,39 +51397,27 @@ webpackJsonp([1,0],{
 
 /***/ },
 
-/***/ "./node_modules/react-router/lib/createMemoryHistory.js":
+/***/ "./node_modules/react-router/lib/createRouterHistory.js":
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
-	exports.default = createMemoryHistory;
 
-	var _useQueries = __webpack_require__("./node_modules/history/lib/useQueries.js");
+	exports.default = function (createHistory) {
+	  var history = void 0;
+	  if (canUseDOM) history = (0, _useRouterHistory2.default)(createHistory)();
+	  return history;
+	};
 
-	var _useQueries2 = _interopRequireDefault(_useQueries);
+	var _useRouterHistory = __webpack_require__("./node_modules/react-router/lib/useRouterHistory.js");
 
-	var _useBasename = __webpack_require__("./node_modules/history/lib/useBasename.js");
-
-	var _useBasename2 = _interopRequireDefault(_useBasename);
-
-	var _createMemoryHistory = __webpack_require__("./node_modules/history/lib/createMemoryHistory.js");
-
-	var _createMemoryHistory2 = _interopRequireDefault(_createMemoryHistory);
+	var _useRouterHistory2 = _interopRequireDefault(_useRouterHistory);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function createMemoryHistory(options) {
-	  // signatures and type checking differ between `useQueries` and
-	  // `createMemoryHistory`, have to create `memoryHistory` first because
-	  // `useQueries` doesn't understand the signature
-	  var memoryHistory = (0, _createMemoryHistory2.default)(options);
-	  var createHistory = function createHistory() {
-	    return memoryHistory;
-	  };
-	  var history = (0, _useQueries2.default)((0, _useBasename2.default)(createHistory))(options);
-	  return history;
-	}
+	var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+
 	module.exports = exports['default'];
 
 /***/ }

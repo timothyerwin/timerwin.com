@@ -119,17 +119,11 @@ main {
 
 ul.list>li {
   border-bottom: 1px solid #ddd;
-  padding: 40px 0px;
+  padding: 30px 0px;
 }
 
 ul.list>li:last-child {
   border-bottom: 0;
-}
-
-.card {
-  padding: 25px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, .05);
-  border-radius: 3px;
 }
 
 a {

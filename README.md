@@ -10,3 +10,9 @@ http://www.timerwin.com
 
 ## HOSTING
 `digitalocean.com`
+
+## LICENSE
+This code is for viewing purposes only and may not be reused without the written consent of the author.
+
+## CONTACT
+tim@timerwin.com

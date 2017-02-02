@@ -5372,6 +5372,70 @@ webpackJsonp([1,0],{
 
 /***/ },
 
+/***/ "./node_modules/react-activity/lib/Dots/Dots.js":
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__("./node_modules/react/react.js");
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _activityIndicator = __webpack_require__("./node_modules/react-activity/lib/activityIndicator.js");
+
+	var _activityIndicator2 = _interopRequireDefault(_activityIndicator);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Dots = _react2.default.createClass({
+	  displayName: 'Dots',
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { style: this.props.style, className: 'rai-dots' },
+	      _react2.default.createElement('div', {
+	        className: 'rai-circle',
+	        style: this.props.getFillStyle(0.3)
+	      }),
+	      _react2.default.createElement('div', {
+	        className: 'rai-circle',
+	        style: this.props.getFillStyle(0.2)
+	      }),
+	      _react2.default.createElement('div', {
+	        className: 'rai-circle',
+	        style: this.props.getFillStyle(0.1)
+	      })
+	    );
+	  }
+	});
+
+	exports.default = (0, _activityIndicator2.default)(Dots, 0.8);
+
+/***/ },
+
+/***/ "./node_modules/react-activity/lib/Dots/index.js":
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _Dots = __webpack_require__("./node_modules/react-activity/lib/Dots/Dots.js");
+
+	var _Dots2 = _interopRequireDefault(_Dots);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _Dots2.default;
+
+/***/ },
+
 /***/ "./node_modules/react-activity/lib/Levels/Levels.js":
 /***/ function(module, exports, __webpack_require__) {
 
@@ -22889,9 +22953,9 @@ webpackJsonp([1,0],{
 
 	__webpack_require__("./node_modules/whatwg-fetch/fetch.js");
 
-	var _Levels = __webpack_require__("./node_modules/react-activity/lib/Levels/index.js");
+	var _Dots = __webpack_require__("./node_modules/react-activity/lib/Dots/index.js");
 
-	var _Levels2 = _interopRequireDefault(_Levels);
+	var _Dots2 = _interopRequireDefault(_Dots);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23019,10 +23083,9 @@ webpackJsonp([1,0],{
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { style: { display: !this.state.items ? 'block' : 'none', marginLeft: '5px' } },
-	          _react2.default.createElement(_Levels2.default, { size: 18, color: '#09a' })
+	          { style: { display: this.state.items.length === 0 ? 'block' : 'none', marginLeft: '5px' } },
+	          _react2.default.createElement(_Dots2.default, { size: 18, color: '#09a' })
 	        ),
-	        ';',
 	        _react2.default.createElement(Media, { data: this.state.items })
 	      );
 	    }
@@ -25476,43 +25539,6 @@ webpackJsonp([1,0],{
 
 /***/ },
 
-/***/ "./node_modules/react-router/lib/createMemoryHistory.js":
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	exports.__esModule = true;
-	exports.default = createMemoryHistory;
-
-	var _useQueries = __webpack_require__("./node_modules/history/lib/useQueries.js");
-
-	var _useQueries2 = _interopRequireDefault(_useQueries);
-
-	var _useBasename = __webpack_require__("./node_modules/history/lib/useBasename.js");
-
-	var _useBasename2 = _interopRequireDefault(_useBasename);
-
-	var _createMemoryHistory = __webpack_require__("./node_modules/history/lib/createMemoryHistory.js");
-
-	var _createMemoryHistory2 = _interopRequireDefault(_createMemoryHistory);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function createMemoryHistory(options) {
-	  // signatures and type checking differ between `useQueries` and
-	  // `createMemoryHistory`, have to create `memoryHistory` first because
-	  // `useQueries` doesn't understand the signature
-	  var memoryHistory = (0, _createMemoryHistory2.default)(options);
-	  var createHistory = function createHistory() {
-	    return memoryHistory;
-	  };
-	  var history = (0, _useQueries2.default)((0, _useBasename2.default)(createHistory))(options);
-	  return history;
-	}
-	module.exports = exports['default'];
-
-/***/ },
-
 /***/ "./node_modules/ansi-regex/index.js":
 /***/ function(module, exports) {
 
@@ -25521,6 +25547,31 @@ webpackJsonp([1,0],{
 		return /[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-PRZcf-nqry=><]/g;
 	};
 
+
+/***/ },
+
+/***/ "./node_modules/react-router/lib/createRouterHistory.js":
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	exports.default = function (createHistory) {
+	  var history = void 0;
+	  if (canUseDOM) history = (0, _useRouterHistory2.default)(createHistory)();
+	  return history;
+	};
+
+	var _useRouterHistory = __webpack_require__("./node_modules/react-router/lib/useRouterHistory.js");
+
+	var _useRouterHistory2 = _interopRequireDefault(_useRouterHistory);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+
+	module.exports = exports['default'];
 
 /***/ },
 
@@ -51407,27 +51458,39 @@ webpackJsonp([1,0],{
 
 /***/ },
 
-/***/ "./node_modules/react-router/lib/createRouterHistory.js":
+/***/ "./node_modules/react-router/lib/createMemoryHistory.js":
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
+	exports.default = createMemoryHistory;
 
-	exports.default = function (createHistory) {
-	  var history = void 0;
-	  if (canUseDOM) history = (0, _useRouterHistory2.default)(createHistory)();
-	  return history;
-	};
+	var _useQueries = __webpack_require__("./node_modules/history/lib/useQueries.js");
 
-	var _useRouterHistory = __webpack_require__("./node_modules/react-router/lib/useRouterHistory.js");
+	var _useQueries2 = _interopRequireDefault(_useQueries);
 
-	var _useRouterHistory2 = _interopRequireDefault(_useRouterHistory);
+	var _useBasename = __webpack_require__("./node_modules/history/lib/useBasename.js");
+
+	var _useBasename2 = _interopRequireDefault(_useBasename);
+
+	var _createMemoryHistory = __webpack_require__("./node_modules/history/lib/createMemoryHistory.js");
+
+	var _createMemoryHistory2 = _interopRequireDefault(_createMemoryHistory);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
-
+	function createMemoryHistory(options) {
+	  // signatures and type checking differ between `useQueries` and
+	  // `createMemoryHistory`, have to create `memoryHistory` first because
+	  // `useQueries` doesn't understand the signature
+	  var memoryHistory = (0, _createMemoryHistory2.default)(options);
+	  var createHistory = function createHistory() {
+	    return memoryHistory;
+	  };
+	  var history = (0, _useQueries2.default)((0, _useBasename2.default)(createHistory))(options);
+	  return history;
+	}
 	module.exports = exports['default'];
 
 /***/ }

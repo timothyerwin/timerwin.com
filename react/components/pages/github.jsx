@@ -2,6 +2,7 @@ import React from 'react';
 import 'whatwg-fetch';
 import uuid from 'uuid';
 import styled from 'styled-components';
+import Dots from 'react-activity/lib/Dots';
 
 import {Title} from '../ux/styles';
 import Tags from '../ux/tags';
@@ -85,6 +86,7 @@ module.exports = class extends React.Component {
         <a href="http://github.com/timothyerwin">http://github.com/timothyerwin</a>
         <br />
         <br />
+        <div style={{ display: this.state.repos.length === 0 ? 'block' : 'none', marginLeft: '5px'}} ><Dots size={18} color="#09a" /></div>
         <ul class="list">
           {this.state.repos.map(repo =>
             <li key={uuid()}><Repo data={repo} /></li>

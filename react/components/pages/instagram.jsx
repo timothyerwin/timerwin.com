@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import uuid from 'uuid';
 import 'whatwg-fetch';
+import Dots from 'react-activity/lib/Dots';
 
 const Viewer = styled.ul `
 
@@ -69,7 +70,8 @@ module.exports = class extends React.Component {
       <div>
         <h1>instagram</h1>
         <Link target="_blank" href="https://www.instagram.com/timerwinofficial">https://www.instagram.com/timerwinofficial</Link>
-        <Media data={this.state.items}/>
+        <div style={{ display: this.state.items.length === 0 ? 'block' : 'none', marginLeft: '5px'}} ><Dots size={18} color="#09a" /></div>
+        <Media data={this.state.items} />
       </div>
     );
   }

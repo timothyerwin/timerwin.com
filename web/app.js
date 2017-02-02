@@ -22889,6 +22889,10 @@ webpackJsonp([1,0],{
 
 	__webpack_require__("./node_modules/whatwg-fetch/fetch.js");
 
+	var _Levels = __webpack_require__("./node_modules/react-activity/lib/Levels/index.js");
+
+	var _Levels2 = _interopRequireDefault(_Levels);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23013,6 +23017,12 @@ webpackJsonp([1,0],{
 	          { target: '_blank', href: 'https://www.instagram.com/timerwinofficial' },
 	          'https://www.instagram.com/timerwinofficial'
 	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { style: { display: !this.state.items ? 'block' : 'none', marginLeft: '5px' } },
+	          _react2.default.createElement(_Levels2.default, { size: 18, color: '#09a' })
+	        ),
+	        ';',
 	        _react2.default.createElement(Media, { data: this.state.items })
 	      );
 	    }

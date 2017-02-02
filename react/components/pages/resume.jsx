@@ -2,8 +2,8 @@ import React from 'react';
 import uuid from 'uuid';
 import styled from 'styled-components';
 
-import {Title} from './ux/styles';
-import Tags from './tags';
+import {Title} from '../ux/styles';
+import Tags from '../ux/tags';
 
 const Time = styled.p `
   font-size: 22px;

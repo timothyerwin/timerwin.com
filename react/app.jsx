@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, browserHistory} from 'react-router';
-import Layout from './components/layout';
-import Profile from './components/profile';
-import Resume from './components/resume';
-import Github from './components/github';
-import Contact from './components/contact';
-import Instagram from './components/instagram';
+
+import Layout from './components/ux/layout';
+import Profile from './components/pages/profile';
+import Resume from './components/pages/resume';
+import Github from './components/pages/github';
+import Contact from './components/pages/contact';
+import Instagram from './components/pages/instagram';
 
 require('velocity-animate');
 require('velocity-animate/velocity.ui');

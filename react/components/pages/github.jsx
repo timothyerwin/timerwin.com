@@ -3,8 +3,8 @@ import 'whatwg-fetch';
 import uuid from 'uuid';
 import styled from 'styled-components';
 
-import {Title} from './ux/styles';
-import Tags from './tags';
+import {Title} from '../ux/styles';
+import Tags from '../ux/tags';
 
 const Description = styled.p`
   text-transform: uppercase;

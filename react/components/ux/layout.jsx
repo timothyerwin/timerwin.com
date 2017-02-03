@@ -1,5 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router';
+
 import Nav from './nav';
+
 
 module.exports = class extends React.Component {
   static propTypes = {
@@ -10,7 +13,9 @@ module.exports = class extends React.Component {
     return (
       <div>
         <aside>
-          <div class="profile" />
+          <Link to="/">
+            <div class="profile" />
+          </Link>
           <h3>tim erwin</h3>
           <Nav />
         </aside>

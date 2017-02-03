@@ -83,7 +83,7 @@ aside>h3 {
   text-align: center;
 }
 
-aside>div.profile {
+aside>a>div.profile {
   width: 180px;
   height: 180px;
   background-image: url('/images/logo.jpg');

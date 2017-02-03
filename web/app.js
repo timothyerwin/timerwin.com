@@ -23336,6 +23336,8 @@ webpackJsonp([1,0],{
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRouter = __webpack_require__("./node_modules/react-router/lib/index.js");
+
 	var _nav = __webpack_require__("./react/components/ux/nav.jsx");
 
 	var _nav2 = _interopRequireDefault(_nav);
@@ -23366,7 +23368,11 @@ webpackJsonp([1,0],{
 	        _react2.default.createElement(
 	          'aside',
 	          null,
-	          _react2.default.createElement('div', { className: 'profile' }),
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/' },
+	            _react2.default.createElement('div', { className: 'profile' })
+	          ),
 	          _react2.default.createElement(
 	            'h3',
 	            null,

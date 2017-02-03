@@ -22542,7 +22542,7 @@ webpackJsonp([1,0],{
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _templateObject = _taggedTemplateLiteral(['\n  display:block;\n  margin-top: 20px;\n  border: 1px solid #ccc;\n  box-shadow: inset 0 0 10px rgba(0,0,0,.08);\n  height: 260px;\n  resize: none;\n  padding: 12px;\n  font-size: 18px;\n  color: #555;\n  margin-bottom: 25px;\n  width: 550px;\n'], ['\n  display:block;\n  margin-top: 20px;\n  border: 1px solid #ccc;\n  box-shadow: inset 0 0 10px rgba(0,0,0,.08);\n  height: 260px;\n  resize: none;\n  padding: 12px;\n  font-size: 18px;\n  color: #555;\n  margin-bottom: 25px;\n  width: 550px;\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n  display:block;\n  margin-top: 50px;\n  border: 1px solid #ccc;\n  box-shadow: inset 0 0 10px rgba(0,0,0,.08);\n  resize: none;\n  padding: 12px;\n  font-size: 18px;\n  color: #555;\n  margin-bottom: 25px;\n  width: 300px;\n'], ['\n  display:block;\n  margin-top: 50px;\n  border: 1px solid #ccc;\n  box-shadow: inset 0 0 10px rgba(0,0,0,.08);\n  resize: none;\n  padding: 12px;\n  font-size: 18px;\n  color: #555;\n  margin-bottom: 25px;\n  width: 300px;\n']),
+	    _templateObject2 = _taggedTemplateLiteral(['\n  display:block;\n  margin-top: 30px;\n  border: 1px solid #ccc;\n  box-shadow: inset 0 0 10px rgba(0,0,0,.08);\n  resize: none;\n  padding: 12px;\n  font-size: 18px;\n  color: #555;\n  margin-bottom: 25px;\n  width: 300px;\n'], ['\n  display:block;\n  margin-top: 30px;\n  border: 1px solid #ccc;\n  box-shadow: inset 0 0 10px rgba(0,0,0,.08);\n  resize: none;\n  padding: 12px;\n  font-size: 18px;\n  color: #555;\n  margin-bottom: 25px;\n  width: 300px;\n']),
 	    _templateObject3 = _taggedTemplateLiteral(['\n  background: #09c;\n  color: #fff;\n  padding: 12px 50px;\n  box-shadow: 0 0 15px rgba(0,0,0,.3);\n  text-transform: uppercase;\n  border: 1px solid rgba(255,255,255,.8);\n  font-size: 16px;\n  border-radius: 5px;\n  margin-right: 20px;\n  cursor: pointer;\n'], ['\n  background: #09c;\n  color: #fff;\n  padding: 12px 50px;\n  box-shadow: 0 0 15px rgba(0,0,0,.3);\n  text-transform: uppercase;\n  border: 1px solid rgba(255,255,255,.8);\n  font-size: 16px;\n  border-radius: 5px;\n  margin-right: 20px;\n  cursor: pointer;\n']);
 
 	var _react = __webpack_require__("./node_modules/react/react.js");
@@ -22706,7 +22706,7 @@ webpackJsonp([1,0],{
 	        ),
 	        _react2.default.createElement(
 	          'a',
-	          { href: 'mailto:tim@timerwin.com' },
+	          { href: 'mailto:tim@timerwin.com', style: { display: 'none' } },
 	          'tim@timerwin.com'
 	        ),
 	        _react2.default.createElement(Input, { disabled: this.state.sent, autoFocus: true, type: 'email', onChange: this.emailChange.bind(this), placeholder: 'Email' }),

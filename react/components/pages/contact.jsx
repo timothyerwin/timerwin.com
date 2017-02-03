@@ -20,7 +20,7 @@ const Textarea = styled.textarea `
 
 const Input = styled.input `
   display:block;
-  margin-top: 50px;
+  margin-top: 30px;
   border: 1px solid #ccc;
   box-shadow: inset 0 0 10px rgba(0,0,0,.08);
   resize: none;
@@ -138,7 +138,7 @@ module.exports = class extends React.Component {
     return (
       <div>
         <h1>contact</h1>
-        <a href="mailto:tim@timerwin.com">tim@timerwin.com</a>
+        <a href="mailto:tim@timerwin.com" style={{display: 'none'}}>tim@timerwin.com</a>
         <Input disabled={this.state.sent} autoFocus type="email" onChange={:: this.emailChange} placeholder="Email"/>
         <Textarea disabled={this.state.sent} onChange={:: this.messageChange} placeholder="Message"/> {error}
         <VelocityComponent ref={(r) => {

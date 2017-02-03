@@ -22910,7 +22910,7 @@ webpackJsonp([1,0],{
 	        _react2.default.createElement(
 	          'div',
 	          { style: { display: this.state.repos.length === 0 ? 'block' : 'none', marginLeft: '5px' } },
-	          _react2.default.createElement(_Dots2.default, { size: 18, color: '#09a' })
+	          _react2.default.createElement(_Dots2.default, { size: 18, color: '#000' })
 	        ),
 	        _react2.default.createElement(
 	          'ul',
@@ -23093,7 +23093,7 @@ webpackJsonp([1,0],{
 	        _react2.default.createElement(
 	          'div',
 	          { style: { display: this.state.items.length === 0 ? 'block' : 'none', marginLeft: '5px' } },
-	          _react2.default.createElement(_Dots2.default, { size: 18, color: '#09a' })
+	          _react2.default.createElement(_Dots2.default, { size: 18, color: '#000' })
 	        ),
 	        _react2.default.createElement(Media, { data: this.state.items })
 	      );
@@ -23295,7 +23295,7 @@ webpackJsonp([1,0],{
 	          _react2.default.createElement(
 	            'div',
 	            { style: { display: this.state.jobs.length === 0 ? 'block' : 'none', marginLeft: '5px' } },
-	            _react2.default.createElement(_Dots2.default, { size: 18, color: '#09a' })
+	            _react2.default.createElement(_Dots2.default, { size: 18, color: '#000' })
 	          ),
 	          _react2.default.createElement(
 	            'ul',

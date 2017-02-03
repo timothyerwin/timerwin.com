@@ -70,7 +70,7 @@ module.exports = class extends React.Component {
       <div>
         <h1>instagram</h1>
         <Link target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/timerwinofficial">https://www.instagram.com/timerwinofficial</Link>
-        <div style={{ display: this.state.items.length === 0 ? 'block' : 'none', marginLeft: '5px'}} ><Dots size={18} color="#09a" /></div>
+        <div style={{ display: this.state.items.length === 0 ? 'block' : 'none', marginLeft: '5px'}} ><Dots size={18} color="#000" /></div>
         <Media data={this.state.items} />
       </div>
     );

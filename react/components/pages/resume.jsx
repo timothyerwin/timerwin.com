@@ -50,7 +50,7 @@ module.exports = class extends React.Component {
       <div>
         <h1>resume</h1>
         <section class="timeline">
-          <div style={{ display: this.state.jobs.length === 0 ? 'block' : 'none', marginLeft: '5px'}} ><Dots size={18} color="#09a" /></div>
+          <div style={{ display: this.state.jobs.length === 0 ? 'block' : 'none', marginLeft: '5px'}} ><Dots size={18} color="#000" /></div>
           <ul class="list">
             {this.state.jobs.map(jobs => <li key={uuid()}><Job data={jobs}/></li>)}
           </ul>

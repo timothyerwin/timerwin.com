@@ -1,6 +1,7 @@
 import React from 'react';
 import uuid from 'uuid';
 import styled from 'styled-components';
+import Dots from 'react-activity/lib/Dots';
 
 import {Title} from '../ux/styles';
 import Tags from '../ux/tags';
@@ -49,6 +50,7 @@ module.exports = class extends React.Component {
       <div>
         <h1>resume</h1>
         <section class="timeline">
+          <div style={{ display: this.state.jobs.length === 0 ? 'block' : 'none', marginLeft: '5px'}} ><Dots size={18} color="#09a" /></div>
           <ul class="list">
             {this.state.jobs.map(jobs => <li key={uuid()}><Job data={jobs}/></li>)}
           </ul>

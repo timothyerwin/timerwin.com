@@ -23184,6 +23184,10 @@ webpackJsonp([1,0],{
 
 	var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
+	var _Dots = __webpack_require__("./node_modules/react-activity/lib/Dots/index.js");
+
+	var _Dots2 = _interopRequireDefault(_Dots);
+
 	var _styles = __webpack_require__("./react/components/ux/styles.jsx");
 
 	var _tags = __webpack_require__("./react/components/ux/tags.jsx");
@@ -23288,6 +23292,11 @@ webpackJsonp([1,0],{
 	        _react2.default.createElement(
 	          'section',
 	          { className: 'timeline' },
+	          _react2.default.createElement(
+	            'div',
+	            { style: { display: this.state.jobs.length === 0 ? 'block' : 'none', marginLeft: '5px' } },
+	            _react2.default.createElement(_Dots2.default, { size: 18, color: '#09a' })
+	          ),
 	          _react2.default.createElement(
 	            'ul',
 	            { className: 'list' },

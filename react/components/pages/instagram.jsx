@@ -4,10 +4,6 @@ import uuid from 'uuid';
 import 'whatwg-fetch';
 import Dots from 'react-activity/lib/Dots';
 
-const Viewer = styled.ul `
-
-`;
-
 const Link = styled.a`
   display: block;
   margin-bottom: 50px;
@@ -41,11 +37,11 @@ class Media extends React.Component {
 
   render() {
     return (
-      <Viewer>
+      <ul>
         {this.props.data.map(item => <Li key={uuid()}>
           <ImageBox data={item.images.standard_resolution}/>
         </Li>)}
-      </Viewer>
+      </ul>
     );
   }
 }

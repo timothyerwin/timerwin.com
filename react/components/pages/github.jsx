@@ -8,10 +8,10 @@ import {Title} from '../ux/styles';
 import Tags from '../ux/tags';
 
 const Description = styled.p`
-  text-transform: uppercase;
+  color: #aaa;
   font-size: 18px;
   line-height: 28px;
-  color: #aaa;
+  text-transform: uppercase;
 `;
 
 const Link = styled.a`
@@ -20,31 +20,31 @@ const Link = styled.a`
 `;
 
 const Tag = styled.b`
-  font-family: roboto;
-  font-size: 12px;
-  padding: 5px 15px;
   border: 1px solid #ccc;
-  font-weight: normal;
-  box-shadow: inset 0 0 8px rgba(0,0,0,.1);
-  position: relative;
-  top: -6px;
-  margin-left: 15px;
   border-radius: 5px;
-  opacity: .5;
   cursor: default;
   color: #000;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+  font-family: roboto;
+  font-weight: normal;
+  font-size: 12px;
+  margin-left: 15px;
   margin-right: 5px;
+  opacity: 0.5;
+  padding: 5px 15px;
+  position: relative;
+  top: -6px;
 `;
 
 const Stats = styled.span`
+  color: #2f3238;
+  cursor: default;
   font-size: 16px;
-  color: ##2f3238;
   margin-left: 17px;
+  opacity: 0.9;
   position: relative;
   top: -4px;
-  opacity: .9;
-  text-shadow: 0 0 4px rgba(0,0,0,.2);
-  cursor: default;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 `;
 
 class Repo extends React.Component {

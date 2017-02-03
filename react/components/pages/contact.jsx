@@ -5,10 +5,10 @@ import {VelocityComponent} from 'velocity-react';
 import Levels from 'react-activity/lib/Levels';
 
 const Textarea = styled.textarea `
-  display:block;
+  display: block;
   margin-top: 20px;
   border: 1px solid #ccc;
-  box-shadow: inset 0 0 10px rgba(0,0,0,.08);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.08);
   height: 260px;
   resize: none;
   padding: 12px;
@@ -19,10 +19,10 @@ const Textarea = styled.textarea `
 `;
 
 const Input = styled.input `
-  display:block;
+  display: block;
   margin-top: 30px;
   border: 1px solid #ccc;
-  box-shadow: inset 0 0 10px rgba(0,0,0,.08);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.08);
   resize: none;
   padding: 12px;
   font-size: 18px;
@@ -35,9 +35,9 @@ const Button = styled.button `
   background: #09c;
   color: #fff;
   padding: 12px 50px;
-  box-shadow: 0 0 15px rgba(0,0,0,.3);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   text-transform: uppercase;
-  border: 1px solid rgba(255,255,255,.8);
+  border: 1px solid rgba(255, 255, 255, 0.8);
   font-size: 16px;
   border-radius: 5px;
   margin-right: 20px;

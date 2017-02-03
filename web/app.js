@@ -23117,9 +23117,20 @@ webpackJsonp([1,0],{
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+	var _templateObject = _taggedTemplateLiteral(['\n  font-size: 22px;\n  color: #dedede;\n  text-transform: uppercase;\n  line-height: 36px;\n  cursor: default;\n  font-family: roboto;\n  letter-spacing: 1px;\n  font-family: roboto;\n  margin-bottom: 10px;\n  margin-top: 25px;\n  text-shadow: 0 0 5px rgba(0,0,0,.012)\n'], ['\n  font-size: 22px;\n  color: #dedede;\n  text-transform: uppercase;\n  line-height: 36px;\n  cursor: default;\n  font-family: roboto;\n  letter-spacing: 1px;\n  font-family: roboto;\n  margin-bottom: 10px;\n  margin-top: 25px;\n  text-shadow: 0 0 5px rgba(0,0,0,.012)\n']),
+	    _templateObject2 = _taggedTemplateLiteral(['\n  display: block;\n  padding: 20px;\n'], ['\n  display: block;\n  padding: 20px;\n']);
+
 	var _react = __webpack_require__("./node_modules/react/react.js");
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _styledComponents = __webpack_require__("./node_modules/styled-components/lib/index.js");
+
+	var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+	var _tags = __webpack_require__("./react/components/ux/tags.jsx");
+
+	var _tags2 = _interopRequireDefault(_tags);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23128,6 +23139,12 @@ webpackJsonp([1,0],{
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+	var Subtitle = _styledComponents2.default.h3(_templateObject);
+
+	var ListItem = _styledComponents2.default.li(_templateObject2);
 
 	module.exports = function (_React$Component) {
 	  _inherits(_class, _React$Component);
@@ -23148,6 +23165,39 @@ webpackJsonp([1,0],{
 	          'h1',
 	          null,
 	          'profile'
+	        ),
+	        _react2.default.createElement(
+	          'ul',
+	          null,
+	          _react2.default.createElement(
+	            ListItem,
+	            null,
+	            _react2.default.createElement(
+	              Subtitle,
+	              null,
+	              'bio'
+	            ),
+	            'I am a software developer!'
+	          ),
+	          _react2.default.createElement(
+	            ListItem,
+	            null,
+	            _react2.default.createElement(
+	              Subtitle,
+	              null,
+	              'skills'
+	            ),
+	            _react2.default.createElement(_tags2.default, { tags: ['HTML', 'CSS', 'Javascript', 'ES6', 'Node.js', 'Babel', 'Webpack', 'React', 'SQL', 'C#', 'C++', 'XML', 'JSON'] })
+	          ),
+	          _react2.default.createElement(
+	            ListItem,
+	            null,
+	            _react2.default.createElement(
+	              Subtitle,
+	              null,
+	              'contact'
+	            )
+	          )
 	        )
 	      );
 	    }

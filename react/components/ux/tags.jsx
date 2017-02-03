@@ -20,7 +20,6 @@ const Tags = styled.div `
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.07);
 `;
 
 module.exports = class extends React.Component {

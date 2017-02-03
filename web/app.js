@@ -22902,7 +22902,7 @@ webpackJsonp([1,0],{
 	        ),
 	        _react2.default.createElement(
 	          'a',
-	          { href: 'http://github.com/timothyerwin' },
+	          { target: '_blank', rel: 'noopener noreferrer', href: 'http://github.com/timothyerwin' },
 	          'http://github.com/timothyerwin'
 	        ),
 	        _react2.default.createElement('br', null),
@@ -23087,7 +23087,7 @@ webpackJsonp([1,0],{
 	        ),
 	        _react2.default.createElement(
 	          Link,
-	          { target: '_blank', href: 'https://www.instagram.com/timerwinofficial' },
+	          { target: '_blank', rel: 'noopener noreferrer', href: 'https://www.instagram.com/timerwinofficial' },
 	          'https://www.instagram.com/timerwinofficial'
 	        ),
 	        _react2.default.createElement(

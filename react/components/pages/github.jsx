@@ -83,7 +83,7 @@ module.exports = class extends React.Component {
     return (
       <div>
         <h1>github</h1>
-        <a href="http://github.com/timothyerwin">http://github.com/timothyerwin</a>
+        <a target="_blank" rel="noopener noreferrer" href="http://github.com/timothyerwin">http://github.com/timothyerwin</a>
         <br />
         <br />
         <div style={{ display: this.state.repos.length === 0 ? 'block' : 'none', marginLeft: '5px'}} ><Dots size={18} color="#09a" /></div>

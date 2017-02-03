@@ -67,6 +67,10 @@ aside {
   box-shadow: 1px 1px 15px rgba(0, 0, 0, .5);
 }
 
+aside>ul {
+  padding: 15px 0;
+}
+
 aside>h3 {
   display: none;
   font-family: Roboto;

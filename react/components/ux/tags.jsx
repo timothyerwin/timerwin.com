@@ -20,6 +20,7 @@ const Tags = styled.div `
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  padding: 10px 0;
 `;
 
 module.exports = class extends React.Component {

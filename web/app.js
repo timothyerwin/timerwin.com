@@ -23587,7 +23587,7 @@ webpackJsonp([1,0],{
 	var _class, _temp;
 
 	var _templateObject = _taggedTemplateLiteral(['\n  border: 1px solid #ddd;\n  border-radius: 4px;\n  box-shadow: 0 0 12px rgba(0, 0, 0, 0.07);\n  color: #09c;\n  cursor: default;\n  font-size: 14px;\n  font-family: roboto;\n  padding: 7px 14px;\n  margin-bottom: 10px;\n  margin-right: 15px;\n  text-transform: uppercase;\n'], ['\n  border: 1px solid #ddd;\n  border-radius: 4px;\n  box-shadow: 0 0 12px rgba(0, 0, 0, 0.07);\n  color: #09c;\n  cursor: default;\n  font-size: 14px;\n  font-family: roboto;\n  padding: 7px 14px;\n  margin-bottom: 10px;\n  margin-right: 15px;\n  text-transform: uppercase;\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  box-shadow: 0 0 12px rgba(0, 0, 0, 0.07);\n'], ['\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  box-shadow: 0 0 12px rgba(0, 0, 0, 0.07);\n']);
+	    _templateObject2 = _taggedTemplateLiteral(['\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  padding: 15px 0;\n'], ['\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  padding: 15px 0;\n']);
 
 	var _react = __webpack_require__("./node_modules/react/react.js");
 

@@ -4,8 +4,8 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "lint": "eslint .",
     "lint:css": "stylelint \"react/components/**/*.jsx\"",
+    "lint": "npm run lint:css && eslint .",
     "clean": "rimraf web && mkdir web",
     "build": "npm run clean && cp -R assets/** web && webpack",
     "dev": "export NODE_ENV=development && npm run build && PORT=3000 node --inspect server",

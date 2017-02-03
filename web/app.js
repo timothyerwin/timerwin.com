@@ -22541,9 +22541,9 @@ webpackJsonp([1,0],{
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _templateObject = _taggedTemplateLiteral(['\n  display:block;\n  margin-top: 20px;\n  border: 1px solid #ccc;\n  box-shadow: inset 0 0 10px rgba(0,0,0,.08);\n  height: 260px;\n  resize: none;\n  padding: 12px;\n  font-size: 18px;\n  color: #555;\n  margin-bottom: 25px;\n  width: 550px;\n'], ['\n  display:block;\n  margin-top: 20px;\n  border: 1px solid #ccc;\n  box-shadow: inset 0 0 10px rgba(0,0,0,.08);\n  height: 260px;\n  resize: none;\n  padding: 12px;\n  font-size: 18px;\n  color: #555;\n  margin-bottom: 25px;\n  width: 550px;\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n  display:block;\n  margin-top: 30px;\n  border: 1px solid #ccc;\n  box-shadow: inset 0 0 10px rgba(0,0,0,.08);\n  resize: none;\n  padding: 12px;\n  font-size: 18px;\n  color: #555;\n  margin-bottom: 25px;\n  width: 300px;\n'], ['\n  display:block;\n  margin-top: 30px;\n  border: 1px solid #ccc;\n  box-shadow: inset 0 0 10px rgba(0,0,0,.08);\n  resize: none;\n  padding: 12px;\n  font-size: 18px;\n  color: #555;\n  margin-bottom: 25px;\n  width: 300px;\n']),
-	    _templateObject3 = _taggedTemplateLiteral(['\n  background: #09c;\n  color: #fff;\n  padding: 12px 50px;\n  box-shadow: 0 0 15px rgba(0,0,0,.3);\n  text-transform: uppercase;\n  border: 1px solid rgba(255,255,255,.8);\n  font-size: 16px;\n  border-radius: 5px;\n  margin-right: 20px;\n  cursor: pointer;\n'], ['\n  background: #09c;\n  color: #fff;\n  padding: 12px 50px;\n  box-shadow: 0 0 15px rgba(0,0,0,.3);\n  text-transform: uppercase;\n  border: 1px solid rgba(255,255,255,.8);\n  font-size: 16px;\n  border-radius: 5px;\n  margin-right: 20px;\n  cursor: pointer;\n']);
+	var _templateObject = _taggedTemplateLiteral(['\n  display: block;\n  margin-top: 20px;\n  border: 1px solid #ccc;\n  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.08);\n  height: 260px;\n  resize: none;\n  padding: 12px;\n  font-size: 18px;\n  color: #555;\n  margin-bottom: 25px;\n  width: 550px;\n'], ['\n  display: block;\n  margin-top: 20px;\n  border: 1px solid #ccc;\n  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.08);\n  height: 260px;\n  resize: none;\n  padding: 12px;\n  font-size: 18px;\n  color: #555;\n  margin-bottom: 25px;\n  width: 550px;\n']),
+	    _templateObject2 = _taggedTemplateLiteral(['\n  display: block;\n  margin-top: 30px;\n  border: 1px solid #ccc;\n  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.08);\n  resize: none;\n  padding: 12px;\n  font-size: 18px;\n  color: #555;\n  margin-bottom: 25px;\n  width: 300px;\n'], ['\n  display: block;\n  margin-top: 30px;\n  border: 1px solid #ccc;\n  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.08);\n  resize: none;\n  padding: 12px;\n  font-size: 18px;\n  color: #555;\n  margin-bottom: 25px;\n  width: 300px;\n']),
+	    _templateObject3 = _taggedTemplateLiteral(['\n  background: #09c;\n  color: #fff;\n  padding: 12px 50px;\n  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);\n  text-transform: uppercase;\n  border: 1px solid rgba(255, 255, 255, 0.8);\n  font-size: 16px;\n  border-radius: 5px;\n  margin-right: 20px;\n  cursor: pointer;\n'], ['\n  background: #09c;\n  color: #fff;\n  padding: 12px 50px;\n  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);\n  text-transform: uppercase;\n  border: 1px solid rgba(255, 255, 255, 0.8);\n  font-size: 16px;\n  border-radius: 5px;\n  margin-right: 20px;\n  cursor: pointer;\n']);
 
 	var _react = __webpack_require__("./node_modules/react/react.js");
 
@@ -22750,10 +22750,10 @@ webpackJsonp([1,0],{
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _templateObject = _taggedTemplateLiteral(['\n  text-transform: uppercase;\n  font-size: 18px;\n  line-height: 28px;\n  color: #aaa;\n'], ['\n  text-transform: uppercase;\n  font-size: 18px;\n  line-height: 28px;\n  color: #aaa;\n']),
+	var _templateObject = _taggedTemplateLiteral(['\n  color: #aaa;\n  font-size: 18px;\n  line-height: 28px;\n  text-transform: uppercase;\n'], ['\n  color: #aaa;\n  font-size: 18px;\n  line-height: 28px;\n  text-transform: uppercase;\n']),
 	    _templateObject2 = _taggedTemplateLiteral(['\n  display: block;\n  margin-top: 15px;\n'], ['\n  display: block;\n  margin-top: 15px;\n']),
-	    _templateObject3 = _taggedTemplateLiteral(['\n  font-family: roboto;\n  font-size: 12px;\n  padding: 5px 15px;\n  border: 1px solid #ccc;\n  font-weight: normal;\n  box-shadow: inset 0 0 8px rgba(0,0,0,.1);\n  position: relative;\n  top: -6px;\n  margin-left: 15px;\n  border-radius: 5px;\n  opacity: .5;\n  cursor: default;\n  color: #000;\n  margin-right: 5px;\n'], ['\n  font-family: roboto;\n  font-size: 12px;\n  padding: 5px 15px;\n  border: 1px solid #ccc;\n  font-weight: normal;\n  box-shadow: inset 0 0 8px rgba(0,0,0,.1);\n  position: relative;\n  top: -6px;\n  margin-left: 15px;\n  border-radius: 5px;\n  opacity: .5;\n  cursor: default;\n  color: #000;\n  margin-right: 5px;\n']),
-	    _templateObject4 = _taggedTemplateLiteral(['\n  font-size: 16px;\n  color: ##2f3238;\n  margin-left: 17px;\n  position: relative;\n  top: -4px;\n  opacity: .9;\n  text-shadow: 0 0 4px rgba(0,0,0,.2);\n  cursor: default;\n'], ['\n  font-size: 16px;\n  color: ##2f3238;\n  margin-left: 17px;\n  position: relative;\n  top: -4px;\n  opacity: .9;\n  text-shadow: 0 0 4px rgba(0,0,0,.2);\n  cursor: default;\n']);
+	    _templateObject3 = _taggedTemplateLiteral(['\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  cursor: default;\n  color: #000;\n  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);\n  font-family: roboto;\n  font-weight: normal;\n  font-size: 12px;\n  margin-left: 15px;\n  margin-right: 5px;\n  opacity: 0.5;\n  padding: 5px 15px;\n  position: relative;\n  top: -6px;\n'], ['\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  cursor: default;\n  color: #000;\n  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);\n  font-family: roboto;\n  font-weight: normal;\n  font-size: 12px;\n  margin-left: 15px;\n  margin-right: 5px;\n  opacity: 0.5;\n  padding: 5px 15px;\n  position: relative;\n  top: -6px;\n']),
+	    _templateObject4 = _taggedTemplateLiteral(['\n  color: #2f3238;\n  cursor: default;\n  font-size: 16px;\n  margin-left: 17px;\n  opacity: 0.9;\n  position: relative;\n  top: -4px;\n  text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);\n'], ['\n  color: #2f3238;\n  cursor: default;\n  font-size: 16px;\n  margin-left: 17px;\n  opacity: 0.9;\n  position: relative;\n  top: -4px;\n  text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);\n']);
 
 	var _react = __webpack_require__("./node_modules/react/react.js");
 
@@ -22944,9 +22944,8 @@ webpackJsonp([1,0],{
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _templateObject = _taggedTemplateLiteral(['\n\n'], ['\n\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n  display: block;\n  margin-bottom: 50px;\n'], ['\n  display: block;\n  margin-bottom: 50px;\n']),
-	    _templateObject3 = _taggedTemplateLiteral(['\n  display: block;\n  margin-bottom: 100px;\n'], ['\n  display: block;\n  margin-bottom: 100px;\n']);
+	var _templateObject = _taggedTemplateLiteral(['\n  display: block;\n  margin-bottom: 50px;\n'], ['\n  display: block;\n  margin-bottom: 50px;\n']),
+	    _templateObject2 = _taggedTemplateLiteral(['\n  display: block;\n  margin-bottom: 100px;\n'], ['\n  display: block;\n  margin-bottom: 100px;\n']);
 
 	var _react = __webpack_require__("./node_modules/react/react.js");
 
@@ -22976,11 +22975,9 @@ webpackJsonp([1,0],{
 
 	function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-	var Viewer = _styledComponents2.default.ul(_templateObject);
+	var Link = _styledComponents2.default.a(_templateObject);
 
-	var Link = _styledComponents2.default.a(_templateObject2);
-
-	var Li = _styledComponents2.default.li(_templateObject3);
+	var Li = _styledComponents2.default.li(_templateObject2);
 
 	var ImageBox = function (_React$Component) {
 	  _inherits(ImageBox, _React$Component);
@@ -23028,7 +23025,7 @@ webpackJsonp([1,0],{
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        Viewer,
+	        'ul',
 	        null,
 	        this.props.data.map(function (item) {
 	          return _react2.default.createElement(
@@ -23117,8 +23114,9 @@ webpackJsonp([1,0],{
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _templateObject = _taggedTemplateLiteral(['\n  font-size: 22px;\n  color: #dedede;\n  text-transform: uppercase;\n  line-height: 36px;\n  cursor: default;\n  font-family: roboto;\n  letter-spacing: 1px;\n  font-family: roboto;\n  margin-bottom: 10px;\n  margin-top: 25px;\n  text-shadow: 0 0 5px rgba(0,0,0,.012)\n'], ['\n  font-size: 22px;\n  color: #dedede;\n  text-transform: uppercase;\n  line-height: 36px;\n  cursor: default;\n  font-family: roboto;\n  letter-spacing: 1px;\n  font-family: roboto;\n  margin-bottom: 10px;\n  margin-top: 25px;\n  text-shadow: 0 0 5px rgba(0,0,0,.012)\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n  display: block;\n  padding: 20px;\n'], ['\n  display: block;\n  padding: 20px;\n']);
+	var _templateObject = _taggedTemplateLiteral(['\n  color: #dedede;\n  cursor: default;\n  font-size: 22px;\n  font-family: roboto;\n  text-transform: uppercase;\n  line-height: 36px;\n  letter-spacing: 1px;\n  margin-bottom: 10px;\n  text-shadow: 0 0 5px rgba(0, 0, 0, 0.012);\n'], ['\n  color: #dedede;\n  cursor: default;\n  font-size: 22px;\n  font-family: roboto;\n  text-transform: uppercase;\n  line-height: 36px;\n  letter-spacing: 1px;\n  margin-bottom: 10px;\n  text-shadow: 0 0 5px rgba(0, 0, 0, 0.012);\n']),
+	    _templateObject2 = _taggedTemplateLiteral(['\n  font-size: 25px;\n  color: #5a5a5a;\n  text-shadow: 0 0 5px rgba(0, 0, 0, 0.05);\n  font-weight: normal;\n'], ['\n  font-size: 25px;\n  color: #5a5a5a;\n  text-shadow: 0 0 5px rgba(0, 0, 0, 0.05);\n  font-weight: normal;\n']),
+	    _templateObject3 = _taggedTemplateLiteral(['\n  display: block;\n  padding: 20px 5px;\n'], ['\n  display: block;\n  padding: 20px 5px;\n']);
 
 	var _react = __webpack_require__("./node_modules/react/react.js");
 
@@ -23144,7 +23142,9 @@ webpackJsonp([1,0],{
 
 	var Subtitle = _styledComponents2.default.h3(_templateObject);
 
-	var ListItem = _styledComponents2.default.li(_templateObject2);
+	var Text = _styledComponents2.default.p(_templateObject2);
+
+	var ListItem = _styledComponents2.default.li(_templateObject3);
 
 	module.exports = function (_React$Component) {
 	  _inherits(_class, _React$Component);
@@ -23177,7 +23177,11 @@ webpackJsonp([1,0],{
 	              null,
 	              'bio'
 	            ),
-	            'I am a software developer!'
+	            _react2.default.createElement(
+	              Text,
+	              null,
+	              'I am a software developer!'
+	            )
 	          ),
 	          _react2.default.createElement(
 	            ListItem,
@@ -23188,6 +23192,16 @@ webpackJsonp([1,0],{
 	              'skills'
 	            ),
 	            _react2.default.createElement(_tags2.default, { tags: ['HTML', 'CSS', 'Javascript', 'ES6', 'Node.js', 'Babel', 'Webpack', 'React', 'SQL', 'C#', 'C++', 'XML', 'JSON'] })
+	          ),
+	          _react2.default.createElement(
+	            ListItem,
+	            null,
+	            _react2.default.createElement(
+	              Subtitle,
+	              null,
+	              'interests'
+	            ),
+	            _react2.default.createElement(_tags2.default, { tags: ['mma', 'ufc', 'soccer', 'chess', 'gym', 'yoga', 'meditation'] })
 	          ),
 	          _react2.default.createElement(
 	            ListItem,
@@ -23572,8 +23586,8 @@ webpackJsonp([1,0],{
 
 	var _class, _temp;
 
-	var _templateObject = _taggedTemplateLiteral(['\n  margin-right: 15px;\n  font-size: 14px;\n  padding: 7px 14px;\n  box-shadow: 0 0 12px rgba(0,0,0,.07);\n  margin-bottom: 10px;\n  border: 1px solid #ddd;\n  border-radius: 4px;\n  color: #09c;\n  text-transform: uppercase;\n  font-family: roboto;\n  cursor: default;\n'], ['\n  margin-right: 15px;\n  font-size: 14px;\n  padding: 7px 14px;\n  box-shadow: 0 0 12px rgba(0,0,0,.07);\n  margin-bottom: 10px;\n  border: 1px solid #ddd;\n  border-radius: 4px;\n  color: #09c;\n  text-transform: uppercase;\n  font-family: roboto;\n  cursor: default;\n']),
-	    _templateObject2 = _taggedTemplateLiteral(['\n  margin-top: 15px;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n'], ['\n  margin-top: 15px;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n']);
+	var _templateObject = _taggedTemplateLiteral(['\n  border: 1px solid #ddd;\n  border-radius: 4px;\n  box-shadow: 0 0 12px rgba(0, 0, 0, 0.07);\n  color: #09c;\n  cursor: default;\n  font-size: 14px;\n  font-family: roboto;\n  padding: 7px 14px;\n  margin-bottom: 10px;\n  margin-right: 15px;\n  text-transform: uppercase;\n'], ['\n  border: 1px solid #ddd;\n  border-radius: 4px;\n  box-shadow: 0 0 12px rgba(0, 0, 0, 0.07);\n  color: #09c;\n  cursor: default;\n  font-size: 14px;\n  font-family: roboto;\n  padding: 7px 14px;\n  margin-bottom: 10px;\n  margin-right: 15px;\n  text-transform: uppercase;\n']),
+	    _templateObject2 = _taggedTemplateLiteral(['\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  box-shadow: 0 0 12px rgba(0, 0, 0, 0.07);\n'], ['\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  box-shadow: 0 0 12px rgba(0, 0, 0, 0.07);\n']);
 
 	var _react = __webpack_require__("./node_modules/react/react.js");
 

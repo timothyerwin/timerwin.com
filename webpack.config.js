@@ -27,9 +27,7 @@ module.exports = {
     loaders: [
       {
         test: /\.js$|\.jsx$/, // Transform all .js files required somewhere with Babel
-        loaders: [
-          'react-hot', 'babel-loader'
-        ],
+        loaders: dev ? ['react-hot', 'babel-loader'] : ['babel-loader'],
         exclude: /node_modules/
       }, {
         // Do not transform vendor's CSS with CSS-modules
@@ -83,7 +81,6 @@ module.exports = {
       fetch: 'exports-loader?self.fetch!whatwg-fetch',
       validator: 'exports-loader?self.validator!validator'
     }),
-
     // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
     // inside your code for any environment checks; UglifyJS will automatically
     // drop any unreachable code.
@@ -92,8 +89,7 @@ module.exports = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
     }),
-    new webpack.NamedModulesPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({name: 'common', filename: 'common.js', minChunks: 0})
+    new webpack.NamedModulesPlugin()
   ],
   resolve: {
     root: path.resolve(__dirname, 'react'),

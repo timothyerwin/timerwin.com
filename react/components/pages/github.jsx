@@ -1,5 +1,5 @@
-import React from 'react';
 import 'whatwg-fetch';
+import React from 'react';
 import uuid from 'uuid';
 import styled from 'styled-components';
 import Dots from 'react-activity/lib/Dots';

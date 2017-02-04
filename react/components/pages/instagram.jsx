@@ -1,7 +1,7 @@
+import 'whatwg-fetch';
 import React from 'react';
 import styled from 'styled-components';
 import uuid from 'uuid';
-import 'whatwg-fetch';
 import Dots from 'react-activity/lib/Dots';
 
 const Link = styled.a`

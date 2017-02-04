@@ -2,11 +2,34 @@ const webpack = require('webpack');
 const path = require('path');
 
 const dev = process.env.NODE_ENV === 'development';
+const prod = process.env.NODE_ENV === 'production';
 
 const entry = ['app.jsx'];
 
+const plugins = [
+  new webpack.optimize.OccurenceOrderPlugin(),
+  new webpack.HotModuleReplacementPlugin(),
+  new webpack.NoErrorsPlugin(),
+  new webpack.ProvidePlugin({
+    // stop trying to make fetch happen! it's not happening!
+    fetch: 'exports-loader?self.fetch!whatwg-fetch',
+    validator: 'exports-loader?self.validator!validator'
+  }),
+  // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
+  // inside your code for any environment checks; UglifyJS will automatically
+  // drop any unreachable code.
+  new webpack.DefinePlugin({
+    'process.env': {
+      NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+    }
+  }),
+  new webpack.NamedModulesPlugin()
+];
+
 if (dev) {
   entry.push('webpack-hot-middleware/client');
+} else if (prod) {
+  plugins.push(new webpack.optimize.UglifyJsPlugin());
 }
 
 module.exports = {
@@ -22,7 +45,7 @@ module.exports = {
     reasons: true,
     errorDetails: true
   },
-  devtool: dev ? 'eval' : 'cheap-module-source-map',
+  devtool: dev ? 'eval' : 'source-map',
   module: {
     loaders: [
       {
@@ -72,25 +95,7 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new webpack.ProvidePlugin({
-      // stop trying to make fetch happen! it's not happening!
-      fetch: 'exports-loader?self.fetch!whatwg-fetch',
-      validator: 'exports-loader?self.validator!validator'
-    }),
-    // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
-    // inside your code for any environment checks; UglifyJS will automatically
-    // drop any unreachable code.
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
-      }
-    }),
-    new webpack.NamedModulesPlugin()
-  ],
+  plugins,
   resolve: {
     root: path.resolve(__dirname, 'react'),
     modulesDirectories: ['node_modules'],

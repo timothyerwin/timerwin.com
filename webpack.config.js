@@ -1,11 +1,16 @@
 const webpack = require('webpack');
 const path = require('path');
 
+const dev = process.env.NODE_ENV === 'development';
+
+const entry = ['app.jsx'];
+
+if (dev) {
+  entry.push('webpack-hot-middleware/client');
+}
+
 module.exports = {
-  entry: [
-    'app.jsx',
-    'webpack-hot-middleware/client'
-  ],
+  entry,
   output: {
     path: path.resolve(__dirname, 'web'),
     filename: 'app.js',
@@ -17,11 +22,14 @@ module.exports = {
     reasons: true,
     errorDetails: true
   },
+  devtool: dev ? 'eval' : 'cheap-module-source-map',
   module: {
     loaders: [
       {
         test: /\.js$|\.jsx$/, // Transform all .js files required somewhere with Babel
-        loaders: ['react-hot', 'babel-loader'],
+        loaders: [
+          'react-hot', 'babel-loader'
+        ],
         exclude: /node_modules/
       }, {
         // Do not transform vendor's CSS with CSS-modules

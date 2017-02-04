@@ -12,6 +12,7 @@ const Time = styled.p `
   font-family: arial;
   line-height: 36px;
   font-weight: normal;
+  color: #aaa;
 `;
 
 class Job extends React.Component {

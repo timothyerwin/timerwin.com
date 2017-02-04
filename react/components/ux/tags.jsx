@@ -6,7 +6,7 @@ const Tag = styled.span `
   border: 1px solid #ddd;
   border-radius: 4px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.07);
-  color: #09c;
+  color: #555;
   cursor: default;
   font-size: 14px;
   font-family: roboto;

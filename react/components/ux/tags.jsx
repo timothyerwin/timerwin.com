@@ -5,7 +5,7 @@ import uuid from 'uuid';
 const Tag = styled.span `
   border: 1px solid #ddd;
   border-radius: 4px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
   color: #555;
   cursor: default;
   font-size: 14px;

@@ -10,7 +10,7 @@
     "build:pre": "npm run clean && cp -R assets/** web",
     "build:dev": "npm run build:pre && webpack",
     "build:prod": "npm run build:pre && webpack -p",
-    "dev": "NODE_ENV=development npm run build:dev && node --inspect server",
+    "dev": "NODE_ENV=development npm run build:dev && NODE_ENV=development node --inspect server",
     "prod": "NODE_ENV=production npm run build:prod"
   },
   "engines": {

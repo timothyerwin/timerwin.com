@@ -153,6 +153,7 @@ a {
   }
 
   aside {
+    z-index: 100;
     margin: 0;
     border-radius: 0;
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
@@ -164,7 +165,6 @@ a {
   }
 
   main {
-    z-index: -1;
     padding: 40px 50px;
     width: 100%;
   }

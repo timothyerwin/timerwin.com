@@ -166,6 +166,7 @@ a {
   main {
     z-index: -1;
     padding: 40px 50px;
+    width: 100%;
   }
 
   footer {

@@ -11,7 +11,7 @@ const Link = styled.a`
 
 const Li = styled.li `
   display: block;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
 `;
 
 class ImageBox extends React.Component {
@@ -20,12 +20,13 @@ class ImageBox extends React.Component {
   }
 
   render() {
-    const {url, width, height} = this.props.data;
+    const {url} = this.props.data;
 
     return (<div style={{
-      'background': `url(${url})`,
-      width,
-      height
+      background: `url(${url})`,
+      backgroundSize: '100%',
+      height: 0,
+      paddingBottom: '100%'
     }}/>);
   }
 }

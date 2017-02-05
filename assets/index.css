@@ -115,7 +115,6 @@ aside>ul li a:hover {
 
 main {
   background: white;
-  padding: 60px 70px;
 }
 
 ul.list>li {
@@ -132,12 +131,23 @@ a {
   text-decoration: underline;
 }
 
-// ipad
+@media only screen and (min-width: 1025px) {
+  main {
+    min-width: 600px;
+    max-width: 700px;
+    margin-top: 50px;
+    margin-left: 30px;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, .1);
+    border-radius: 4px;
+    padding: 60px 70px;
+  }
+}
+
 @media only screen and (max-width: 1024px) {
   body {
     background: white;
   }
-  
+
   #app>div {
     align-items: stretch;
   }
@@ -147,6 +157,7 @@ a {
     border-radius: 0;
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
   }
+
   aside>ul {
     padding: 15px 0;
     border: 0;
@@ -154,21 +165,10 @@ a {
 
   main {
     z-index: -1;
+    padding: 40px 50px;
   }
 
   footer {
     height: 0;
-  }
-}
-
-// > ipad (desktop)
-@media only screen and (min-width: 1024px) {
-  main {
-    min-width: 600px;
-    max-width: 700px;
-    margin-top: 50px;
-    margin-left: 30px;
-    box-shadow: 1px 1px 8px rgba(0, 0, 0, .1);
-    border-radius: 4px;
   }
 }

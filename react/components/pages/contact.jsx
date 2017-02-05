@@ -15,7 +15,7 @@ const Textarea = styled.textarea `
   font-size: 18px;
   color: #555;
   margin-bottom: 25px;
-  width: 550px;
+  width: 95%;
 `;
 
 const Input = styled.input `
@@ -42,6 +42,7 @@ const Button = styled.button `
   border-radius: 5px;
   margin-right: 20px;
   cursor: pointer;
+  white-space: nowrap;
 `;
 
 module.exports = class extends React.Component {

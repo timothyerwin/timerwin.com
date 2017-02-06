@@ -4,15 +4,15 @@ import uuid from 'uuid';
 
 const Tag = styled.span `
   border: 1px solid #ddd;
-  border-radius: 4px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
+  border-radius: 3px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.065);
   color: #555;
   cursor: default;
   font-size: 14px;
   font-family: roboto;
-  padding: 7px 14px;
+  padding: 6px 12px;
   margin-bottom: 10px;
-  margin-right: 15px;
+  margin-right: 12px;
   text-transform: uppercase;
 `;
 

@@ -11,7 +11,6 @@ const Link = styled.a`
 
 const Li = styled.li `
   display: block;
-  margin-bottom: 80px;
 `;
 
 class ImageBox extends React.Component {

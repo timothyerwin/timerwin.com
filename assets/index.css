@@ -178,6 +178,7 @@ a {
 @media only screen and (max-width: 736px) {
   body {
     background: white;
+    font-size: 1.5vw;
   }
 
   #app>div {
@@ -196,7 +197,7 @@ a {
   }
 
   main {
-    padding: 25px;
+    padding: 40px 20px;
     width: initial;
   }
 

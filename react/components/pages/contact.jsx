@@ -14,8 +14,7 @@ const Textarea = styled.textarea `
   padding: 12px;
   font-size: 18px;
   color: #555;
-  margin-bottom: 25px;
-  width: 95%;
+  margin-bottom: 35px;
 `;
 
 const Input = styled.input `
@@ -27,22 +26,21 @@ const Input = styled.input `
   padding: 12px;
   font-size: 18px;
   color: #555;
-  margin-bottom: 25px;
-  width: 300px;
+  margin-bottom: 15px;
 `;
 
 const Button = styled.button `
   background: #09c;
   color: #fff;
-  padding: 12px 50px;
+  padding: 15px 50px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   text-transform: uppercase;
   border: 1px solid rgba(255, 255, 255, 0.8);
   font-size: 16px;
   border-radius: 5px;
-  margin-right: 20px;
   cursor: pointer;
   white-space: nowrap;
+  display: block;
 `;
 
 module.exports = class extends React.Component {
@@ -116,7 +114,7 @@ module.exports = class extends React.Component {
       button = (
         <Button ref={(r) => {
           this.button = r;
-        }} onClick={:: this.send}><i class="fa fa-paper-plane pull-left"/>Send</Button>
+        }} onClick={:: this.send}>Send</Button>
       );
     } else {
       validation = (
@@ -131,13 +129,14 @@ module.exports = class extends React.Component {
       validation = (
         <b style={{
           'textTransform': 'uppercase',
-          'color': '#cc0000'
+          'color': '#cc0000',
+          marginTop: '20px'
         }}>{this.state.validation}</b>
       );
     }
 
     return (
-      <div>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'center' }}>
         <h1>contact</h1>
         <a href="mailto:tim@timerwin.com" style={{display: 'none'}}>tim@timerwin.com</a>
         <Input disabled={this.state.sent} autoFocus type="email" onChange={:: this.emailChange} placeholder="Email"/>
@@ -146,9 +145,9 @@ module.exports = class extends React.Component {
           this.velocity = r;
         }} key="shake" animation="callout.shake">
           <div style={{
-            'display': 'flex',
-            'flexDirection': 'row',
-            'alignItems': 'center'
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'stretch'
           }}>
             {button}
             {validation}

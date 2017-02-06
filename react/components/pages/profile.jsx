@@ -6,7 +6,7 @@ import Tags from '../ux/tags';
 const Subtitle = styled.h3 `
   color: #dedede;
   cursor: default;
-  font-size: 22px;
+  font-size: 1.375rem;
   font-family: roboto;
   text-transform: uppercase;
   line-height: 36px;
@@ -18,7 +18,7 @@ const Subtitle = styled.h3 `
 const Text = styled.p `
   color: #5a5a5a;
   font-weight: normal;
-  font-size: 25px;
+  font-size: 1.4375rem;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
   line-height: 34px;
   letter-spacing: .03em;

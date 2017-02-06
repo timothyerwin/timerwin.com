@@ -16,7 +16,6 @@ module.exports = class extends React.Component {
           <Link to="/">
             <div class="profile" />
           </Link>
-          <h3>tim erwin</h3>
           <Nav />
         </aside>
         <main>

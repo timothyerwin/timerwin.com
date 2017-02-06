@@ -12,7 +12,7 @@ const Textarea = styled.textarea `
   height: 260px;
   resize: none;
   padding: 12px;
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #555;
   margin-bottom: 35px;
 `;
@@ -24,7 +24,7 @@ const Input = styled.input `
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.08);
   resize: none;
   padding: 12px;
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #555;
   margin-bottom: 15px;
 `;
@@ -36,7 +36,7 @@ const Button = styled.button `
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   text-transform: uppercase;
   border: 1px solid rgba(255, 255, 255, 0.8);
-  font-size: 16px;
+  font-size: 1.125rem;
   border-radius: 5px;
   cursor: pointer;
   white-space: nowrap;

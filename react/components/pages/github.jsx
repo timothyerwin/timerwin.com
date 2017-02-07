@@ -16,7 +16,6 @@ const Description = styled.p`
 
 const Link = styled.a`
   display: block;
-  margin-top: 15px;
 `;
 
 const Tag = styled.b`
@@ -28,7 +27,6 @@ const Tag = styled.b`
   font-family: roboto;
   font-weight: normal;
   font-size: 12px;
-  margin-left: 15px;
   margin-right: 5px;
   opacity: 0.5;
   padding: 5px 15px;
@@ -57,10 +55,13 @@ class Repo extends React.Component {
 
     return (
       <div>
-        <Title>{name}<Tag>public</Tag><Stats title={`${stargazers_count} Stars`}><i class="fa fa-star" style={{'marginRight': '3px'}} />{stargazers_count}</Stats><Stats title={`${stargazers_count} Watchers`}><i class="fa fa-eye" style={{'marginRight': '5px'}} />{watchers_count}</Stats></Title>
+        <Title>{name}</Title>
         <Description>{description.split('built using')[0]}</Description>
         <Tags tags={description.split('using')[1].split(',')} />
         <Link target="_blank" href={this.props.data.html_url}>{this.props.data.html_url}</Link>
+        <div style={{ marginTop: '25px' }}>
+          <Tag>public</Tag><Stats title={`${stargazers_count} Stars`}><i class="fa fa-star" style={{'marginRight': '3px'}} />{stargazers_count}</Stats><Stats title={`${stargazers_count} Watchers`}><i class="fa fa-eye" style={{'marginRight': '5px'}} />{watchers_count}</Stats>
+        </div>
       </div>
     );
   }

@@ -38,7 +38,7 @@ body {
 h1 {
   font-family: josefin sans;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
-  font-size: 4.1rem;
+  font-size: 5rem;
   color: #333;
   padding-bottom: 15px;
 }
@@ -124,8 +124,7 @@ main {
 }
 
 ul.list>li {
-  border-bottom: 1px solid #ddd;
-  padding: 30px 0px;
+  padding: 25px 0px;
 }
 
 ul.list>li:last-child {
@@ -218,7 +217,6 @@ a {
     left: -200px;
     top: 0;
     position: absolute;
-    height: 100%;
   }
 
   aside>ul {

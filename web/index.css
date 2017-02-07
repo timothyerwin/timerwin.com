@@ -29,17 +29,7 @@ body {
 
 @font-face {
   font-family: Blackout2AM;
-  src: url("/fonts/blackout two am.ttf");
-}
-
-@font-face {
-  font-family: BlackoutSunrise;
-  src: url("/fonts/blackout sunrise.ttf");
-}
-
-@font-face {
-  font-family: BlackoutMidnight;
-  src: url("/fonts/blackout midnight.ttf");
+  src: url("/fonts/blackout2am.ttf");
 }
 
 h1 {
@@ -198,7 +188,7 @@ a {
 
 @media only screen and (max-width: 736px) {
   html {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   body {

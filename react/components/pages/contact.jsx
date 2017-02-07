@@ -14,7 +14,7 @@ const Textarea = styled.textarea `
   padding: 12px;
   font-size: 1.125rem;
   color: #555;
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 `;
 
 const Input = styled.input `
@@ -26,7 +26,7 @@ const Input = styled.input `
   padding: 12px;
   font-size: 1.125rem;
   color: #555;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 `;
 
 const Button = styled.button `
@@ -120,7 +120,8 @@ module.exports = class extends React.Component {
       validation = (
         <b style={{
           'textTransform': 'uppercase',
-          'color': '#09c'
+          'color': '#09c',
+          fontSize: '16px'
         }}>Your message was sent! Thank you.</b>
       );
     }

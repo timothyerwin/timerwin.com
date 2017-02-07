@@ -29,7 +29,7 @@ body {
 
 @font-face {
   font-family: Blackout2AM;
-  src: url("/fonts/blackout2am.ttf");
+  src: url("/fonts/Blackout2AM.ttf");
 }
 
 h1 {
@@ -62,7 +62,7 @@ header h1 {
   text-transform: uppercase;
   font-size: 120px;
   font-family: blackout2am;
-  letter-spacing: 5px;
+  letter-spacing: 1px;
   text-shadow: 0 0 3px rgba(0,0,0,.4);
   line-height: 250px;
   margin-bottom: -65px;
@@ -188,7 +188,7 @@ a {
 
 @media only screen and (max-width: 736px) {
   html {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   body {
@@ -197,6 +197,10 @@ a {
 
   header {
     display: block;
+  }
+
+  header h1 {
+
   }
 
   #app>div {
@@ -220,13 +224,12 @@ a {
     border: 0;
   }
 
+  h1 {
+    font-size: 5.1rem;
+  }
 
   main {
     padding: 40px 15px;
     width: initial;
-  }
-
-  footer {
-    height: 0;
   }
 }

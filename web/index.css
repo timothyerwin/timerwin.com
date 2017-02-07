@@ -42,10 +42,6 @@ body {
   src: url("/fonts/blackout midnight.ttf");
 }
 
-footer {
-  height: 100px;
-}
-
 h1 {
   font-family: josefin sans;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
@@ -56,6 +52,36 @@ h1 {
 
 ul {
   list-style-type: none;
+}
+
+header {
+  display: none;
+}
+
+header #nav-icon {
+  position: absolute;
+  right: 35px;
+  top: 25px;
+  font-size: 35px;
+  color: #555;
+  cursor: pointer;
+}
+
+header h1 {
+  color: #1f1f1f;
+  text-transform: uppercase;
+  font-size: 120px;
+  font-family: blackout2am;
+  letter-spacing: 5px;
+  text-shadow: 0 0 3px rgba(0,0,0,.4);
+  line-height: 250px;
+  margin-bottom: -65px;
+  margin-top: -30px;
+  padding-left: 15px;
+}
+
+footer {
+  height: 100px;
 }
 
 #app>div {
@@ -119,6 +145,10 @@ a {
 }
 
 @media only screen and (min-width: 1025px) {
+  #app {
+    margin-bottom: 120px;
+  }
+
   aside {
     margin-top: 50px;
     margin-left: 40px;
@@ -175,20 +205,31 @@ a {
     background: white;
   }
 
+  header {
+    display: block;
+  }
+
   #app>div {
-    flex-direction: column;
-    align-items: stretch;
+    display: block;
   }
 
   aside {
-    z-index: 100;
-    width: 100%;
+    transition: .5s;
+    background: #131313;
+    display: inline-block;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0,0,0,1);
+    left: -200px;
+    top: 0;
+    position: absolute;
+    height: 100vh;
   }
 
   aside>ul {
     padding: 15px 0;
     border: 0;
   }
+
 
   main {
     padding: 40px 15px;

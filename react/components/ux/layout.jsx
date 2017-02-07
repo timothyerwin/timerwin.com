@@ -13,7 +13,7 @@ module.exports = class extends React.Component {
     return (
       <div>
         <aside>
-          <Link to="/">
+          <Link id="logo" to="/">
             <div class="profile" />
           </Link>
           <Nav />

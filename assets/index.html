@@ -1,25 +1,40 @@
 <!doctype html>
 <html lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tim Erwin</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet" />
+    <link href="/css/react-activity.min.css" rel="stylesheet" />
+    <link href="index.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <h1>tim</h1>
+      <i id="nav-icon" class="fa fa-bars"></i>
+    </header>
+    <script>
+      document.getElementById('nav-icon').addEventListener('click', function(e) {
+        e.stopPropagation();
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tim Erwin</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet" />
-  <link href="/css/react-activity.min.css" rel="stylesheet" />
-  <link href="index.css" rel="stylesheet" />
-</head>
+        var el = document.getElementsByTagName('aside')[0];
 
-<body>
-  <div id="app">
+        if(el.style.left === '0px') {
+          el.style.left = '-200px';
+        } else {
+          el.style.left = 0;
+        }
 
-  </div>
-  <footer>
+        return false;
+      });
 
-  </footer>
-  <script src="app.js"></script>
-</body>
-
+      document.getElementsByTagName('body')[0].addEventListener('click', function(){
+        var el = document.getElementsByTagName('aside')[0].style.left = '-200px';
+      });
+    </script>
+    <div id="app"></div>
+    <script src="app.js"></script>
+  </body>
 </html>

@@ -62,7 +62,7 @@ header h1 {
   text-transform: uppercase;
   font-size: 120px;
   font-family: blackout2am;
-  letter-spacing: 1px;
+  letter-spacing: 0;
   text-shadow: 0 0 3px rgba(0,0,0,.4);
   line-height: 250px;
   margin-bottom: -65px;
@@ -197,10 +197,6 @@ a {
 
   header {
     display: block;
-  }
-
-  header h1 {
-
   }
 
   #app>div {

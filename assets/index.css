@@ -29,17 +29,7 @@ body {
 
 @font-face {
   font-family: Blackout2AM;
-  src: url("/fonts/blackout two am.ttf");
-}
-
-@font-face {
-  font-family: BlackoutSunrise;
-  src: url("/fonts/blackout sunrise.ttf");
-}
-
-@font-face {
-  font-family: BlackoutMidnight;
-  src: url("/fonts/blackout midnight.ttf");
+  src: url("/fonts/blackout2am.ttf");
 }
 
 h1 {

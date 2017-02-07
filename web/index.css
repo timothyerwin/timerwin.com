@@ -62,7 +62,7 @@ header h1 {
   text-transform: uppercase;
   font-size: 120px;
   font-family: blackout2am;
-  letter-spacing: 1px;
+  letter-spacing: 0;
   text-shadow: 0 0 3px rgba(0,0,0,.4);
   line-height: 250px;
   margin-bottom: -65px;
@@ -199,10 +199,6 @@ a {
     display: block;
   }
 
-  header h1 {
-
-  }
-
   #app>div {
     display: block;
   }
@@ -211,12 +207,11 @@ a {
     transition: .5s;
     background: #131313;
     display: inline-block;
-    justify-content: center;
     box-shadow: 0 0 10px rgba(0,0,0,1);
     left: -200px;
     top: 0;
-    position: absolute;
-    height: 100vh;
+    position: fixed;
+    height: 100%;
   }
 
   aside>ul {
@@ -225,7 +220,7 @@ a {
   }
 
   h1 {
-    font-size: 5.1rem;
+    font-size: 5.5rem;
   }
 
   main {

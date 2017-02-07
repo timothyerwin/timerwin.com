@@ -207,11 +207,10 @@ a {
     transition: .5s;
     background: #131313;
     display: inline-block;
-    justify-content: center;
     box-shadow: 0 0 10px rgba(0,0,0,1);
     left: -200px;
     top: 0;
-    position: absolute;
+    position: fixed;
     height: 100%;
   }
 

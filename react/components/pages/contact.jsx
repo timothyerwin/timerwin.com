@@ -109,37 +109,48 @@ module.exports = class extends React.Component {
     let validation;
 
     if (this.state.sending) {
-      button = <div style={{marginLeft: '5px'}} ><Levels size={18} color="#09a" /></div>;
+      button = (<div style={{
+        marginLeft: '5px'
+      }}><Levels size={18} color="#09a"/></div>);
     } else if (!this.state.sent) {
       button = (
         <Button ref={(r) => {
           this.button = r;
         }} onClick={:: this.send}>Send</Button>
       );
-    } else {
-      validation = (
-        <b style={{
-          'textTransform': 'uppercase',
-          'color': '#09c',
-          fontSize: '16px'
-        }}>Your message was sent! Thank you.</b>
-      );
     }
 
     if (this.state.invalid) {
       validation = (
         <b style={{
-          'textTransform': 'uppercase',
-          'color': '#cc0000',
-          marginTop: '20px'
+          textTransform: 'uppercase',
+          color: '#cc0000',
+          marginBottom: '20px',
+          fontSize: '16px'
         }}>{this.state.validation}</b>
+      );
+    } else if (this.state.sent) {
+      validation = (
+        <b style={{
+          textTransform: 'uppercase',
+          color: '#09c',
+          marginBottom: '20px',
+          fontSize: '16px'
+        }}>Your message was sent! Thank you.</b>
       );
     }
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'center' }}>
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'stretch',
+        justifyContent: 'center'
+      }}>
         <h1>contact</h1>
-        <a href="mailto:tim@timerwin.com" style={{display: 'none'}}>tim@timerwin.com</a>
+        <a href="mailto:tim@timerwin.com" style={{
+          display: 'none'
+        }}>tim@timerwin.com</a>
         <Input disabled={this.state.sent} autoFocus type="email" onChange={:: this.emailChange} placeholder="Email"/>
         <Textarea disabled={this.state.sent} onChange={:: this.messageChange} placeholder="Message"/> {error}
         <VelocityComponent ref={(r) => {
@@ -150,8 +161,8 @@ module.exports = class extends React.Component {
             flexDirection: 'column',
             alignItems: 'stretch'
           }}>
-            {button}
             {validation}
+            {button}
           </div>
         </VelocityComponent>
       </div>

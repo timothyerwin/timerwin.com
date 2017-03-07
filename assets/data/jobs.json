@@ -1,8 +1,13 @@
 {
   "jobs": [{
+    "company": "YAHOO",
+    "start": "February 2017",
+    "end": "Present",
+    "tech": ["Javascript", "ES6", "CSS", "Ember", "GIT"]
+  }, {
     "company": "SNAPTECH",
     "start": "December 2015",
-    "end": "Present",
+    "end": "January 2017",
     "tech": ["Javascript", "ES6", "Node.js", "Express", "React", "Relay", "GraphQL", "Babel", "Webpack", "Mocha", "GIT"]
   }, {
     "company": "Globant",

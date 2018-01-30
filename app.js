@@ -23,7 +23,6 @@ app.use(webpackDevMiddleware(compiler, { quiet: true, publicPath: config.output.
 app.use(webpackHotMiddleware(compiler));
 
 app.use(require('./routes/contact'));
-app.use(require('./routes/instagram'));
 
 app.get('*', (req, res) => {
   res.sendFile('index.html', { root: path.join(__dirname, '/web') });

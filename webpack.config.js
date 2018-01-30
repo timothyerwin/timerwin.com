@@ -4,7 +4,7 @@ const path = require('path');
 const dev = process.env.NODE_ENV === 'development';
 const prod = process.env.NODE_ENV === 'production';
 
-const entry = ['app.jsx'];
+const entry = ['babel-polyfill', 'app.jsx'];
 
 const plugins = [
   new webpack.optimize.OccurenceOrderPlugin(),

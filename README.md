@@ -8,6 +8,10 @@ http://www.timerwin.com
 ## EMAIL
 `nodemailer` over `mailgun.com`
 
+## INSTALL
+`npm install`
+`node run app`
+
 ## HOSTING
 `digitalocean.com`
 

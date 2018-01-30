@@ -19,10 +19,10 @@ class ImageBox extends React.Component {
   }
 
   render() {
-    const {url} = this.props.data;
+    const {display_src} = this.props.data;
 
     return (<div style={{
-      background: `url(${url})`,
+      background: `url(${display_src})`,
       backgroundSize: '100%',
       height: 0,
       paddingBottom: '100%'
@@ -39,7 +39,7 @@ class Media extends React.Component {
     return (
       <ul>
         {this.props.data.map(item => <Li key={uuid()}>
-          <ImageBox data={item.images.standard_resolution}/>
+          <ImageBox data={item}/>
         </Li>)}
       </ul>
     );
@@ -55,10 +55,14 @@ module.exports = class extends React.Component {
     };
   }
 
-  componentDidMount() {
-    fetch('/instagram/media').then(res => res.json()).then((items) => {
-      this.setState({items});
-    });
+  async componentDidMount() {
+    const result = await fetch('https://www.instagram.com/timerwinofficial/?__a=1');
+
+    const data = await result.json();
+
+    console.log(data);
+
+    this.setState({ items: data.user.media.nodes });
   }
 
   render() {

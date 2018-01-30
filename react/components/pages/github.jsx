@@ -76,8 +76,12 @@ module.exports = class extends React.Component {
     };
   }
 
-  componentDidMount() {
-    fetch('https://api.github.com/users/timothyerwin/repos').then(res => res.json()).then(repos => this.setState({repos}));
+  async componentDidMount() {
+    const result = await fetch('https://api.github.com/users/timothyerwin/repos');
+
+    const repos = await result.json();
+
+    this.setState({ repos: repos.filter(repo => repo['fork'] === false) });
   }
 
   render() {

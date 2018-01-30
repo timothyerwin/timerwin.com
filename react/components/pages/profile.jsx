@@ -54,6 +54,7 @@ module.exports = class extends React.Component {
               'Babel',
               'Webpack',
               'React',
+              'Ember',
               'SQL',
               'C#',
               'C++',
@@ -70,7 +71,8 @@ module.exports = class extends React.Component {
               'chess',
               'gym',
               'yoga',
-              'meditation'
+              'meditation',
+              'bitcoin'
             ]}/>
           </ListItem>
         </ul>
